@@ -1,0 +1,52 @@
+:root {
+  --color-primary: #5ba8d4;
+  --color-primary-light: #8ec8e8;
+  --color-primary-dark: #3d8cb8;
+  --color-primary-bg: #eff7fc;
+
+  --color-accent-mint: #7ec8a4;
+  --color-accent-lavend: #a89fd6;
+  --color-accent-peach: #f0c9a0;
+
+  --color-white: #ffffff;
+  --color-bg-soft: #f8f9fb;
+  --color-bg-card: #ffffff;
+  --color-border: #d9edf7;
+
+  --color-text-main: #2c3e50;
+  --color-text-secondary: #5f7d8e;
+  --color-text-light: #95a5a6;
+
+  --color-success: #6dbf9e;
+  --color-warning: #f5c76a;
+  --color-error: #e07b7b;
+
+  --font-main: 'Inter', 'Roboto', system-ui, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 22px;
+  --font-size-xl: 28px;
+  --font-size-2xl: 36px;
+  --font-size-3xl: 48px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  --shadow-sm: 0 2px 8px rgba(91, 168, 212, 0.1);
+  --shadow-md: 0 4px 20px rgba(91, 168, 212, 0.15);
+  --shadow-lg: 0 8px 40px rgba(91, 168, 212, 0.18);
+
+  --header-h: 72px;
+}

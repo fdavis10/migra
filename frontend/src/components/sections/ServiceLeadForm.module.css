@@ -1,0 +1,44 @@
+.card {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.form select,
+.form input,
+.form textarea {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-family: inherit;
+}
+
+.inlineCheck {
+  flex-direction: row !important;
+  align-items: center;
+}
+
+.ok {
+  color: var(--color-success);
+  margin: var(--spacing-md) 0 0;
+}
+
+.err {
+  color: var(--color-error);
+  margin: var(--spacing-md) 0 0;
+}

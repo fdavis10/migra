@@ -1,0 +1,154 @@
+@import '@/styles/variables.css';
+
+.panelShell {
+  min-height: 100vh;
+  font-family: var(--font-main);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  background: var(--color-bg-soft);
+}
+
+.panelMain {
+  margin-left: 220px;
+  padding: var(--spacing-lg);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .panelMain {
+    margin-left: 0;
+    padding-top: 56px;
+  }
+}
+
+.panelH1 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-lg);
+  color: var(--color-text-main);
+}
+
+.panelCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.panelTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.panelTable th,
+.panelTable td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.panelTable th {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-soft);
+}
+
+.panelMuted {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.panelErr {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  margin: 0 0 var(--spacing-md);
+}
+
+.panelOk {
+  color: var(--color-success);
+  font-size: var(--font-size-sm);
+  margin: 0 0 var(--spacing-md);
+}
+
+.panelForm label {
+  display: block;
+  margin-bottom: var(--spacing-md);
+  text-align: left;
+}
+
+.panelForm input[type='text'],
+.panelForm input[type='email'],
+.panelForm input[type='tel'],
+.panelForm input[type='datetime-local'],
+.panelForm input[type='url'],
+.panelForm textarea,
+.panelForm select {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.panelForm textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.panelBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.panelBtn:hover {
+  background: var(--color-primary-dark);
+}
+
+.panelBtnGhost {
+  background: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+}
+
+.panelBtnGhost:hover {
+  background: var(--color-primary-bg);
+}
+
+.panelRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.panelStat {
+  flex: 1;
+  min-width: 140px;
+  padding: var(--spacing-md);
+  background: var(--color-primary-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.panelStat strong {
+  display: block;
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary-dark);
+}

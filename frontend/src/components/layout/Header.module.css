@@ -1,0 +1,195 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 800;
+  background: rgba(248, 249, 251, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-height: var(--header-h);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: auto 1fr auto auto;
+  }
+}
+
+.logo img {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+.contacts {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: var(--font-size-sm);
+}
+
+@media (min-width: 1024px) {
+  .contacts {
+    display: flex;
+    justify-self: end;
+  }
+}
+
+.phone {
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.messengers {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.messengers a {
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xs);
+}
+
+.ctaDesk {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .ctaDesk {
+    display: inline-flex;
+  }
+}
+
+.burger {
+  grid-column: 2;
+  justify-self: end;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text-main);
+  border-radius: 1px;
+}
+
+@media (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+}
+
+.navWrap {
+  display: none;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+}
+
+.navOpen {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .navWrap {
+    display: block;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm) var(--spacing-lg);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+}
+
+.nav a {
+  color: var(--color-text-main);
+  font-weight: 500;
+  padding: var(--spacing-xs) 0;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.dropBtn:hover {
+  color: var(--color-primary-dark);
+}
+
+.nav :global(a.active) {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropBtn {
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text-main);
+  padding: var(--spacing-xs) 0;
+}
+
+.dropPanel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  z-index: 10;
+}
+
+.dropPanel a {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.dropPanel a:hover {
+  background: var(--color-primary-bg);
+  text-decoration: none;
+}
+
+.ctaMob {
+  width: 100%;
+  margin-top: var(--spacing-sm);
+}
+
+@media (min-width: 1024px) {
+  .ctaMob {
+    display: none;
+  }
+}

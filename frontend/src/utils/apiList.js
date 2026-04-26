@@ -1,0 +1,6 @@
+/** DRF: без пагинации — массив; с пагинацией — { results } */
+export function unwrapList(data) {
+  if (Array.isArray(data)) return data
+  if (data && Array.isArray(data.results)) return data.results
+  return []
+}

@@ -1,0 +1,1656 @@
+[
+{
+  "model": "services.service",
+  "pk": 1,
+  "fields": {
+    "slug": "rvp",
+    "title": "Разрешение на временное проживание (РВП)",
+    "short_desc": "Статус на 3 года. Право жить и работать без патента в одном регионе РФ.",
+    "full_desc": "РВП — официальный документ, дающий право иностранцам проживать в России в течение 3 лет. Позволяет работать и учиться в РФ без дополнительных разрешений. Не нужно платить за патент. Готовим полный пакет, сопровождаем на подачу в Сахарово или ОВМ.",
+    "icon": "rvp",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": true,
+    "order": 10,
+    "detail": {
+      "why_choose": [
+        "Опыт сотрудников в ММЦ и ОВМ",
+        "Неограниченные подачи по договору",
+        "Фиксированная цена в договоре"
+      ],
+      "packages": [
+        {
+          "name": "Базовый",
+          "price": "32500",
+          "description": "Подготовка пакета документов"
+        },
+        {
+          "name": "Стандарт",
+          "price": "49000",
+          "description": "Пакет + сопровождение юриста"
+        },
+        {
+          "name": "Премиум",
+          "price": "69000",
+          "description": "Полное сопровождение до результата"
+        }
+      ],
+      "status_advantages": [
+        {
+          "title": "Срок",
+          "text": "3 года"
+        },
+        {
+          "title": "Работа",
+          "text": "Без патента в регионе РВП"
+        }
+      ],
+      "risks": "Ошибки в пакете документов могут привести к отказу и потере времени.",
+      "documents": [
+        "Заявление",
+        "Паспорт и нотариальный перевод",
+        "Медицинские документы",
+        "Сертификат о знании языка",
+        "Документы, подтверждающие основание"
+      ],
+      "steps": [
+        "Консультация и анализ",
+        "Договор",
+        "Сбор документов (1–3 дня)",
+        "Подача и сопровождение"
+      ],
+      "faq": [
+        {
+          "q": "Сколько действует РВП?",
+          "a": "3 года, не продлевается."
+        },
+        {
+          "q": "Можно ли работать по РВП?",
+          "a": "Да, в пределах региона без патента."
+        },
+        {
+          "q": "Что даёт РВП?",
+          "a": "Основание для получения ВНЖ."
+        }
+      ]
+    },
+    "created_at": "2026-04-25T23:22:50.988Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 2,
+  "fields": {
+    "slug": "kvota-rvp",
+    "title": "Квота на РВП",
+    "short_desc": "Для тех, у кого нет других оснований. Готовим пакеты неограниченное количество раз до результата.",
+    "full_desc": "Квота — разрешение на получение РВП для тех, у кого нет иных оснований. Подавать можно каждый месяц.",
+    "icon": "quota",
+    "price_from": "39900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": true,
+    "order": 20,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:50.994Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 3,
+  "fields": {
+    "slug": "vnzh",
+    "title": "Вид на жительство (ВНЖ)",
+    "short_desc": "Бессрочный статус для жизни и работы в РФ. Сопровождение на всех этапах.",
+    "full_desc": "Бессрочный статус для жизни и работы в РФ. Право работать в любом регионе без патента.",
+    "icon": "vnzh",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": true,
+    "order": 30,
+    "detail": {
+      "packages": [
+        {
+          "name": "Базовый",
+          "price": "32500",
+          "description": "Подготовка пакета"
+        },
+        {
+          "name": "Стандарт",
+          "price": "49000",
+          "description": "Пакет + сопровождение"
+        },
+        {
+          "name": "Премиум",
+          "price": "69000",
+          "description": "Полное сопровождение"
+        }
+      ],
+      "status_advantages": [
+        {
+          "title": "Проживание",
+          "text": "Бессрочно с 2019 года, ежегодное уведомление"
+        },
+        {
+          "title": "Работа",
+          "text": "В любом регионе РФ"
+        },
+        {
+          "title": "Медицина",
+          "text": "ОМС"
+        },
+        {
+          "title": "Пенсия и льготы",
+          "text": "Полный доступ"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Срок действия ВНЖ?",
+          "a": "Бессрочно с 2019 года, но нужно ежегодное уведомление."
+        },
+        {
+          "q": "Можно ли без РВП?",
+          "a": "Да, для ряда категорий (НРЯ, специалисты, выпускники с отличием, граждане Беларуси)."
+        },
+        {
+          "q": "Сколько времени занимает?",
+          "a": "Обычно 2–4 месяца."
+        },
+        {
+          "q": "Можно ли работать в других регионах?",
+          "a": "Да, при постановке на учёт в течение 7 дней."
+        },
+        {
+          "q": "Что будет без уведомления?",
+          "a": "Риск аннулирования ВНЖ."
+        }
+      ],
+      "documents": [
+        "Заявление (2 экземпляра)",
+        "Квитанция госпошлины 6 000 руб. (с 01.07.2024)",
+        "Паспорт (срок действия от 2 мес. на момент подачи)",
+        "4 фото 35×45 мм",
+        "Документ о наличии жилья",
+        "Сертификат о знании русского языка, истории и законодательства",
+        "Справка об отсутствии судимости (14+)",
+        "Подтверждение доходов"
+      ]
+    },
+    "created_at": "2026-04-25T23:22:51.001Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 4,
+  "fields": {
+    "slug": "grazhdanstvo",
+    "title": "Гражданство РФ",
+    "short_desc": "Полный пакет документов + сопровождение на подачу. Двойное гражданство разрешено.",
+    "full_desc": "Помогаем дойти до финального этапа. Полный пакет документов + сопровождение.",
+    "icon": "passport",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": true,
+    "order": 40,
+    "detail": {
+      "packages": [
+        {
+          "name": "Базовый",
+          "price": "32500",
+          "description": "Подготовка пакета"
+        },
+        {
+          "name": "Стандарт",
+          "price": "49000",
+          "description": "Пакет + сопровождение"
+        },
+        {
+          "name": "Премиум",
+          "price": "69000",
+          "description": "Полное сопровождение"
+        }
+      ],
+      "steps_timeline": [
+        "РВП",
+        "ВНЖ",
+        "Гражданство"
+      ],
+      "faq": [
+        {
+          "q": "Нужно ли отказываться от прежнего гражданства?",
+          "a": "Нет."
+        },
+        {
+          "q": "Через сколько лет можно подать?",
+          "a": "Через 5 лет по ВНЖ (или по упрощённой процедуре)."
+        },
+        {
+          "q": "Что такое упрощённый порядок?",
+          "a": "Для НРЯ, соотечественников, участников госпрограмм."
+        }
+      ]
+    },
+    "created_at": "2026-04-25T23:22:51.008Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 5,
+  "fields": {
+    "slug": "pasport-rf",
+    "title": "Внутренний паспорт РФ",
+    "short_desc": "Помощь в оформлении паспорта после получения гражданства + процедура присяги.",
+    "full_desc": "Для тех, кто уже получил гражданство — помогаем оформить паспорт и пройти процедуру присяги.",
+    "icon": "id",
+    "price_from": "15900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": true,
+    "order": 50,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.013Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 6,
+  "fields": {
+    "slug": "rnr",
+    "title": "Разрешение на работу (РНР)",
+    "short_desc": "Официальный документ для законного трудоустройства в РФ.",
+    "full_desc": "Официальный документ для законного трудоустройства иностранных граждан.",
+    "icon": "work",
+    "price_from": "39900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": true,
+    "order": 60,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.021Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 7,
+  "fields": {
+    "slug": "zapret-na-vezd",
+    "title": "Обжалование запрета на въезд",
+    "short_desc": "Выясняем причину, готовим документы, при необходимости — суд.",
+    "full_desc": "Выясняем причину и орган, готовим заявления, при необходимости представляем интересы в суде.",
+    "icon": "gavel",
+    "price_from": "49900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": false,
+    "order": 70,
+    "detail": {
+      "appeal_stages": [
+        {
+          "title": "Правовой анализ",
+          "price": "18000",
+          "duration": "7 дней"
+        },
+        {
+          "title": "Обжалование",
+          "price": "68000",
+          "duration": "2–4 мес."
+        },
+        {
+          "title": "Подача заявления в МВД",
+          "price": "24000",
+          "duration": "1 мес."
+        }
+      ]
+    },
+    "created_at": "2026-04-25T23:22:51.027Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 8,
+  "fields": {
+    "slug": "deportaciya",
+    "title": "Обжалование депортации",
+    "short_desc": "Полное сопровождение от сбора документов до отмены постановления.",
+    "full_desc": "Полное сопровождение — от сбора документов до положительного решения об отмене.",
+    "icon": "shield",
+    "price_from": "39900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": false,
+    "order": 80,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.032Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 9,
+  "fields": {
+    "slug": "vydvorenie",
+    "title": "Обжалование административного выдворения",
+    "short_desc": "Полное сопровождение от документов до подачи заявления.",
+    "full_desc": "Полное сопровождение от документов до подачи заявления.",
+    "icon": "shield",
+    "price_from": "37900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": false,
+    "order": 90,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.039Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 10,
+  "fields": {
+    "slug": "vremennoe-ubezhishhe",
+    "title": "Временное убежище (ВУ)",
+    "short_desc": "Для преследуемых лиц. Подготовка документов + сопровождение на подачу.",
+    "full_desc": "Для тех, кому угрожает опасность на родине. Подготовка документов + сопровождение.",
+    "icon": "heart",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": false,
+    "order": 100,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.047Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 11,
+  "fields": {
+    "slug": "ustanovlenie-lichnosti",
+    "title": "Установление личности",
+    "short_desc": "Подготовка документов для тех, у кого нет удостоверяющих личность документов.",
+    "full_desc": "Если нет документов, удостоверяющих личность — необходимо до получения РВП/ВНЖ.",
+    "icon": "fingerprint",
+    "price_from": "59900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": false,
+    "order": 110,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.056Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 12,
+  "fields": {
+    "slug": "rvpo",
+    "title": "РВПО",
+    "short_desc": "Разрешение на временное проживание в целях получения образования.",
+    "full_desc": "Для иностранных студентов, поступающих в российские вузы.",
+    "icon": "education",
+    "price_from": null,
+    "price_to": null,
+    "price_note": "уточняется на консультации",
+    "is_main": true,
+    "order": 120,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.066Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 13,
+  "fields": {
+    "slug": "repatriaciya",
+    "title": "Репатриация в Россию",
+    "short_desc": "Упрощённая процедура для соотечественников.",
+    "full_desc": "Упрощённая процедура для соотечественников и их семей.",
+    "icon": "flag",
+    "price_from": null,
+    "price_to": null,
+    "price_note": "уточняется на консультации",
+    "is_main": false,
+    "order": 130,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.073Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 14,
+  "fields": {
+    "slug": "bezhencz",
+    "title": "Статус беженца",
+    "short_desc": "Помощь в получении статуса беженца.",
+    "full_desc": "Юридическое сопровождение при получении статуса беженца.",
+    "icon": "people",
+    "price_from": "21900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": false,
+    "order": 140,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.083Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 15,
+  "fields": {
+    "slug": "vyhod-iz-grazhdanstva",
+    "title": "Выход из гражданства РФ",
+    "short_desc": "Сопровождение процедуры выхода из гражданства.",
+    "full_desc": "Помощь в подготовке документов и сопровождении процедуры.",
+    "icon": "document",
+    "price_from": "31900.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": false,
+    "order": 150,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.091Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 16,
+  "fields": {
+    "slug": "patent",
+    "title": "Патент (полный пакет)",
+    "short_desc": "Полный пакет оформления патента — фиксированная стоимость.",
+    "full_desc": "Комплексная подготовка: перевод, заявление, медицина, сертификат, госпошлина, ДМС, сопровождение.",
+    "icon": "briefcase",
+    "price_from": "58000.00",
+    "price_to": null,
+    "price_note": "",
+    "is_main": true,
+    "order": 55,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.098Z"
+  }
+},
+{
+  "model": "services.service",
+  "pk": 17,
+  "fields": {
+    "slug": "konsultaciya",
+    "title": "Бесплатная консультация",
+    "short_desc": "Анализ ситуации + персональный план. Начинаем подготовку в тот же день.",
+    "full_desc": "Изучим ваши документы и ситуацию, расскажем о способах получения РВП/ВНЖ/гражданства.",
+    "icon": "chat",
+    "price_from": null,
+    "price_to": null,
+    "price_note": "БЕСПЛАТНО",
+    "is_main": true,
+    "order": 5,
+    "detail": {},
+    "created_at": "2026-04-25T23:22:51.103Z"
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 13,
+  "fields": {
+    "title": "Разрешение на временное проживание (РВП)",
+    "order": 10,
+    "service": 1
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 14,
+  "fields": {
+    "title": "Вид на жительство (ВНЖ)",
+    "order": 20,
+    "service": 3
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 15,
+  "fields": {
+    "title": "Гражданство РФ",
+    "order": 30,
+    "service": 4
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 16,
+  "fields": {
+    "title": "Внутренний паспорт РФ",
+    "order": 40,
+    "service": 5
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 17,
+  "fields": {
+    "title": "Временное убежище (ВУ)",
+    "order": 50,
+    "service": 10
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 18,
+  "fields": {
+    "title": "Статус беженца",
+    "order": 60,
+    "service": 14
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 19,
+  "fields": {
+    "title": "Установление личности",
+    "order": 70,
+    "service": 11
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 20,
+  "fields": {
+    "title": "Патент (полный пакет — 58 000 руб.)",
+    "order": 80,
+    "service": 16
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 21,
+  "fields": {
+    "title": "Разрешение на работу (РНР)",
+    "order": 90,
+    "service": 6
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 22,
+  "fields": {
+    "title": "Обжалование",
+    "order": 100,
+    "service": null
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 23,
+  "fields": {
+    "title": "Сопровождение и прочие услуги",
+    "order": 110,
+    "service": null
+  }
+},
+{
+  "model": "prices.pricecategory",
+  "pk": 24,
+  "fields": {
+    "title": "Истребование документов из ЗАГСов",
+    "order": 120,
+    "service": null
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 53,
+  "fields": {
+    "category": 13,
+    "title": "Ведение дела по получению квоты на РВП (Москва и МО, безлимитные подачи)",
+    "price_from": "39900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "5 дней",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 54,
+  "fields": {
+    "category": 13,
+    "title": "Ведение дела по получению РВП (Москва или МО)",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 55,
+  "fields": {
+    "category": 13,
+    "title": "Ведение дела по получению РВП для ребёнка (до 18 лет)",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 3
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 56,
+  "fields": {
+    "category": 13,
+    "title": "Юридическое сопровождение при получении РВП",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 4
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 57,
+  "fields": {
+    "category": 14,
+    "title": "Ведение дела по получению ВНЖ (Москва или МО)",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 58,
+  "fields": {
+    "category": 14,
+    "title": "Ведение дела по получению ВНЖ для ребёнка (до 18 лет)",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 59,
+  "fields": {
+    "category": 14,
+    "title": "Продление/замена ВНЖ",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 3
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 60,
+  "fields": {
+    "category": 14,
+    "title": "Юридическое сопровождение при получении ВНЖ",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 4
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 61,
+  "fields": {
+    "category": 14,
+    "title": "Ежегодное уведомление по ВНЖ",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 5
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 62,
+  "fields": {
+    "category": 15,
+    "title": "Ведение дела по получению гражданства (Москва или МО)",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 63,
+  "fields": {
+    "category": 15,
+    "title": "Гражданство по указу №11 (ЛНР, ДНР, Украина)",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 64,
+  "fields": {
+    "category": 15,
+    "title": "Гражданство для ребёнка отдельно от родителей",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 3
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 65,
+  "fields": {
+    "category": 15,
+    "title": "Гражданство для ребёнка совместно с родителем",
+    "price_from": "32500.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 4
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 66,
+  "fields": {
+    "category": 15,
+    "title": "Выход из гражданства РФ",
+    "price_from": "31900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 5
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 67,
+  "fields": {
+    "category": 15,
+    "title": "Репатриация в Россию",
+    "price_from": null,
+    "price_to": null,
+    "price_display": "уточняется",
+    "duration": "2 мес.",
+    "order": 6
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 68,
+  "fields": {
+    "category": 16,
+    "title": "Подготовка документов и сопровождение на паспорт",
+    "price_from": "15900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 69,
+  "fields": {
+    "category": 16,
+    "title": "Заполнение заявления на загранпаспорт",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 70,
+  "fields": {
+    "category": 17,
+    "title": "Получение ВУ",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 71,
+  "fields": {
+    "category": 17,
+    "title": "Получение ВУ для детей до 18 лет",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 72,
+  "fields": {
+    "category": 18,
+    "title": "Получение статуса беженца",
+    "price_from": "21900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 73,
+  "fields": {
+    "category": 19,
+    "title": "Установление личности (Москва или МО)",
+    "price_from": "59900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 74,
+  "fields": {
+    "category": 20,
+    "title": "Перевод паспорта",
+    "price_from": "2000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 75,
+  "fields": {
+    "category": 20,
+    "title": "Заявление",
+    "price_from": "5000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 76,
+  "fields": {
+    "category": 20,
+    "title": "Медицина",
+    "price_from": "7000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 3
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 77,
+  "fields": {
+    "category": 20,
+    "title": "Сертификат о знании языка",
+    "price_from": "6000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 4
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 78,
+  "fields": {
+    "category": 20,
+    "title": "Подготовка",
+    "price_from": "7000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 5
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 79,
+  "fields": {
+    "category": 20,
+    "title": "Государственная пошлина",
+    "price_from": "9000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 6
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 80,
+  "fields": {
+    "category": 20,
+    "title": "Дактилоскопия",
+    "price_from": "1000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 7
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 81,
+  "fields": {
+    "category": 20,
+    "title": "ДМС",
+    "price_from": "6000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 8
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 82,
+  "fields": {
+    "category": 20,
+    "title": "Сопровождение",
+    "price_from": "15000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 9
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 83,
+  "fields": {
+    "category": 20,
+    "title": "ИТОГО",
+    "price_from": null,
+    "price_to": null,
+    "price_display": "58 000 ₽",
+    "duration": "",
+    "order": 10
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 84,
+  "fields": {
+    "category": 21,
+    "title": "РНР для ВКС",
+    "price_from": "39900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "2 мес.",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 85,
+  "fields": {
+    "category": 21,
+    "title": "РНР (внеквотная должность)",
+    "price_from": "39900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "3 мес.",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 86,
+  "fields": {
+    "category": 22,
+    "title": "Правовой анализ (запрет на въезд / депортация / выдворение)",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "7 дней",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 87,
+  "fields": {
+    "category": 22,
+    "title": "Обжалование решения о запрете на въезд",
+    "price_from": "49900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "2–4 мес.",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 88,
+  "fields": {
+    "category": 22,
+    "title": "Обжалование решения о депортации",
+    "price_from": "39900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "2–4 мес.",
+    "order": 3
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 89,
+  "fields": {
+    "category": 22,
+    "title": "Обжалование решения о выдворении",
+    "price_from": "37900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "2–4 мес.",
+    "order": 4
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 90,
+  "fields": {
+    "category": 22,
+    "title": "Подача заявления в МВД об исключении из списков",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "1 мес.",
+    "order": 5
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 91,
+  "fields": {
+    "category": 23,
+    "title": "Сопровождение юристом в ММЦ Сахарово",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 92,
+  "fields": {
+    "category": 23,
+    "title": "Сопровождение юристом в МО",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 93,
+  "fields": {
+    "category": 23,
+    "title": "Сопровождение юристом в районные ОВМ",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 3
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 94,
+  "fields": {
+    "category": 23,
+    "title": "Запись в ММЦ Сахарово (талон)",
+    "price_from": "4000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 4
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 95,
+  "fields": {
+    "category": 23,
+    "title": "Запрос в МВД о готовности документов",
+    "price_from": "9900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "",
+    "order": 5
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 96,
+  "fields": {
+    "category": 23,
+    "title": "Перевод паспорта + нотариальное заверение",
+    "price_from": "2000.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "1–2 дня",
+    "order": 6
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 97,
+  "fields": {
+    "category": 23,
+    "title": "Перевод стандартного документа",
+    "price_from": "1200.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "1–2 дня",
+    "order": 7
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 98,
+  "fields": {
+    "category": 23,
+    "title": "Перевод сложного документа (выписки, трудовые, решения суда)",
+    "price_from": "1400.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "1–2 дня",
+    "order": 8
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 99,
+  "fields": {
+    "category": 23,
+    "title": "Повторный перевод",
+    "price_from": "800.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "1–2 дня",
+    "order": 9
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 100,
+  "fields": {
+    "category": 24,
+    "title": "Украина",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "5–7 нед.",
+    "order": 1
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 101,
+  "fields": {
+    "category": 24,
+    "title": "Узбекистан",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "2–3 нед.",
+    "order": 2
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 102,
+  "fields": {
+    "category": 24,
+    "title": "Казахстан",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "2–3 нед.",
+    "order": 3
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 103,
+  "fields": {
+    "category": 24,
+    "title": "Киргизия",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "1 мес.",
+    "order": 4
+  }
+},
+{
+  "model": "prices.priceitem",
+  "pk": 104,
+  "fields": {
+    "category": 24,
+    "title": "Молдова",
+    "price_from": "12900.00",
+    "price_to": null,
+    "price_display": "",
+    "duration": "1 мес.",
+    "order": 5
+  }
+},
+{
+  "model": "promotions.promotion",
+  "pk": 8,
+  "fields": {
+    "title": "Вместе выгоднее",
+    "discount": "10%",
+    "description": "Для семейных пар при одновременном оформлении.",
+    "is_active": true,
+    "expires_at": "2026-04-30T23:59:59.490Z",
+    "order": 1
+  }
+},
+{
+  "model": "promotions.promotion",
+  "pk": 9,
+  "fields": {
+    "title": "Приведи друга",
+    "discount": "10%",
+    "description": "Скидка для вас и вашего знакомого.",
+    "is_active": true,
+    "expires_at": "2026-04-30T23:59:59.490Z",
+    "order": 2
+  }
+},
+{
+  "model": "promotions.promotion",
+  "pk": 10,
+  "fields": {
+    "title": "Семейный пакет",
+    "discount": "12%",
+    "description": "При оформлении для 3+ членов семьи.",
+    "is_active": true,
+    "expires_at": "2026-04-30T23:59:59.490Z",
+    "order": 3
+  }
+},
+{
+  "model": "promotions.promotion",
+  "pk": 11,
+  "fields": {
+    "title": "Студенческий старт",
+    "discount": "15%",
+    "description": "Для студентов на РВПО.",
+    "is_active": true,
+    "expires_at": "2026-04-30T23:59:59.490Z",
+    "order": 4
+  }
+},
+{
+  "model": "promotions.promotion",
+  "pk": 12,
+  "fields": {
+    "title": "Перспектива",
+    "discount": "15%",
+    "description": "При заказе РВП+ВНЖ или ВНЖ+гражданство.",
+    "is_active": true,
+    "expires_at": "2026-04-30T23:59:59.490Z",
+    "order": 5
+  }
+},
+{
+  "model": "promotions.promotion",
+  "pk": 13,
+  "fields": {
+    "title": "Полный пакет",
+    "discount": "16%",
+    "description": "Максимальная скидка на РВП+ВНЖ+гражданство.",
+    "is_active": true,
+    "expires_at": "2026-04-30T23:59:59.490Z",
+    "order": 6
+  }
+},
+{
+  "model": "promotions.promotion",
+  "pk": 14,
+  "fields": {
+    "title": "Скидка за тест",
+    "discount": "7%",
+    "description": "Пройдите тест из 6 вопросов на сайте.",
+    "is_active": true,
+    "expires_at": "2026-04-30T23:59:59.490Z",
+    "order": 7
+  }
+},
+{
+  "model": "news.news",
+  "pk": 4,
+  "fields": {
+    "slug": "izmeneniya-v-migracionnom-zakonodatelstve-2026",
+    "title": "Изменения в миграционном законодательстве в 2026 году",
+    "excerpt": "Краткий обзор ключевых норм, которые стоит учесть при планировании легализации.",
+    "content": "<p>Текст является примером для демонстрации сайта. Актуальные разъяснения вы получите на бесплатной консультации.</p>",
+    "category": "Законодательство",
+    "image": "",
+    "is_published": true,
+    "published_at": "2026-04-25T23:35:22.660Z"
+  }
+},
+{
+  "model": "news.news",
+  "pk": 5,
+  "fields": {
+    "slug": "rvp-i-patent-chto-vybrat",
+    "title": "РВП и патент: что выбрать в вашей ситуации",
+    "excerpt": "Сравниваем статусы для трудовой миграции и долгосрочного проживания.",
+    "content": "<p>Пример статьи. Индивидуальные рекомендации — после анализа документов.</p>",
+    "category": "РВП",
+    "image": "",
+    "is_published": true,
+    "published_at": "2026-04-23T23:35:22.660Z"
+  }
+},
+{
+  "model": "news.news",
+  "pk": 6,
+  "fields": {
+    "slug": "ezhegodnoe-uvedomlenie-po-vnzh",
+    "title": "Ежегодное уведомление по ВНЖ: сроки и последствия",
+    "excerpt": "Почему важно не пропускать уведомление и как мы помогаем с подачей.",
+    "content": "<p>Пример статьи для блога.</p>",
+    "category": "ВНЖ",
+    "image": "",
+    "is_published": true,
+    "published_at": "2026-04-20T23:35:22.660Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 7,
+  "fields": {
+    "name": "Ион Лупу",
+    "service": "ВНЖ",
+    "service_slug": "",
+    "text": "Большое спасибо компании «Резидент» за помощь с переездом из Молдовы. Теперь у меня новая жизнь!",
+    "source": "Яндекс",
+    "rating": 5,
+    "is_active": true,
+    "created_at": "2026-04-25T23:35:22.554Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 8,
+  "fields": {
+    "name": "Павел Рейн",
+    "service": "Юридическое сопровождение",
+    "service_slug": "",
+    "text": "Единственные, кто взялся за вопрос с депортацией и довели до положительного результата!",
+    "source": "Google",
+    "rating": 5,
+    "is_active": true,
+    "created_at": "2026-04-25T23:35:22.559Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 9,
+  "fields": {
+    "name": "Адей Исуола",
+    "service": "РВПО",
+    "service_slug": "",
+    "text": "Помогли поступить в РУДН, жизнь изменилась кардинально. Лучшие!",
+    "source": "VK",
+    "rating": 5,
+    "is_active": true,
+    "created_at": "2026-04-25T23:35:22.564Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 10,
+  "fields": {
+    "name": "Дмитрий Лученко",
+    "service": "Гражданство РФ",
+    "service_slug": "",
+    "text": "Оперативно помогли с украинскими документами. Юрист Кристина — просто наш спаситель!",
+    "source": "Яндекс",
+    "rating": 5,
+    "is_active": true,
+    "created_at": "2026-04-25T23:35:22.568Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 11,
+  "fields": {
+    "name": "Курабов Амин",
+    "service": "РВП",
+    "service_slug": "",
+    "text": "Бесплатная консультация, собрали документы, юрист поехала со мной на Сахарово. Лучшие!",
+    "source": "Google",
+    "rating": 5,
+    "is_active": true,
+    "created_at": "2026-04-25T23:35:22.573Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 12,
+  "fields": {
+    "name": "Ольга Лукашевич",
+    "service": "ВНЖ",
+    "service_slug": "",
+    "text": "Быстро получила вид на жительство. Юристы — профессионалы.",
+    "source": "Яндекс",
+    "rating": 5,
+    "is_active": true,
+    "created_at": "2026-04-25T23:35:22.577Z"
+  }
+},
+{
+  "model": "faq.faqcategory",
+  "pk": 6,
+  "fields": {
+    "title": "РВП",
+    "order": 1
+  }
+},
+{
+  "model": "faq.faqcategory",
+  "pk": 7,
+  "fields": {
+    "title": "ВНЖ",
+    "order": 2
+  }
+},
+{
+  "model": "faq.faqcategory",
+  "pk": 8,
+  "fields": {
+    "title": "Гражданство",
+    "order": 3
+  }
+},
+{
+  "model": "faq.faqcategory",
+  "pk": 9,
+  "fields": {
+    "title": "Документы",
+    "order": 4
+  }
+},
+{
+  "model": "faq.faqcategory",
+  "pk": 10,
+  "fields": {
+    "title": "Оплата",
+    "order": 5
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 10,
+  "fields": {
+    "category": 6,
+    "question": "Сколько действует РВП?",
+    "answer": "3 года, не продлевается.",
+    "order": 1
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 11,
+  "fields": {
+    "category": 7,
+    "question": "Какой срок действия ВНЖ?",
+    "answer": "Бессрочно с 2019 года, ежегодное уведомление обязательно.",
+    "order": 1
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 12,
+  "fields": {
+    "category": 7,
+    "question": "Можно ли получить ВНЖ без РВП?",
+    "answer": "Да, для ряда категорий.",
+    "order": 2
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 13,
+  "fields": {
+    "category": 7,
+    "question": "Можно ли работать по ВНЖ в других регионах?",
+    "answer": "Да, без ограничений.",
+    "order": 3
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 14,
+  "fields": {
+    "category": 8,
+    "question": "Как получить гражданство ребёнку?",
+    "answer": "В территориальном УВМ ГУ МВД, отметка в свидетельстве о рождении.",
+    "order": 1
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 15,
+  "fields": {
+    "category": 9,
+    "question": "Какие гарантии, что документы настоящие?",
+    "answer": "Личная подача в государственные органы.",
+    "order": 1
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 16,
+  "fields": {
+    "category": 9,
+    "question": "Как получить паспорт после гражданства?",
+    "answer": "В МВД в течение 10 дней после подачи заявления.",
+    "order": 2
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 17,
+  "fields": {
+    "category": 10,
+    "question": "Где получить бесплатную консультацию?",
+    "answer": "У нас, по телефону или в офисе.",
+    "order": 1
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 18,
+  "fields": {
+    "category": 10,
+    "question": "Как проверить статус заявки?",
+    "answer": "У наших специалистов в офисе.",
+    "order": 2
+  }
+},
+{
+  "model": "guarantees.guarantee",
+  "pk": 5,
+  "fields": {
+    "icon": "repeat",
+    "title": "Неограниченное количество подач",
+    "description": "Если не получилось с первого раза, обеспечим повторную подачу документов.",
+    "order": 1
+  }
+},
+{
+  "model": "guarantees.guarantee",
+  "pk": 6,
+  "fields": {
+    "icon": "money",
+    "title": "Фиксированная цена",
+    "description": "Итоговая стоимость прописывается в договоре и не меняется.",
+    "order": 2
+  }
+},
+{
+  "model": "guarantees.guarantee",
+  "pk": 7,
+  "fields": {
+    "icon": "check",
+    "title": "Правильность документов",
+    "description": "Пакет без ошибок, соответствует законодательству РФ.",
+    "order": 3
+  }
+},
+{
+  "model": "guarantees.guarantee",
+  "pk": 8,
+  "fields": {
+    "icon": "contract",
+    "title": "Гарантии по договору",
+    "description": "Документы примут в МВД при отсутствии нарушений с вашей стороны.",
+    "order": 4
+  }
+}
+]

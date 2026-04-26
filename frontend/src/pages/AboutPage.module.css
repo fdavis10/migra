@@ -1,0 +1,135 @@
+.h1 {
+  margin: 0 0 var(--spacing-lg);
+  font-size: var(--font-size-2xl);
+}
+
+.grid2 {
+  display: grid;
+  gap: var(--spacing-xl);
+  align-items: start;
+  margin-bottom: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+  .grid2 {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.illuCluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, var(--color-primary-bg), var(--color-white));
+  border: 1px solid var(--color-border);
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.illuLg {
+  width: 96px;
+  height: 96px;
+  color: var(--color-primary);
+}
+
+.illuSm {
+  width: 64px;
+  height: 64px;
+  color: var(--color-accent-mint);
+}
+
+.quote {
+  position: relative;
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  background: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-white) 100%);
+}
+
+.qmark {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-lg);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.25;
+  font-family: Georgia, serif;
+}
+
+.letter {
+  position: relative;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  margin: 0 0 var(--spacing-md);
+}
+
+.sign {
+  margin-top: var(--spacing-lg);
+  font-weight: 700;
+}
+
+.role {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.why {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+  .why {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .why {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.whyCard {
+  padding: var(--spacing-lg);
+}
+
+.whyCard h3 {
+  margin: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
+}
+
+.whyCard p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.whyIconWrap {
+  display: flex;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.center {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.pay {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-left: var(--spacing-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
