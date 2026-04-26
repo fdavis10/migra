@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import promoPassport from '../../../../assets/passport.webp'
 import styles from './PromoParallaxCountdown.module.css'
 
 function pad(n) {
@@ -92,7 +91,7 @@ export function PromoParallaxCountdown({ untilIso, countdownDate }) {
     <div ref={wrapRef} className={styles.wrap}>
       <div ref={innerRef} className={styles.inner}>
         <img
-          src={promoPassport}
+          src="/images/passport.webp"
           alt=""
           className={styles.img}
           width={1400}
