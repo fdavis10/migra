@@ -1,4 +1,3 @@
-/** Маркетинговые блоки главной; `icon` — ключ для WhyUsHeroIcon */
 export const WHY_US = [
   {
     icon: 'why_target',
@@ -68,13 +67,13 @@ export const QUICK_SERVICE_SLUGS = [
 ]
 
 export const COUNTRIES_HELP = [
-  'Украина',
-  'Кыргызстан',
-  'Таджикистан',
-  'Молдова',
-  'Беларусь',
-  'Узбекистан',
-  'Казахстан',
-  'Армения',
-  'Азербайджан',
+  { name: 'Украина', code: 'ua' },
+  { name: 'Кыргызстан', code: 'kg' },
+  { name: 'Таджикистан', code: 'tj' },
+  { name: 'Молдова', code: 'md' },
+  { name: 'Беларусь', code: 'by' },
+  { name: 'Узбекистан', code: 'uz' },
+  { name: 'Казахстан', code: 'kz' },
+  { name: 'Армения', code: 'am' },
+  { name: 'Азербайджан', code: 'az' },
 ]

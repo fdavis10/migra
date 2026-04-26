@@ -21,18 +21,14 @@ export function setTokens(access, refresh) {
   try {
     localStorage.setItem(ACCESS, access)
     if (refresh) localStorage.setItem(REFRESH, refresh)
-  } catch {
-    /* ignore */
-  }
+  } catch {}
 }
 
 export function clearTokens() {
   try {
     localStorage.removeItem(ACCESS)
     localStorage.removeItem(REFRESH)
-  } catch {
-    /* ignore */
-  }
+  } catch {}
 }
 
 export function isPanelAuthenticated() {

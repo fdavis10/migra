@@ -10,7 +10,7 @@ export function Footer({ site, services = [] }) {
       <div className={`container ${styles.grid}`}>
         <div>
           <Link to="/" className={styles.logo}>
-            <img src="/logo.svg" width={160} height={40} alt="" />
+            <img src="/logo.png" width={2083} height={2083} alt="" />
           </Link>
           {phone ? (
             <p className={styles.line}>

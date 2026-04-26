@@ -40,7 +40,6 @@ function capitalizeWords(s) {
     .join(' ')
 }
 
-/** Разбор ответа пользователя: город и «область города» для шаблона */
 function parseCityReply(text) {
   const raw = text.trim().replace(/\s+/g, ' ')
   if (!raw) {
@@ -89,9 +88,7 @@ function loadPersisted() {
 function savePersisted(data) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, ...data }))
-  } catch {
-    /* ignore */
-  }
+  } catch {}
 }
 
 export function SpecialistChat() {
@@ -259,9 +256,7 @@ export function SpecialistChat() {
     }
     try {
       localStorage.removeItem(STORAGE_KEY)
-    } catch {
-      /* ignore */
-    }
+    } catch {}
     setMessages([{ id: uid(), role: 'assistant', text: MSG.greet }])
     setStep(0)
     setCityReply('')

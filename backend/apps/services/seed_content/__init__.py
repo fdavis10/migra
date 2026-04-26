@@ -1,5 +1,3 @@
-"""Длинные описания услуг для детальной страницы (content_sections)."""
-
 from . import (
     article_deportaciya,
     article_grazhdanstvo,
@@ -34,7 +32,6 @@ _SLUG_GETTERS = {
 
 
 def merge_long_articles_into_services():
-    """Добавить content_sections в detail; убрать дублирующие блоки при длинной статье."""
     from apps.services.models import Service
 
     for slug, getter in _SLUG_GETTERS.items():

@@ -36,7 +36,6 @@ function useParallaxTranslateY(containerRef) {
       const range = vh + rect.height
       const scrolled = vh - rect.top
       const p = Math.max(0, Math.min(1, scrolled / range))
-      /* Больше «ход» картинки: до ~±140px на десктопе, пропорционально высоте блока */
       const maxPx = Math.min(140, Math.max(56, rect.height * 0.5))
       setTy((p - 0.5) * 2 * maxPx)
     }

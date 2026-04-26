@@ -1,9 +1,6 @@
 import { Button } from '@/components/ui/Button'
 import styles from './PromoFeaturedTiles.module.css'
 
-/**
- * Два промо-блока под сеткой акций: тест на скидку и flip-карточка «Вместе выгоднее».
- */
 export function PromoFeaturedTiles({ onConsult }) {
   return (
     <div className={styles.row}>
@@ -17,17 +14,27 @@ export function PromoFeaturedTiles({ onConsult }) {
         <div className={styles.flipInner}>
           <div className={styles.faceFront}>
             <img
-              src="/images/consulatation.webp"
+              src="/images/semeynaya_para2.avif"
               alt=""
               className={styles.faceImg}
-              width={900}
-              height={600}
+              width={1200}
+              height={800}
               loading="lazy"
               decoding="async"
             />
             <span className={styles.frontHint}>Наведите, чтобы узнать условия</span>
           </div>
           <div className={styles.faceBack}>
+            <img
+              src="/images/semeynaya_para.jpg"
+              alt=""
+              className={styles.backPhoto}
+              width={1000}
+              height={667}
+              loading="lazy"
+              decoding="async"
+            />
+            <div className={styles.backScrim} aria-hidden />
             <div className={styles.backContent}>
               <p className={styles.backKicker}>ВМЕСТЕ ВЫГОДНЕЕ</p>
               <p className={styles.backDiscount}>СКИДКА 10%</p>

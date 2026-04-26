@@ -49,7 +49,7 @@ export function PanelLayout() {
           </button>
         </div>
       </aside>
-      <div className={`panelMain ${styles.main}`}>
+      <div className="panelMain">
         <Outlet />
       </div>
     </div>

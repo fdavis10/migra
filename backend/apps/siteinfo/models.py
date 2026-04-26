@@ -2,8 +2,6 @@ from django.db import models
 
 
 class SiteContent(models.Model):
-    """Единая запись (pk=1) с контактами и текстами «О компании» для фронтенда."""
-
     hero_title = models.CharField("Hero H1", max_length=300, blank=True)
     hero_subtitle = models.TextField("Hero подзаголовок", blank=True)
     phone = models.CharField(max_length=64)

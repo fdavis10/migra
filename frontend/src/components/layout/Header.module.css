@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 800;
+  overflow: visible;
   background: rgba(248, 249, 251, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
@@ -15,6 +16,7 @@
   min-height: var(--header-h);
   padding-top: var(--spacing-sm);
   padding-bottom: var(--spacing-sm);
+  overflow: visible;
 }
 
 @media (min-width: 1024px) {
@@ -23,14 +25,28 @@
   }
 }
 
+.logo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  line-height: 0;
+}
+
 .logo img {
   display: block;
   height: 40px;
   width: auto;
+  object-fit: contain;
+  transform: scale(3);
+  transform-origin: left center;
 }
 
 .contacts {
   display: none;
+  position: relative;
+  z-index: 5;
   flex-direction: column;
   align-items: flex-end;
   gap: 2px;
@@ -61,6 +77,8 @@
 
 .ctaDesk {
   display: none;
+  position: relative;
+  z-index: 5;
 }
 
 @media (min-width: 1024px) {
@@ -70,6 +88,8 @@
 }
 
 .burger {
+  position: relative;
+  z-index: 20;
   grid-column: 2;
   justify-self: end;
   width: 44px;

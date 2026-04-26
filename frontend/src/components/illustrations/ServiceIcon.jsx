@@ -16,10 +16,6 @@ import {
 
 import sizes from '@/components/icons/heroIconSizes.module.css'
 
-/**
- * Иконка услуги по ключу из API (`service.icon`).
- * Heroicons outline 24×24 (визуально 48×48).
- */
 export function ServiceIcon({ name, className }) {
   const cn = [sizes.size48, className].filter(Boolean).join(' ')
   switch (name) {

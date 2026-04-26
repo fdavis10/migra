@@ -1,4 +1,3 @@
-/** URL картинки из DRF (абсолютный или /media/...) */
 export function mediaUrl(path) {
   if (!path) return null
   const s = String(path).trim()

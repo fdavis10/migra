@@ -19,8 +19,6 @@ class PanelPagination(PageNumberPagination):
 
 
 class PanelLeadViewSet(viewsets.ModelViewSet):
-    """Список заявок и смена статуса (без публичного create)."""
-
     permission_classes = [IsAdminUser]
     serializer_class = PanelLeadSerializer
     pagination_class = PanelPagination
@@ -47,7 +45,6 @@ class PanelNewsViewSet(viewsets.ModelViewSet):
 @api_view(["GET"])
 @permission_classes([IsAdminUser])
 def panel_stats(request):
-    """Сводка для главной панели."""
     leads = Lead.objects.aggregate(
         total=Count("id"),
         modal=Count("id", filter=Q(source="modal")),

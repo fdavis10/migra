@@ -2,8 +2,6 @@ from django.db import models
 
 
 class Service(models.Model):
-    """Миграционная услуга; detail — JSON для блоков детальной страницы."""
-
     slug = models.SlugField("Слаг", unique=True, max_length=120)
     title = models.CharField("Название", max_length=200)
     short_desc = models.TextField("Краткое описание")

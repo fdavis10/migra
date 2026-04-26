@@ -18,9 +18,7 @@ export function CookieBanner() {
   const accept = () => {
     try {
       localStorage.setItem(KEY, '1')
-    } catch {
-      /* ignore */
-    }
+    } catch {}
     setVisible(false)
   }
 

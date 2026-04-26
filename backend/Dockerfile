@@ -5,4 +5,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends libpq-dev gcc &
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+RUN chmod +x scripts/docker-entrypoint.sh
 EXPOSE 8000
+CMD ["./scripts/docker-entrypoint.sh"]

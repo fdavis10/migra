@@ -40,7 +40,6 @@ def _stock_figures():
 
 
 def _detail_rich(slug, title, p1, p2, documents, faq, risks, *, keys=("docs", "meet")):
-    """Общие блоки детальной страницы: текст, фото (Unsplash), шаги, FAQ, риски."""
     fig = _stock_figures()
     u1, a1 = fig[keys[0]]
     u2, a2 = fig[keys[1]]

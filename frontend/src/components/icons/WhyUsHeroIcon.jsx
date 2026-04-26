@@ -12,7 +12,6 @@ import {
 
 import sizes from '@/components/icons/heroIconSizes.module.css'
 
-/** Ключи из `content/marketing.js` → Heroicons outline */
 export function WhyUsHeroIcon({ variant, className }) {
   const cn = [sizes.size40, className].filter(Boolean).join(' ')
   switch (variant) {

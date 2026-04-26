@@ -16,7 +16,7 @@ export function Header({ site }) {
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
         <Link to="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-          <img src="/logo.svg" width={180} height={44} alt="РЕЗИДЕНТ — миграционный сервис" />
+          <img src="/logo.png" width={2083} height={2083} alt="РЕЗИДЕНТ — миграционный сервис" />
         </Link>
 
         <div className={styles.contacts}>

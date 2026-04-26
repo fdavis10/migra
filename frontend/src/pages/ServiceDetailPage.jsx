@@ -1,6 +1,22 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import {
+  ArrowPathRoundedSquareIcon,
+  ChatBubbleLeftRightIcon,
+  CheckCircleIcon,
+  ClipboardDocumentListIcon,
+  ExclamationTriangleIcon,
+  GiftIcon,
+  InformationCircleIcon,
+  LightBulbIcon,
+  LinkIcon,
+  ListBulletIcon,
+  QuestionMarkCircleIcon,
+  ScaleIcon,
+  ShieldCheckIcon,
+  SparklesIcon,
+} from '@heroicons/react/24/outline'
 import { getService, getServices } from '@/api/services'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
@@ -11,6 +27,63 @@ import { useLeadModal } from '@/context/LeadModalContext'
 import { formatRub, priceLine } from '@/utils/money'
 import { unwrapList } from '@/utils/apiList'
 import styles from './ServiceDetailPage.module.css'
+
+const SERVICE_HERO_IMAGES = {
+  'kvota-rvp': { src: '/images/kvota_rvp.jpg', width: 1152, height: 768 },
+  rvp: { src: '/images/rvp.jpg', width: 736, height: 491 },
+  vnzh: { src: '/images/vnz.jpg', width: 600, height: 400 },
+  grazhdanstvo: { src: '/images/graz_rf.jpg', width: 1024, height: 683 },
+  'pasport-rf': { src: '/images/pass.jpg', width: 735, height: 490 },
+  rnr: { src: '/images/rnr.jpg', width: 1200, height: 800 },
+  'zapret-na-vezd': { src: '/images/znv.jpg', width: 1200, height: 800 },
+  deportaciya: { src: '/images/deport.jpg', width: 1000, height: 667 },
+  vydvorenie: { src: '/images/admin.jpg', width: 900, height: 600 },
+  'vremennoe-ubezhishhe': { src: '/images/vubezh.jpg', width: 907, height: 605 },
+  'ustanovlenie-lichnosti': { src: '/images/person.jpg', width: 735, height: 490 },
+  rvpo: { src: '/images/vnzh.jpg', width: 1200, height: 1091 },
+  repatriaciya: { src: '/images/repart.jpg', width: 736, height: 414 },
+  konsultaciya: { src: '/images/perplan.jpg', width: 736, height: 736 },
+  bezhencz: { src: '/images/bezh.jpg', width: 867, height: 577 },
+  'vyhod-iz-grazhdanstva': { src: '/images/grrf.jpg', width: 1198, height: 631 },
+  patent: { src: '/images/patent.jpg', width: 1199, height: 660 },
+}
+
+function DetailSection({ icon: Icon, title, children, muted = false, bodyClassName = '' }) {
+  return (
+    <section className={muted ? `section ${styles.muted}` : 'section'}>
+      <div className="container">
+        <div className={styles.detailPanel}>
+          <header className={styles.panelHeader}>
+            {Icon ? (
+              <span className={styles.panelIcon} aria-hidden>
+                <Icon className={styles.panelIconSvg} />
+              </span>
+            ) : null}
+            <h2 className={`sectionTitle ${styles.panelTitle}`}>{title}</h2>
+          </header>
+          <div className={[styles.panelBody, bodyClassName].filter(Boolean).join(' ')}>{children}</div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function groupContentSections(sections) {
+  if (!Array.isArray(sections) || sections.length === 0) return []
+  const groups = []
+  let current = []
+  for (const block of sections) {
+    const isH2 = block.type === 'heading' && block.level !== 3
+    if (isH2 && current.length > 0) {
+      groups.push(current)
+      current = [block]
+    } else {
+      current.push(block)
+    }
+  }
+  if (current.length) groups.push(current)
+  return groups
+}
 
 function renderContentSection(block, i) {
   if (block.type === 'paragraph' && block.text) {
@@ -62,6 +135,17 @@ function renderContentSection(block, i) {
         />
         {block.caption ? <figcaption className={styles.figureCap}>{block.caption}</figcaption> : null}
       </figure>
+    )
+  }
+  if (block.type === 'callout' && block.text) {
+    const variant = ['info', 'tip', 'warning'].includes(block.variant) ? block.variant : 'info'
+    const CalloutIcon =
+      variant === 'warning' ? ExclamationTriangleIcon : variant === 'tip' ? LightBulbIcon : InformationCircleIcon
+    return (
+      <aside key={i} className={`${styles.callout} ${styles[`callout_${variant}`]}`}>
+        <CalloutIcon className={styles.calloutIcon} aria-hidden />
+        <p className={styles.calloutText}>{block.text}</p>
+      </aside>
     )
   }
   return null
@@ -121,6 +205,7 @@ export function ServiceDetailPage() {
   const richArticle =
     sections.length >= 6 && sections.some((b) => b.type === 'heading' && (b.level === 2 || !b.level))
   const faqItems = d.faq?.length ? d.faq : d.faqs
+  const heroVisual = SERVICE_HERO_IMAGES[slug]
 
   return (
     <>
@@ -130,176 +215,206 @@ export function ServiceDetailPage() {
       </Helmet>
 
       <section className={styles.hero}>
-        <div className="container">
-          <h1 className={styles.h1}>{svc.title}</h1>
-          <p className={styles.price}>{priceLine(svc)}</p>
-          {introBlocks.map((t, i) => (
-            <p key={i} className={styles.intro}>
-              {t}
-            </p>
-          ))}
-          <div className={styles.cta}>
-            <Button type="button" size="lg" onClick={() => openModal(svc.title)}>
-              Бесплатная консультация
-            </Button>
-            <Link to="/ceny" className={styles.linkCeny}>
-              Прайс-лист
-            </Link>
+        <div
+          className={`container ${styles.heroGrid} ${heroVisual ? styles.heroGridSplit : ''}`}
+        >
+          <div className={styles.heroMain}>
+            <h1 className={styles.h1}>{svc.title}</h1>
+            <p className={styles.price}>{priceLine(svc)}</p>
+            {introBlocks.map((t, i) => (
+              <p key={i} className={styles.intro}>
+                {t}
+              </p>
+            ))}
+            <div className={styles.cta}>
+              <Button type="button" size="lg" onClick={() => openModal(svc.title)}>
+                Бесплатная консультация
+              </Button>
+              <Link to="/ceny" className={styles.linkCeny}>
+                Прайс-лист
+              </Link>
+            </div>
           </div>
+          {heroVisual ? (
+            <figure className={styles.heroFigure}>
+              <img
+                src={heroVisual.src}
+                alt=""
+                className={styles.heroImg}
+                width={heroVisual.width}
+                height={heroVisual.height}
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+          ) : null}
         </div>
       </section>
 
       {sections.length ? (
         <section className={`section ${styles.articleSection}`}>
-          <div className={`container ${styles.article}`}>{sections.map((b, i) => renderContentSection(b, i))}</div>
+          <div className={`container ${styles.articleWrap}`}>
+            {groupContentSections(sections).map((group, gi) => (
+              <div key={gi} className={styles.proseCard}>
+                <div className={styles.article}>{group.map((b, i) => renderContentSection(b, `g${gi}-${i}`))}</div>
+              </div>
+            ))}
+          </div>
         </section>
       ) : null}
 
       {d.why_choose?.length ? (
-        <section className="section">
-          <div className="container">
-            <h2 className="sectionTitle">Почему выбирают нас</h2>
-            <ul className={styles.bullets}>
-              {d.why_choose.map((t, i) => (
-                <li key={i}>{t}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <DetailSection icon={SparklesIcon} title="Почему выбирают нас">
+          <ul className={styles.whyGrid}>
+            {d.why_choose.map((t, i) => (
+              <li key={i} className={styles.whyItem}>
+                <CheckCircleIcon className={styles.whyCheck} aria-hidden />
+                <span className={styles.whyText}>{t}</span>
+              </li>
+            ))}
+          </ul>
+        </DetailSection>
       ) : null}
 
       {d.packages?.length ? (
-        <section className={`section ${styles.muted}`}>
-          <div className="container">
-            <h2 className="sectionTitle">Пакеты услуг</h2>
-            <div className={styles.pkgGrid}>
-              {d.packages.map((p) => (
-                <Card key={p.name} className={styles.pkg}>
-                  <h3>{p.name}</h3>
-                  <p className={styles.pkgPrice}>{p.price ? `от ${formatRub(p.price)}` : ''}</p>
-                  <p className={styles.pkgDesc}>{p.description}</p>
-                </Card>
-              ))}
-            </div>
+        <DetailSection icon={GiftIcon} title="Пакеты услуг" muted>
+          <div className={styles.pkgGrid}>
+            {d.packages.map((p) => (
+              <Card key={p.name} className={styles.pkg}>
+                <h3>{p.name}</h3>
+                <p className={styles.pkgPrice}>{p.price ? `от ${formatRub(p.price)}` : ''}</p>
+                <p className={styles.pkgDesc}>{p.description}</p>
+              </Card>
+            ))}
           </div>
-        </section>
+        </DetailSection>
       ) : null}
 
       {d.status_advantages?.length ? (
-        <section className="section">
-          <div className="container">
-            <h2 className="sectionTitle">Преимущества статуса</h2>
-            <div className={styles.advGrid}>
-              {d.status_advantages.map((x) => (
-                <Card key={x.title} className={styles.adv}>
+        <DetailSection icon={ShieldCheckIcon} title="Преимущества статуса">
+          <div className={styles.advGrid}>
+            {d.status_advantages.map((x) => (
+              <Card key={x.title} className={styles.adv}>
+                <div className={styles.advCardHead}>
+                  <ShieldCheckIcon className={styles.advCardIcon} aria-hidden />
                   <strong>{x.title}</strong>
-                  <p>{x.text}</p>
-                </Card>
-              ))}
-            </div>
+                </div>
+                <p>{x.text}</p>
+              </Card>
+            ))}
           </div>
-        </section>
+        </DetailSection>
       ) : null}
 
       {d.appeal_stages?.length ? (
-        <section className="section">
-          <div className="container">
-            <h2 className="sectionTitle">Этапы и ориентиры по стоимости</h2>
-            <ol className={styles.stages}>
-              {d.appeal_stages.map((st) => (
-                <li key={st.title}>
-                  <strong>{st.title}</strong> — от {formatRub(st.price)} ({st.duration})
+        <DetailSection icon={ScaleIcon} title="Этапы и ориентиры по стоимости">
+          <ol className={styles.stagesEnhanced}>
+            {d.appeal_stages.map((st, idx) => {
+              const stagePrice = st.price ?? st.price_from
+              return (
+                <li key={st.title} className={styles.stageRow}>
+                  <span className={styles.stageNum}>{idx + 1}</span>
+                  <div className={styles.stageBody}>
+                    <strong className={styles.stageTitle}>{st.title}</strong>
+                    <p className={styles.stageMeta}>
+                      {stagePrice != null ? <>от {formatRub(stagePrice)} · </> : null}
+                      {st.duration}
+                    </p>
+                  </div>
                 </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+              )
+            })}
+          </ol>
+        </DetailSection>
       ) : null}
 
       {d.steps_timeline?.length ? (
-        <section className={`section ${styles.muted}`}>
-          <div className="container">
-            <h2 className="sectionTitle">Путь к гражданству</h2>
-            <div className={styles.timeline}>
-              {d.steps_timeline.map((t, i) => (
-                <div key={t} className={styles.tlItem}>
-                  <span className={styles.tlNum}>{i + 1}</span>
-                  {t}
-                </div>
-              ))}
-            </div>
+        <DetailSection icon={ArrowPathRoundedSquareIcon} title="Путь к гражданству" muted>
+          <div className={styles.timeline}>
+            {d.steps_timeline.map((t, i) => (
+              <div key={t} className={styles.tlItem}>
+                <span className={styles.tlNum}>{i + 1}</span>
+                {t}
+              </div>
+            ))}
           </div>
-        </section>
+        </DetailSection>
       ) : null}
 
       {d.risks && !richArticle ? (
         <section className="section">
           <div className="container">
             <Card className={styles.warn}>
-              <h2 className={styles.warnTitle}>Риски самостоятельного оформления</h2>
-              <p>{d.risks}</p>
+              <div className={styles.warnHead}>
+                <ExclamationTriangleIcon className={styles.warnIcon} aria-hidden />
+                <h2 className={styles.warnTitle}>Риски самостоятельного оформления</h2>
+              </div>
+              <p className={styles.warnText}>{d.risks}</p>
             </Card>
           </div>
         </section>
       ) : null}
 
       {d.documents?.length && !richArticle ? (
-        <section className={`section ${styles.muted}`}>
-          <div className="container">
-            <h2 className="sectionTitle">Необходимые документы</h2>
-            <ol className={styles.docs}>
-              {d.documents.map((line, i) => (
-                <li key={i}>{line}</li>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <DetailSection icon={ClipboardDocumentListIcon} title="Необходимые документы" muted>
+          <ol className={styles.docsEnhanced}>
+            {d.documents.map((line, i) => (
+              <li key={i} className={styles.docRow}>
+                <span className={styles.docNum}>{i + 1}</span>
+                <span>{line}</span>
+              </li>
+            ))}
+          </ol>
+        </DetailSection>
       ) : null}
 
       {d.steps?.length && !richArticle ? (
-        <section className="section">
-          <div className="container">
-            <h2 className="sectionTitle">Этапы работы</h2>
-            <ol className={styles.docs}>
-              {d.steps.map((line, i) => (
-                <li key={i}>{line}</li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      ) : null}
-
-      <section className={`section ${styles.muted}`} id="zayavka">
-        <div className={`container ${styles.leadSection}`}>
-          <h2 className="sectionTitle">Заявка на услугу</h2>
-          <p className={styles.leadLead}>
-            Заполните форму — перезвоним, уточним детали и предложим удобное время встречи или онлайн-консультации.
-          </p>
-          <ServiceLeadForm serviceTitle={svc.title} sourcePath={`/uslugi/${slug}`} />
-        </div>
-      </section>
-
-      {faqItems?.length ? (
-        <section className={`section ${styles.muted}`}>
-          <div className="container">
-            <h2 className="sectionTitle">Частые вопросы</h2>
-            <Accordion items={faqItems} />
-          </div>
-        </section>
-      ) : null}
-
-      <section className="section">
-        <div className="container">
-          <h2 className="sectionTitle">Похожие услуги</h2>
-          <ul className={styles.sim}>
-            {similar.map((s) => (
-              <li key={s.slug}>
-                <Link to={`/uslugi/${s.slug}`}>{s.title}</Link>
+        <DetailSection icon={ListBulletIcon} title="Этапы работы">
+          <ol className={styles.stepsFlow}>
+            {d.steps.map((line, i) => (
+              <li key={i} className={styles.stepFlowItem}>
+                <span className={styles.stepFlowDot} aria-hidden />
+                <div>
+                  <span className={styles.stepFlowLabel}>Шаг {i + 1}</span>
+                  <p className={styles.stepFlowText}>{line}</p>
+                </div>
               </li>
             ))}
-          </ul>
+          </ol>
+        </DetailSection>
+      ) : null}
+
+      <DetailSection
+        icon={ChatBubbleLeftRightIcon}
+        title="Заявка на услугу"
+        muted
+        bodyClassName={styles.panelBodyLead}
+      >
+        <p className={styles.leadLead}>
+          Заполните форму — перезвоним, уточним детали и предложим удобное время встречи или онлайн-консультации.
+        </p>
+        <div id="zayavka" className={styles.leadFormWrap}>
+          <ServiceLeadForm serviceTitle={svc.title} sourcePath={`/uslugi/${slug}`} />
         </div>
-      </section>
+      </DetailSection>
+
+      {faqItems?.length ? (
+        <DetailSection icon={QuestionMarkCircleIcon} title="Частые вопросы">
+          <Accordion items={faqItems} />
+        </DetailSection>
+      ) : null}
+
+      <DetailSection icon={LinkIcon} title="Похожие услуги">
+        <ul className={styles.simGrid}>
+          {similar.map((s) => (
+            <li key={s.slug}>
+              <Link to={`/uslugi/${s.slug}`} className={styles.simLink}>
+                {s.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </DetailSection>
     </>
   )
 }

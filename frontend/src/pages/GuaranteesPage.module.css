@@ -9,7 +9,6 @@
   gap: var(--spacing-xl);
   grid-template-columns: 1fr;
   justify-items: center;
-  /* одна высота карточек в каждой строке сетки */
   align-items: stretch;
 }
 
@@ -65,7 +64,6 @@
   }
 }
 
-/* Квадрат только у блока фото — одинаковый размер; карточка растёт вниз под текст */
 .media {
   flex-shrink: 0;
   width: 100%;

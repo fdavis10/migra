@@ -81,12 +81,10 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 
-  /* Firefox — тонкая полоса в палитре */
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary-light) var(--color-primary-bg);
 }
 
-/* Chrome, Edge, Safari — кастомный скроллбар под стиль сайта */
 .quickRow::-webkit-scrollbar {
   height: 6px;
 }
@@ -431,22 +429,136 @@
   margin: var(--spacing-md) 0 0;
 }
 
-.flags {
+.flagsMarquee {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--spacing-sm) 0;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+.flagsTrack {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: flagsMarquee 42s linear infinite;
+}
+
+.flagsMarquee:hover .flagsTrack,
+.flagsMarquee:focus-within .flagsTrack {
+  animation-play-state: paused;
+}
+
+@keyframes flagsMarquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.flagsList {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
 }
 
-.flags li {
-  padding: var(--spacing-sm) var(--spacing-md);
+.flagItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
   background: var(--color-white);
-  border-radius: var(--radius-md);
+  border-radius: 999px;
   border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  scroll-snap-align: start;
+}
+
+.flagCircle {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-soft);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.6);
+}
+
+.flagCircle img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.flagName {
   font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-main);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flagsTrack {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    gap: var(--spacing-md);
+  }
+
+  .flagsList[aria-hidden='true'] {
+    display: none;
+  }
+
+  .flagsList {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .flagsMarquee {
+    overflow-x: auto;
+    overflow-y: hidden;
+    mask-image: none;
+    -webkit-mask-image: none;
+    padding-bottom: var(--spacing-md);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-primary-bg);
+  }
+
+  .flagsMarquee::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .flagsMarquee::-webkit-scrollbar-track {
+    background: var(--color-primary-bg);
+    border-radius: 999px;
+  }
+
+  .flagsMarquee::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 999px;
+  }
+
+  .flagsMarquee::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark);
+  }
 }
 
 .flagsNote {
@@ -473,7 +585,6 @@
   border: 1px solid var(--color-border);
 }
 
-/* Декоративные иллюстрации (SVG в /public/images) */
 .figureBand,
 .figureBandMuted {
   padding: var(--spacing-xl) 0;
@@ -517,11 +628,15 @@
 }
 
 .leadFig {
+  display: block;
   width: 100%;
   max-width: 360px;
   margin: 0 auto;
+  aspect-ratio: 3 / 2;
   height: auto;
+  object-fit: cover;
+  object-position: center 22%;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }

@@ -1,4 +1,3 @@
-/** Контакты по умолчанию, если API /api/site/contact/ недоступен */
 export const SITE_STATIC = {
   phone: '+7 (495) 000-00-00',
   email: 'info@resident-migration.ru',

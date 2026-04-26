@@ -341,12 +341,13 @@ export function HomePage() {
             {leadStatus === 'need-consent' ? <p className={styles.err}>Нужно согласие.</p> : null}
           </Card>
             <img
-              src="/images/lead-side.svg"
-              alt=""
+              src="/images/consultatuion_lawyear.jpg"
+              alt="Консультация с юристом"
               className={styles.leadFig}
-              width={360}
-              height={300}
+              width={900}
+              height={600}
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -355,11 +356,50 @@ export function HomePage() {
       <section className="section">
         <div className="container">
           <h2 className="sectionTitle">Страны, которым помогаем</h2>
-          <ul className={styles.flags}>
-            {COUNTRIES_HELP.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
+          <div
+            className={styles.flagsMarquee}
+            role="region"
+            aria-label="Список стран, гражданам которых помогаем с легализацией"
+          >
+            <div className={styles.flagsTrack}>
+              <ul className={styles.flagsList}>
+                {COUNTRIES_HELP.map((c) => (
+                  <li key={c.code} className={styles.flagItem}>
+                    <span className={styles.flagCircle}>
+                      <img
+                        src={`https://flagcdn.com/w40/${c.code}.png`}
+                        srcSet={`https://flagcdn.com/w80/${c.code}.png 2x`}
+                        alt=""
+                        width={40}
+                        height={30}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <span className={styles.flagName}>{c.name}</span>
+                  </li>
+                ))}
+              </ul>
+              <ul className={styles.flagsList} aria-hidden={true}>
+                {COUNTRIES_HELP.map((c) => (
+                  <li key={`dup-${c.code}`} className={styles.flagItem}>
+                    <span className={styles.flagCircle}>
+                      <img
+                        src={`https://flagcdn.com/w40/${c.code}.png`}
+                        srcSet={`https://flagcdn.com/w80/${c.code}.png 2x`}
+                        alt=""
+                        width={40}
+                        height={30}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <span className={styles.flagName}>{c.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
           <p className={styles.flagsNote}>
             Не нашли своё государство? Свяжитесь с нами — мы помогаем гражданам любых стран.
           </p>

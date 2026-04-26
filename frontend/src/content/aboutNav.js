@@ -1,4 +1,3 @@
-/** Пункты меню «О компании» — те же URL, что в шапке */
 export const ABOUT_NAV_ITEMS = [
   { to: '/o-kompanii', label: 'О нас' },
   { to: '/o-kompanii/osnovatel', label: 'Основатель' },

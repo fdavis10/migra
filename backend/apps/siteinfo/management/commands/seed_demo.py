@@ -1,7 +1,3 @@
-"""
-Заполняет БД демо-данными из ТЗ (услуги, прайс, акции, FAQ, отзывы, новости).
-Запуск: python manage.py seed_demo
-"""
 from datetime import date, datetime, timezone as datetime_timezone
 from decimal import Decimal
 
