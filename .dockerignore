@@ -1,0 +1,11 @@
+.git
+.idea
+**/node_modules
+**/dist
+**/__pycache__
+**/.venv
+**/*.pyc
+backend/media
+backend/db.sqlite3
+backend/staticfiles
+*.md
