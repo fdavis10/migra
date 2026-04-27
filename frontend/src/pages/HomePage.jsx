@@ -14,15 +14,14 @@ import { ReviewCarousel } from '@/components/sections/ReviewCarousel'
 import { PromoParallaxCountdown } from '@/components/sections/PromoParallaxCountdown'
 import { PromoFeaturedTiles } from '@/components/sections/PromoFeaturedTiles'
 import { SITE } from '@/config/site'
-import { ABOUT_COMPANY } from '@/content/about'
-import {
-  COUNTRIES_HELP,
-  QUICK_SERVICE_SLUGS,
-  WHY_US,
-  WORK_STEPS,
-} from '@/content/marketing'
+import { getAboutCompanyParagraphs } from '@/content/about.i18n'
+import { COUNTRY_FLAG_SRC } from '@/content/countryFlags'
+import { QUICK_SERVICE_SLUGS } from '@/content/marketing'
+import { getCountriesHelp, getWhyUs, getWorkSteps } from '@/content/marketing.i18n'
 import { CITIZENSHIP_OPTIONS, REGION_OPTIONS } from '@/content/leadForm'
 import { useLeadModal } from '@/context/LeadModalContext'
+import { useLocale } from '@/context/LanguageContext'
+import { useTranslation } from '@/i18n/useTranslation'
 import { submitLead } from '@/api/leads'
 import { unwrapList } from '@/utils/apiList'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
@@ -32,6 +31,12 @@ import styles from './HomePage.module.css'
 export function HomePage() {
   const { site } = useOutletContext() || {}
   const { openModal } = useLeadModal()
+  const { locale } = useLocale()
+  const { t } = useTranslation()
+  const whyUs = getWhyUs(locale)
+  const workSteps = getWorkSteps(locale)
+  const countriesHelp = getCountriesHelp(locale)
+  const aboutParagraphs = getAboutCompanyParagraphs(locale)
   const [services, setServices] = useState(null)
   const [promos, setPromos] = useState(null)
   const [reviews, setReviews] = useState(null)
@@ -91,41 +96,35 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>РЕЗИДЕНТ — Ваш надёжный путь к гражданству России</title>
-        <meta
-          name="description"
-          content="Профессиональная помощь в оформлении РВП, ВНЖ и гражданства РФ. Бесплатная консультация."
-        />
+        <title>{t('home.metaTitle')}</title>
+        <meta name="description" content={t('home.metaDesc')} />
       </Helmet>
 
       <section className={styles.hero}>
         <div className={`container ${styles.heroGrid}`}>
           <div>
-            <h1 className={styles.h1}>Ваш надёжный путь к гражданству России</h1>
-            <p className={styles.lead}>
-              Профессиональная помощь в оформлении РВП, ВНЖ и гражданства РФ. Сопровождаем на каждом этапе — от
-              первой консультации до паспорта.
-            </p>
+            <h1 className={styles.h1}>{t('home.heroTitle')}</h1>
+            <p className={styles.lead}>{t('home.heroLead')}</p>
             <div className={styles.heroCta}>
               <Button type="button" size="lg" onClick={() => openModal()}>
-                Бесплатная консультация
+                {t('header.ctaConsultation')}
               </Button>
               <Link to="/ceny" className={styles.secondaryLink}>
-                Узнать стоимость
+                {t('home.heroCtaPrices')}
               </Link>
             </div>
             <ul className={styles.badges}>
               <li>
                 <CheckCircleIcon className={styles.badgeIcon} aria-hidden />
-                Более 10 лет опыта
+                {t('home.badge1')}
               </li>
               <li>
                 <CheckCircleIcon className={styles.badgeIcon} aria-hidden />
-                Договор с гарантиями
+                {t('home.badge2')}
               </li>
               <li>
                 <CheckCircleIcon className={styles.badgeIcon} aria-hidden />
-                Бесплатная консультация
+                {t('home.badge3')}
               </li>
             </ul>
           </div>
@@ -135,7 +134,7 @@ export function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="sectionTitle">Быстрый доступ к услугам</h2>
+          <h2 className="sectionTitle">{t('home.quickTitle')}</h2>
           <div className={styles.quickRow}>
             {services === null
               ? [...Array(8)].map((_, i) => <Skeleton key={i} style={{ width: 88, height: 88, borderRadius: 16 }} />)
@@ -148,7 +147,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className={styles.figureBand} aria-label="Иллюстрация">
+      <section className={styles.figureBand} aria-label={t('home.figureAria')}>
         <div className="container">
           <img
             src="/images/judge_2.webp"
@@ -159,14 +158,14 @@ export function HomePage() {
             loading="lazy"
             decoding="async"
           />
-          <p className={styles.bandCaption}>Документы и сроки — под контролем специалистов</p>
+          <p className={styles.bandCaption}>{t('home.band1Caption')}</p>
         </div>
       </section>
 
       <section className={`section ${styles.altBg}`}>
         <div className="container">
-          <h2 className="sectionTitle">Помогаем получить государственные миграционные услуги</h2>
-          <p className="sectionLead">Полный список — на странице услуг. Ниже основные направления.</p>
+          <h2 className="sectionTitle">{t('home.servicesSectionTitle')}</h2>
+          <p className="sectionLead">{t('home.servicesSectionLead')}</p>
           <div className={styles.grid}>
             {services === null
               ? [...Array(6)].map((_, i) => <Skeleton key={i} style={{ height: 260, borderRadius: 20 }} />)
@@ -177,7 +176,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className={styles.figureBandMuted} aria-label="Иллюстрация">
+      <section className={styles.figureBandMuted} aria-label={t('home.figureAria')}>
         <div className="container">
           <img
             src="/images/consulatation.webp"
@@ -188,13 +187,13 @@ export function HomePage() {
             loading="lazy"
             decoding="async"
           />
-          <p className={styles.bandCaption}>От консультации до результата — понятный маршрут</p>
+          <p className={styles.bandCaption}>{t('home.band2Caption')}</p>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <h2 className="sectionTitle">Акции и специальные предложения</h2>
+          <h2 className="sectionTitle">{t('home.promosTitle')}</h2>
           <PromoParallaxCountdown
             untilIso={site?.promo_countdown_until}
             countdownDate={site?.promo_countdown_date}
@@ -216,9 +215,9 @@ export function HomePage() {
 
       <section className={`section ${styles.altBg}`}>
         <div className="container">
-          <h2 className="sectionTitle">Почему выбирают «РЕЗИДЕНТ»?</h2>
+          <h2 className="sectionTitle">{t('home.whyTitle')}</h2>
           <div className={styles.whyGrid}>
-            {WHY_US.map((b) => (
+            {whyUs.map((b) => (
               <Card key={b.title} className={styles.whyCard}>
                 <span className={styles.whyIconWrap} aria-hidden>
                   <WhyUsHeroIcon variant={b.icon} />
@@ -233,12 +232,12 @@ export function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="sectionTitle">Как мы работаем</h2>
+          <h2 className="sectionTitle">{t('home.howTitle')}</h2>
           <ol className={styles.steps}>
-            {WORK_STEPS.map((t, i) => (
-              <li key={t} className={styles.step}>
+            {workSteps.map((step, i) => (
+              <li key={step} className={styles.step}>
                 <span className={styles.stepNum}>{i + 1}</span>
-                {t}
+                {step}
               </li>
             ))}
           </ol>
@@ -248,30 +247,27 @@ export function HomePage() {
       <section className={`section ${styles.altBg}`}>
         <div className="container">
           <div className={styles.aboutBlock}>
-            <h2 className={`sectionTitle ${styles.aboutHeading}`}>О компании</h2>
+            <h2 className={`sectionTitle ${styles.aboutHeading}`}>{t('home.aboutTitle')}</h2>
             <div className={styles.aboutProse}>
-              {ABOUT_COMPANY.split(/\n\n+/)
-                .map((p) => p.trim())
-                .filter(Boolean)
-                .map((para, idx) => (
-                  <p key={idx} className={styles.aboutText}>
-                    {para}
-                  </p>
-                ))}
+              {aboutParagraphs.map((para, idx) => (
+                <p key={idx} className={styles.aboutText}>
+                  {para}
+                </p>
+              ))}
             </div>
             <Link to="/o-kompanii" className={`${btn.btn} ${btn.outline} ${btn.md} ${styles.aboutCta}`}>
-              Подробнее о нас
+              {t('home.aboutMore')}
             </Link>
             <div className={styles.aboutFoot}>
               <ul className={styles.stats}>
                 <li>
-                  <strong>10+</strong> лет на рынке
+                  <strong>10+</strong> {t('home.statYears')}
                 </li>
                 <li>
-                  <strong>Тысячи</strong> успешных дел
+                  <strong>{t('home.statThousandsStrong')}</strong> {t('home.statThousandsRest')}
                 </li>
                 <li>
-                  <strong>7/7</strong> консультации
+                  <strong>7/7</strong> {t('home.statConsult')}
                 </li>
               </ul>
               <img
@@ -289,25 +285,25 @@ export function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="sectionTitle">Отзывы наших клиентов</h2>
+          <h2 className="sectionTitle">{t('home.reviewsTitle')}</h2>
           <ReviewCarousel reviews={reviews || []} />
           <p className={styles.morePromo}>
-            <Link to="/otzyvy">Все отзывы</Link>
+            <Link to="/otzyvy">{t('home.allReviews')}</Link>
           </p>
         </div>
       </section>
 
       <section className={`section ${styles.altBg}`} id="konsult">
         <div className="container">
-          <h2 className="sectionTitle">Получите бесплатную консультацию</h2>
-          <p className="sectionLead">Изучим вашу ситуацию и составим персональный план легализации.</p>
+          <h2 className="sectionTitle">{t('home.consultTitle')}</h2>
+          <p className="sectionLead">{t('home.consultLead')}</p>
           <div className={styles.leadGrid}>
           <Card className={styles.leadCard}>
             <form className={styles.leadForm} onSubmit={onHomeLead}>
               <label>
-                Гражданство
+                {t('home.leadCitizenship')}
                 <select name="citizenship" required>
-                  <option value="">Выберите</option>
+                  <option value="">{t('leadForm.choose')}</option>
                   {CITIZENSHIP_OPTIONS.map((c) => (
                     <option key={c} value={c}>
                       {c}
@@ -316,9 +312,9 @@ export function HomePage() {
                 </select>
               </label>
               <label>
-                Регион
+                {t('home.leadRegion')}
                 <select name="region" required>
-                  <option value="">Выберите</option>
+                  <option value="">{t('leadForm.choose')}</option>
                   {REGION_OPTIONS.map((c) => (
                     <option key={c} value={c}>
                       {c}
@@ -327,22 +323,22 @@ export function HomePage() {
                 </select>
               </label>
               <label>
-                Телефон
+                {t('home.leadPhone')}
                 <input name="phone" type="tel" required placeholder="+7…" />
               </label>
               <label className={styles.inlineCheck}>
                 <input type="checkbox" name="consent" value="1" />
-                Согласие с политикой конфиденциальности
+                {t('home.leadConsent')}
               </label>
-              <Button type="submit">Перезвоните мне</Button>
+              <Button type="submit">{t('home.leadSubmit')}</Button>
             </form>
-            {leadStatus === 'ok' ? <p className={styles.ok}>Заявка отправлена.</p> : null}
-            {leadStatus === 'err' ? <p className={styles.err}>Ошибка отправки. Попробуйте позже.</p> : null}
-            {leadStatus === 'need-consent' ? <p className={styles.err}>Нужно согласие.</p> : null}
+            {leadStatus === 'ok' ? <p className={styles.ok}>{t('home.leadOk')}</p> : null}
+            {leadStatus === 'err' ? <p className={styles.err}>{t('home.leadErr')}</p> : null}
+            {leadStatus === 'need-consent' ? <p className={styles.err}>{t('home.leadNeedConsent')}</p> : null}
           </Card>
             <img
               src="/images/consultatuion_lawyear.jpg"
-              alt="Консультация с юристом"
+              alt={t('home.consultImgAlt')}
               className={styles.leadFig}
               width={900}
               height={600}
@@ -355,20 +351,19 @@ export function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="sectionTitle">Страны, которым помогаем</h2>
+          <h2 className="sectionTitle">{t('home.countriesTitle')}</h2>
           <div
             className={styles.flagsMarquee}
             role="region"
-            aria-label="Список стран, гражданам которых помогаем с легализацией"
+            aria-label={t('home.countriesAria')}
           >
             <div className={styles.flagsTrack}>
               <ul className={styles.flagsList}>
-                {COUNTRIES_HELP.map((c) => (
+                {countriesHelp.map((c) => (
                   <li key={c.code} className={styles.flagItem}>
                     <span className={styles.flagCircle}>
                       <img
-                        src={`https://flagcdn.com/w40/${c.code}.png`}
-                        srcSet={`https://flagcdn.com/w80/${c.code}.png 2x`}
+                        src={COUNTRY_FLAG_SRC[c.code]}
                         alt=""
                         width={40}
                         height={30}
@@ -381,12 +376,11 @@ export function HomePage() {
                 ))}
               </ul>
               <ul className={styles.flagsList} aria-hidden={true}>
-                {COUNTRIES_HELP.map((c) => (
+                {countriesHelp.map((c) => (
                   <li key={`dup-${c.code}`} className={styles.flagItem}>
                     <span className={styles.flagCircle}>
                       <img
-                        src={`https://flagcdn.com/w40/${c.code}.png`}
-                        srcSet={`https://flagcdn.com/w80/${c.code}.png 2x`}
+                        src={COUNTRY_FLAG_SRC[c.code]}
                         alt=""
                         width={40}
                         height={30}
@@ -400,15 +394,13 @@ export function HomePage() {
               </ul>
             </div>
           </div>
-          <p className={styles.flagsNote}>
-            Не нашли своё государство? Свяжитесь с нами — мы помогаем гражданам любых стран.
-          </p>
+          <p className={styles.flagsNote}>{t('home.countriesNote')}</p>
         </div>
       </section>
 
       <section className={`section ${styles.altBg}`}>
         <div className="container">
-          <h2 className="sectionTitle">Контакты</h2>
+          <h2 className="sectionTitle">{t('home.contactsTitle')}</h2>
           <div className={styles.contactGrid}>
             <div>
               <p>{SITE.address}</p>
@@ -416,10 +408,10 @@ export function HomePage() {
                 <a href={`tel:${SITE.phoneTel}`}>{SITE.phoneDisplay}</a>
               </p>
               <p>{SITE.hours}</p>
-              <Link to="/kontakty">Форма и карта</Link>
+              <Link to="/kontakty">{t('home.contactsFormMap')}</Link>
             </div>
             <div className={styles.map}>
-              <iframe title="Карта" src={SITE.yandexMapSrc} width="100%" height="280" style={{ border: 0 }} />
+              <iframe title={t('home.mapIframeTitle')} src={SITE.yandexMapSrc} width="100%" height="280" style={{ border: 0 }} />
             </div>
           </div>
         </div>

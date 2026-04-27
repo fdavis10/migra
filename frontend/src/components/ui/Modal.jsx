@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './Modal.module.css'
 
-export function Modal({ open, title, onClose, children, footer }) {
+export function Modal({ open, title, onClose, children, footer, wide }) {
+  const { t } = useTranslation()
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
@@ -17,7 +19,7 @@ export function Modal({ open, title, onClose, children, footer }) {
   return createPortal(
     <div className={styles.backdrop} role="presentation" onMouseDown={onClose}>
       <div
-        className={styles.dialog}
+        className={`${styles.dialog} ${wide ? styles.dialogWide : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? 'modal-title' : undefined}
@@ -29,7 +31,7 @@ export function Modal({ open, title, onClose, children, footer }) {
               {title}
             </h2>
           ) : null}
-          <button type="button" className={styles.close} onClick={onClose} aria-label="Закрыть">
+          <button type="button" className={styles.close} onClick={onClose} aria-label={t('modal.closeAria')}>
             ×
           </button>
         </div>

@@ -1,37 +1,39 @@
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './SitemapPage.module.css'
 
-const LINKS = [
-  ['/', 'Главная'],
-  ['/o-kompanii', 'О нас'],
-  ['/o-kompanii/osnovatel', 'Основатель'],
-  ['/o-kompanii/preimushchestva', 'Преимущества'],
-  ['/o-kompanii/oplata', 'Оплата'],
-  ['/uslugi', 'Услуги'],
-  ['/ceny', 'Цены'],
-  ['/akcii', 'Акции'],
-  ['/garantii', 'Гарантии'],
-  ['/otzyvy', 'Отзывы'],
-  ['/novosti', 'Новости'],
-  ['/faq', 'Вопросы и ответы'],
-  ['/kontakty', 'Контакты'],
-  ['/privacy', 'Политика конфиденциальности'],
+const LINK_KEYS = [
+  ['/', 'linkHome'],
+  ['/o-kompanii', 'linkAbout'],
+  ['/o-kompanii/osnovatel', 'linkFounder'],
+  ['/o-kompanii/preimushchestva', 'linkAdv'],
+  ['/o-kompanii/oplata', 'linkPay'],
+  ['/uslugi', 'linkServices'],
+  ['/ceny', 'linkPrices'],
+  ['/akcii', 'linkPromo'],
+  ['/garantii', 'linkGuarantees'],
+  ['/otzyvy', 'linkReviews'],
+  ['/novosti', 'linkNews'],
+  ['/faq', 'linkFaq'],
+  ['/kontakty', 'linkContacts'],
+  ['/privacy', 'linkPrivacy'],
 ]
 
 export function SitemapPage() {
+  const { t } = useTranslation()
   return (
     <>
       <Helmet>
-        <title>Карта сайта — РЕЗИДЕНТ</title>
+        <title>{t('sitemapPage.title')}</title>
       </Helmet>
       <div className="section">
         <div className="container">
-          <h1 className={styles.h1}>Карта сайта</h1>
+          <h1 className={styles.h1}>{t('sitemapPage.h1')}</h1>
           <ul className={styles.list}>
-            {LINKS.map(([to, label]) => (
+            {LINK_KEYS.map(([to, key]) => (
               <li key={to}>
-                <Link to={to}>{label}</Link>
+                <Link to={to}>{t(`sitemapPage.${key}`)}</Link>
               </li>
             ))}
           </ul>

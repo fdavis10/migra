@@ -3,6 +3,7 @@ from django.db import models
 
 class FAQCategory(models.Model):
     title = models.CharField("Тема", max_length=100)
+    title_en = models.CharField("Тема (EN)", max_length=100, blank=True)
     order = models.PositiveIntegerField("Порядок", default=0)
 
     class Meta:
@@ -20,6 +21,8 @@ class FAQ(models.Model):
     )
     question = models.CharField("Вопрос", max_length=300)
     answer = models.TextField("Ответ")
+    question_en = models.CharField("Вопрос (EN)", max_length=300, blank=True)
+    answer_en = models.TextField("Ответ (EN)", blank=True)
     order = models.PositiveIntegerField("Порядок", default=0)
 
     class Meta:

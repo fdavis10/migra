@@ -4,11 +4,13 @@ import { getPrices } from '@/api/prices'
 import { Card } from '@/components/ui/Card'
 import { PriceTable } from '@/components/sections/PriceTable'
 import { Skeleton } from '@/components/ui/Skeleton'
-import { DISCOUNT_CARDS, PAYMENT_METHODS } from '@/content/pricingExtras'
+import { getDiscountCards, getPaymentMethods } from '@/content/pricingExtras.i18n'
+import { useTranslation } from '@/i18n/useTranslation'
 import { unwrapList } from '@/utils/apiList'
 import styles from './PricesPage.module.css'
 
 export function PricesPage() {
+  const { t, locale } = useTranslation()
   const [cats, setCats] = useState(null)
   useEffect(() => {
     let c = false
@@ -28,15 +30,13 @@ export function PricesPage() {
   return (
     <>
       <Helmet>
-        <title>Цены — РЕЗИДЕНТ</title>
-        <meta name="description" content="Прайс-лист миграционного сервиса. Фиксированные цены в договоре." />
+        <title>{t('pricesPage.metaTitle')}</title>
+        <meta name="description" content={t('pricesPage.metaDesc')} />
       </Helmet>
       <div className="section">
         <div className="container">
-          <h1 className={styles.h1}>Прайс-лист миграционного сервиса «РЕЗИДЕНТ»</h1>
-          <p className={styles.lead}>
-            Фиксированные цены. Окончательная стоимость прописывается в договоре и не меняется.
-          </p>
+          <h1 className={styles.h1}>{t('pricesPage.h1')}</h1>
+          <p className={styles.lead}>{t('pricesPage.lead')}</p>
 
           {cats === null
             ? [...Array(4)].map((_, i) => <Skeleton key={i} style={{ height: 160, marginBottom: 24 }} />)
@@ -47,9 +47,9 @@ export function PricesPage() {
                 </section>
               ))}
 
-          <h2 className={styles.h2}>Гибкая система скидок — от 7% до 16%</h2>
+          <h2 className={styles.h2}>{t('pricesPage.discountTitle')}</h2>
           <div className={styles.discGrid}>
-            {DISCOUNT_CARDS.map((d) => (
+            {getDiscountCards(locale).map((d) => (
               <Card key={d.title} className={styles.discCard}>
                 <span className={styles.discBadge}>{d.discount}</span>
                 <h3>{d.title}</h3>
@@ -58,9 +58,9 @@ export function PricesPage() {
             ))}
           </div>
 
-          <h2 className={styles.h2}>Способы оплаты</h2>
+          <h2 className={styles.h2}>{t('pricesPage.paymentTitle')}</h2>
           <ul className={styles.pay}>
-            {PAYMENT_METHODS.map((p) => (
+            {getPaymentMethods(locale).map((p) => (
               <li key={p}>{p}</li>
             ))}
           </ul>

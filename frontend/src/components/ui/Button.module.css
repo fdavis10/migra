@@ -30,6 +30,47 @@
   background: var(--color-primary-dark);
 }
 
+/* Белый фон, при hover — заливка основным слева направо (слои background — один скруглённый контур, без щелей) */
+.primarySweep {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+  box-shadow: none;
+  color: var(--color-primary-dark);
+  background-color: transparent;
+  background-image:
+    linear-gradient(var(--color-primary), var(--color-primary)),
+    linear-gradient(var(--color-white), var(--color-white));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size:
+    0% 100%,
+    100% 100%;
+  transition:
+    background-size 0.35s ease,
+    color 0.3s ease;
+}
+
+.primarySweep .label {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.primarySweep:hover:not(:disabled) {
+  background-size:
+    100% 100%,
+    100% 100%;
+}
+
+.primarySweep:hover:not(:disabled) .label {
+  color: var(--color-white);
+}
+
+.primarySweep:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
 .secondary {
   background: var(--color-accent-mint);
   color: var(--color-text-main);

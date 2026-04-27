@@ -19,6 +19,13 @@ class Service(models.Model):
     is_main = models.BooleanField("На главной", default=False)
     order = models.PositiveIntegerField("Порядок", default=0)
     detail = models.JSONField("Детали страницы", default=dict, blank=True)
+    title_en = models.CharField("Название (EN)", max_length=200, blank=True)
+    short_desc_en = models.TextField("Краткое описание (EN)", blank=True)
+    full_desc_en = models.TextField("Полное описание (EN)", blank=True)
+    price_note_en = models.CharField(
+        "Примечание к цене (EN)", max_length=120, blank=True
+    )
+    detail_en = models.JSONField("Детали страницы (EN)", default=dict, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

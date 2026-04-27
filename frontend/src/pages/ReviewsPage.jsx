@@ -4,14 +4,56 @@ import { getReviews } from '@/api/reviews'
 import { Card } from '@/components/ui/Card'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { AboutSubNav } from '@/components/about/AboutSubNav'
+import { useTranslation } from '@/i18n/useTranslation'
 import { unwrapList } from '@/utils/apiList'
 import styles from './ReviewsPage.module.css'
 
-const FILTERS = ['Все', 'РВП', 'ВНЖ', 'Гражданство РФ', 'Прочее']
+const FILTER_KEYS = ['all', 'rvp', 'vnzh', 'cit', 'other']
+
+function reviewFilterLabel(key, t) {
+  const paths = {
+    all: 'reviewsPage.filterAll',
+    rvp: 'reviewsPage.filterRvp',
+    vnzh: 'reviewsPage.filterVnzh',
+    cit: 'reviewsPage.filterCit',
+    other: 'reviewsPage.filterOther',
+  }
+  return t(paths[key] || paths.all)
+}
+
+/** Match review to filter using service_slug (preferred) + RU/EN legacy labels */
+function matchesReviewFilter(r, filterKey) {
+  const slug = (r.service_slug || '').trim().toLowerCase()
+  const label = `${r.service || ''} `.toLowerCase()
+  if (filterKey === 'all') return true
+  if (filterKey === 'rvp') {
+    return slug === 'rvp' || label.includes('рвп') || /\btrp\b/.test(label)
+  }
+  if (filterKey === 'vnzh') {
+    return slug === 'vnzh' || label.includes('внж') || /\bprp\b/.test(label) || label.includes('permanent residence')
+  }
+  if (filterKey === 'cit') {
+    return (
+      slug === 'grazhdanstvo' ||
+      label.includes('гражданство') ||
+      label.includes('citizenship of') ||
+      label.includes('citizenship')
+    )
+  }
+  if (filterKey === 'other') {
+    if (slug && ['rvp', 'vnzh', 'grazhdanstvo'].includes(slug)) return false
+    if (label.includes('рвп') || label.includes('внж') || label.includes('гражданство')) return false
+    if (/\btrp\b/.test(label) || /\bprp\b/.test(label) || label.includes('permanent residence')) return false
+    if (label.includes('citizenship')) return false
+    return true
+  }
+  return true
+}
 
 export function ReviewsPage() {
+  const { t } = useTranslation()
   const [list, setList] = useState(null)
-  const [filter, setFilter] = useState('Все')
+  const [filter, setFilter] = useState('all')
 
   useEffect(() => {
     let c = false
@@ -30,13 +72,7 @@ export function ReviewsPage() {
 
   const filtered = useMemo(() => {
     if (!list) return []
-    if (filter === 'Все') return list
-    if (filter === 'Прочее') {
-      return list.filter(
-        (r) => !['РВП', 'ВНЖ', 'Гражданство РФ'].some((k) => (r.service || '').includes(k)),
-      )
-    }
-    return list.filter((r) => (r.service || '').includes(filter.replace(' РФ', '')))
+    return list.filter((r) => matchesReviewFilter(r, filter))
   }, [list, filter])
 
   const avg =
@@ -45,25 +81,25 @@ export function ReviewsPage() {
   return (
     <>
       <Helmet>
-        <title>Отзывы — РЕЗИДЕНТ</title>
-        <meta name="description" content="Отзывы клиентов миграционного сервиса РЕЗИДЕНТ." />
+        <title>{t('reviewsPage.title')}</title>
+        <meta name="description" content={t('reviewsPage.metaDesc')} />
       </Helmet>
       <div className="section">
         <div className="container">
           <AboutSubNav />
-          <h1 className={styles.h1}>Отзывы наших клиентов</h1>
+          <h1 className={styles.h1}>{t('reviewsPage.h1')}</h1>
           <p className={styles.rating}>
-            Средняя оценка: <strong>{avg}</strong> / 5
+            {t('reviewsPage.avg')} <strong>{avg}</strong> {t('reviewsPage.outOf')}
           </p>
           <div className={styles.filters}>
-            {FILTERS.map((f) => (
+            {FILTER_KEYS.map((key) => (
               <button
-                key={f}
+                key={key}
                 type="button"
-                className={f === filter ? styles.fActive : styles.f}
-                onClick={() => setFilter(f)}
+                className={key === filter ? styles.fActive : styles.f}
+                onClick={() => setFilter(key)}
               >
-                {f}
+                {reviewFilterLabel(key, t)}
               </button>
             ))}
           </div>

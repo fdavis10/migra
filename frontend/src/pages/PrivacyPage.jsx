@@ -1,24 +1,19 @@
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './PrivacyPage.module.css'
 
 export function PrivacyPage() {
+  const { t } = useTranslation()
   return (
     <>
       <Helmet>
-        <title>Политика конфиденциальности — РЕЗИДЕНТ</title>
+        <title>{t('privacyPage.title')}</title>
       </Helmet>
       <div className="section">
         <div className={`container ${styles.wrap}`}>
-          <h1>Политика конфиденциальности</h1>
-          <p>
-            Настоящая страница описывает базовые принципы обработки персональных данных на сайте
-            миграционного сервиса «РЕЗИДЕНТ». Актуальный юридический текст предоставляется заказчиком и
-            подключается на этапе запуска.
-          </p>
-          <p>
-            Заявки, отправленные через формы сайта, используются только для связи с вами по вопросу
-            консультации и не передаются третьим лицам без законных оснований.
-          </p>
+          <h1>{t('privacyPage.h1')}</h1>
+          <p>{t('privacyPage.p1')}</p>
+          <p>{t('privacyPage.p2')}</p>
         </div>
       </div>
     </>

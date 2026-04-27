@@ -4,10 +4,12 @@ import { getPromotions } from '@/api/promos'
 import { Card } from '@/components/ui/Card'
 import { CountdownTimer } from '@/components/sections/CountdownTimer'
 import { Skeleton } from '@/components/ui/Skeleton'
+import { useTranslation } from '@/i18n/useTranslation'
 import { unwrapList } from '@/utils/apiList'
 import styles from './PromotionsPage.module.css'
 
 export function PromotionsPage() {
+  const { t } = useTranslation()
   const [list, setList] = useState(null)
   useEffect(() => {
     let c = false
@@ -29,12 +31,12 @@ export function PromotionsPage() {
   return (
     <>
       <Helmet>
-        <title>Акции — РЕЗИДЕНТ</title>
-        <meta name="description" content="Акции и специальные предложения миграционного сервиса РЕЗИДЕНТ." />
+        <title>{t('promotionsPage.title')}</title>
+        <meta name="description" content={t('promotionsPage.metaDesc')} />
       </Helmet>
       <div className="section">
         <div className="container">
-          <h1 className={styles.h1}>Акции и специальные предложения</h1>
+          <h1 className={styles.h1}>{t('promotionsPage.h1')}</h1>
           <div className={styles.timer}>
             <CountdownTimer until={until} />
           </div>

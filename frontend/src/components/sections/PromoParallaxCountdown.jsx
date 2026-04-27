@@ -1,15 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLocale } from '@/context/LanguageContext'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './PromoParallaxCountdown.module.css'
 
 function pad(n) {
   return String(n).padStart(2, '0')
 }
 
-function formatRuDate(isoDate) {
+function formatLocaleDate(isoDate, locale) {
   if (!isoDate) return ''
   const [y, m, d] = isoDate.split('-').map(Number)
   if (!y || !m || !d) return ''
-  return new Date(y, m - 1, d).toLocaleDateString('ru-RU', {
+  const tag = locale === 'en' ? 'en-US' : 'ru-RU'
+  return new Date(y, m - 1, d).toLocaleDateString(tag, {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
@@ -56,6 +59,8 @@ function useParallaxTranslateY(containerRef) {
 }
 
 export function PromoParallaxCountdown({ untilIso, countdownDate }) {
+  const { locale } = useLocale()
+  const { t } = useTranslation()
   const wrapRef = useRef(null)
   const innerRef = useRef(null)
   const ty = useParallaxTranslateY(wrapRef)
@@ -85,7 +90,7 @@ export function PromoParallaxCountdown({ untilIso, countdownDate }) {
     if (inner) inner.style.transform = `translate3d(0, ${ty}px, 0) scale(1.14)`
   }, [ty])
 
-  const dateLabel = formatRuDate(countdownDate)
+  const dateLabel = formatLocaleDate(countdownDate, locale)
 
   return (
     <div ref={wrapRef} className={styles.wrap}>
@@ -103,32 +108,35 @@ export function PromoParallaxCountdown({ untilIso, countdownDate }) {
       {untilIso && parts && !parts.expired ? (
         <div className={styles.overlay}>
           <div className={styles.glass}>
-            <p className={styles.kicker}>До конца акции{dateLabel ? ` · ${dateLabel}` : ''}</p>
+            <p className={styles.kicker}>
+              {t('promoCountdown.untilEnd')}
+              {dateLabel ? `${t('promoCountdown.separator')}${dateLabel}` : ''}
+            </p>
             <div className={styles.digits} role="timer" aria-live="polite">
               <div className={styles.cell}>
                 <span className={styles.num}>{parts.days}</span>
-                <span className={styles.unit}>дн</span>
+                <span className={styles.unit}>{t('promoCountdown.unitDays')}</span>
               </div>
               <div className={styles.cell}>
                 <span className={styles.num}>{pad(parts.h)}</span>
-                <span className={styles.unit}>час</span>
+                <span className={styles.unit}>{t('promoCountdown.unitHours')}</span>
               </div>
               <div className={styles.cell}>
                 <span className={styles.num}>{pad(parts.m)}</span>
-                <span className={styles.unit}>мин</span>
+                <span className={styles.unit}>{t('promoCountdown.unitMin')}</span>
               </div>
               <div className={styles.cell}>
                 <span className={styles.num}>{pad(parts.s)}</span>
-                <span className={styles.unit}>сек</span>
+                <span className={styles.unit}>{t('promoCountdown.unitSec')}</span>
               </div>
             </div>
-            <p className={styles.hint}>Время по Москве (конец указанного дня)</p>
+            <p className={styles.hint}>{t('promoCountdown.hint')}</p>
           </div>
         </div>
       ) : untilIso && parts?.expired ? (
         <div className={styles.overlay}>
           <div className={`${styles.glass} ${styles.glassMuted}`}>
-            <p className={styles.kicker}>Период акции завершён</p>
+            <p className={styles.kicker}>{t('promoCountdown.expired')}</p>
           </div>
         </div>
       ) : null}

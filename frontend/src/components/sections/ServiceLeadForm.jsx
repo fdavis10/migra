@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { CITIZENSHIP_OPTIONS, REGION_OPTIONS } from '@/content/leadForm'
 import { submitLead } from '@/api/leads'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './ServiceLeadForm.module.css'
 
 export function ServiceLeadForm({ serviceTitle, sourcePath }) {
+  const { t } = useTranslation()
   const [leadStatus, setLeadStatus] = useState(null)
 
   const onSubmit = async (e) => {
@@ -36,13 +38,18 @@ export function ServiceLeadForm({ serviceTitle, sourcePath }) {
     <Card className={styles.card}>
       <form className={styles.form} onSubmit={onSubmit}>
         <label>
-          Имя (необязательно)
-          <input name="name" type="text" autoComplete="name" placeholder="Как к вам обращаться" />
+          {t('serviceLeadForm.nameOptional')}
+          <input
+            name="name"
+            type="text"
+            autoComplete="name"
+            placeholder={t('serviceLeadForm.namePlaceholder')}
+          />
         </label>
         <label>
-          Гражданство
+          {t('serviceLeadForm.citizenship')}
           <select name="citizenship" required>
-            <option value="">Выберите</option>
+            <option value="">{t('leadForm.choose')}</option>
             {CITIZENSHIP_OPTIONS.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -51,9 +58,9 @@ export function ServiceLeadForm({ serviceTitle, sourcePath }) {
           </select>
         </label>
         <label>
-          Регион
+          {t('serviceLeadForm.region')}
           <select name="region" required>
-            <option value="">Выберите</option>
+            <option value="">{t('leadForm.choose')}</option>
             {REGION_OPTIONS.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -62,22 +69,22 @@ export function ServiceLeadForm({ serviceTitle, sourcePath }) {
           </select>
         </label>
         <label>
-          Телефон
+          {t('serviceLeadForm.phone')}
           <input name="phone" type="tel" required autoComplete="tel" placeholder="+7…" />
         </label>
         <label>
-          Комментарий (необязательно)
-          <textarea name="message" rows={3} placeholder="Кратко опишите ситуацию" />
+          {t('serviceLeadForm.commentOptional')}
+          <textarea name="message" rows={3} placeholder={t('serviceLeadForm.commentPlaceholder')} />
         </label>
         <label className={styles.inlineCheck}>
           <input type="checkbox" name="consent" value="1" />
-          Согласие с политикой конфиденциальности
+          {t('serviceLeadForm.consent')}
         </label>
-        <Button type="submit">Отправить заявку</Button>
+        <Button type="submit">{t('serviceLeadForm.submit')}</Button>
       </form>
-      {leadStatus === 'ok' ? <p className={styles.ok}>Заявка отправлена. Мы свяжемся с вами.</p> : null}
-      {leadStatus === 'err' ? <p className={styles.err}>Ошибка отправки. Попробуйте позже.</p> : null}
-      {leadStatus === 'need-consent' ? <p className={styles.err}>Нужно согласие с политикой.</p> : null}
+      {leadStatus === 'ok' ? <p className={styles.ok}>{t('serviceLeadForm.ok')}</p> : null}
+      {leadStatus === 'err' ? <p className={styles.err}>{t('serviceLeadForm.err')}</p> : null}
+      {leadStatus === 'need-consent' ? <p className={styles.err}>{t('serviceLeadForm.needConsent')}</p> : null}
     </Card>
   )
 }

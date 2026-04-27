@@ -6,9 +6,11 @@ import { CITIZENSHIP_OPTIONS, REGION_OPTIONS } from '@/content/leadForm'
 import { useLeadModal } from '@/context/LeadModalContext'
 import { Button } from '@/components/ui/Button'
 import { Modal } from '@/components/ui/Modal'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './LeadConsultationModal.module.css'
 
 export function LeadConsultationModal() {
+  const { t } = useTranslation()
   const { open, closeModal, presetService } = useLeadModal()
   const {
     register,
@@ -49,31 +51,31 @@ export function LeadConsultationModal() {
     })
     reset()
     closeModal()
-    alert('Заявка отправлена. Мы свяжемся с вами в ближайшее время.')
+    alert(t('leadConsultation.alertSent'))
   }
 
   return (
-    <Modal open={open} title="Бесплатная консультация" onClose={closeModal}>
+    <Modal open={open} title={t('leadConsultation.leadTitle')} onClose={closeModal}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={styles.label}>
-          Имя (необязательно)
+          {t('leadConsultation.nameOptional')}
           <input className={styles.input} type="text" {...register('name')} />
         </label>
         <label className={styles.label}>
-          Телефон *
+          {t('leadConsultation.phone')}
           <input
             className={styles.input}
             type="tel"
             inputMode="tel"
             autoComplete="tel"
-            {...register('phone', { required: 'Укажите телефон' })}
+            {...register('phone', { required: t('leadForm.phoneRequired') })}
           />
         </label>
         {errors.phone ? <p className={styles.err}>{errors.phone.message}</p> : null}
         <label className={styles.label}>
-          Ваше гражданство
+          {t('leadConsultation.citizenship')}
           <select className={styles.input} {...register('citizenship')}>
-            <option value="">Выберите</option>
+            <option value="">{t('leadForm.choose')}</option>
             {CITIZENSHIP_OPTIONS.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -82,9 +84,9 @@ export function LeadConsultationModal() {
           </select>
         </label>
         <label className={styles.label}>
-          Где вы сейчас?
+          {t('leadConsultation.whereAreYou')}
           <select className={styles.input} {...register('region')}>
-            <option value="">Выберите</option>
+            <option value="">{t('leadForm.choose')}</option>
             {REGION_OPTIONS.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -93,30 +95,30 @@ export function LeadConsultationModal() {
           </select>
         </label>
         <label className={styles.label}>
-          Услуга
+          {t('leadConsultation.service')}
           <input className={styles.input} type="text" {...register('service')} />
         </label>
         <label className={styles.label}>
-          Комментарий
+          {t('leadConsultation.comment')}
           <textarea className={styles.textarea} rows={3} {...register('message')} />
         </label>
         <label className={styles.check}>
           <input type="checkbox" {...register('consent', { required: true })} />
           <span>
-            Согласие с{' '}
+            {t('leadConsultation.consentLink')}{' '}
             <a href="/privacy" onClick={(e) => e.stopPropagation()}>
-              политикой конфиденциальности
+              {t('leadConsultation.privacyLink')}
             </a>
           </span>
         </label>
-        {errors.consent ? <p className={styles.err}>Необходимо согласие</p> : null}
+        {errors.consent ? <p className={styles.err}>{t('leadConsultation.consentNeeded')}</p> : null}
         <input type="hidden" {...register('source_page')} />
         <div className={styles.actions}>
           <Button type="submit" disabled={isSubmitting}>
-            Перезвоните мне
+            {t('leadConsultation.submit')}
           </Button>
         </div>
-        <p className={styles.alt}>Или напишите:</p>
+        <p className={styles.alt}>{t('leadConsultation.orWrite')}</p>
         <div className={styles.links}>
           <a href={SITE.whatsapp} target="_blank" rel="noreferrer">
             WhatsApp

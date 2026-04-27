@@ -3,6 +3,7 @@ from django.db import models
 
 class PriceCategory(models.Model):
     title = models.CharField("Название категории", max_length=200)
+    title_en = models.CharField("Название категории (EN)", max_length=200, blank=True)
     order = models.PositiveIntegerField("Порядок", default=0)
     service = models.ForeignKey(
         "services.Service",
@@ -36,6 +37,8 @@ class PriceItem(models.Model):
         "Текст цены", max_length=120, blank=True
     )
     duration = models.CharField("Срок", max_length=100, blank=True)
+    title_en = models.CharField("Услуга / позиция (EN)", max_length=300, blank=True)
+    duration_en = models.CharField("Срок (EN)", max_length=100, blank=True)
     order = models.PositiveIntegerField("Порядок", default=0)
 
     class Meta:

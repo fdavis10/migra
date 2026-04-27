@@ -19,6 +19,10 @@
   box-shadow: var(--shadow-lg);
 }
 
+.dialogWide {
+  max-width: 560px;
+}
+
 .head {
   display: flex;
   align-items: flex-start;

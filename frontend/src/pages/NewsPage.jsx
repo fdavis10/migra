@@ -4,10 +4,13 @@ import { Helmet } from 'react-helmet-async'
 import { getNews } from '@/api/news'
 import { Card } from '@/components/ui/Card'
 import { Skeleton } from '@/components/ui/Skeleton'
+import { useTranslation } from '@/i18n/useTranslation'
 import { mediaUrl } from '@/utils/mediaUrl'
 import styles from './NewsPage.module.css'
 
 export function NewsPage() {
+  const { t, locale } = useTranslation()
+  const dateLocale = locale === 'en' ? 'en-US' : 'ru-RU'
   const [page, setPage] = useState(1)
   const [data, setData] = useState(null)
 
@@ -34,13 +37,13 @@ export function NewsPage() {
   return (
     <>
       <Helmet>
-        <title>Новости — РЕЗИДЕНТ</title>
-        <meta name="description" content="Новости миграционного законодательства." />
+        <title>{t('newsPage.title')}</title>
+        <meta name="description" content={t('newsPage.metaDesc')} />
       </Helmet>
       <div className="section">
         <div className={`container ${styles.layout}`}>
           <div>
-            <h1 className={styles.h1}>Новости миграционного законодательства</h1>
+            <h1 className={styles.h1}>{t('newsPage.h1')}</h1>
             <div className={styles.grid}>
               {data === null
                 ? [...Array(6)].map((_, i) => <Skeleton key={i} style={{ height: 200 }} />)
@@ -60,7 +63,7 @@ export function NewsPage() {
                         </Link>
                       ) : null}
                       <time className={styles.date}>
-                        {n.published_at ? new Date(n.published_at).toLocaleDateString('ru-RU') : ''}
+                        {n.published_at ? new Date(n.published_at).toLocaleDateString(dateLocale) : ''}
                       </time>
                       {n.category ? <span className={styles.cat}>{n.category}</span> : null}
                       <h2 className={styles.title}>
@@ -68,7 +71,7 @@ export function NewsPage() {
                       </h2>
                       <p className={styles.exc}>{n.excerpt}</p>
                       <Link to={`/novosti/${n.slug}`} className={styles.read}>
-                        Читать далее
+                        {t('newsPage.readMore')}
                       </Link>
                     </Card>
                   ))}
@@ -76,7 +79,7 @@ export function NewsPage() {
             {totalPages > 1 ? (
               <div className={styles.pag}>
                 <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
-                  Назад
+                  {t('newsPage.prev')}
                 </button>
                 <span>
                   {page} / {totalPages}
@@ -86,14 +89,14 @@ export function NewsPage() {
                   disabled={page >= totalPages}
                   onClick={() => setPage((p) => p + 1)}
                 >
-                  Вперёд
+                  {t('newsPage.next')}
                 </button>
               </div>
             ) : null}
           </div>
           <aside className={styles.side}>
             <Card className={styles.sideCard}>
-              <h3>Популярное</h3>
+              <h3>{t('newsPage.popular')}</h3>
               <ul className={styles.sideList}>
                 {results.slice(0, 4).map((n) => (
                   <li key={n.slug}>
@@ -103,8 +106,8 @@ export function NewsPage() {
               </ul>
             </Card>
             <Card className={styles.sideCard}>
-              <h3>Подписка</h3>
-              <p className={styles.small}>Скоро — рассылка об изменениях в законодательстве.</p>
+              <h3>{t('newsPage.subscribe')}</h3>
+              <p className={styles.small}>{t('newsPage.subscribeHint')}</p>
             </Card>
           </aside>
         </div>

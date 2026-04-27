@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './ReviewCarousel.module.css'
 
 export function ReviewCarousel({ reviews }) {
+  const { t } = useTranslation()
   const [i, setI] = useState(0)
   useEffect(() => {
     if (!reviews?.length) return
@@ -26,7 +28,7 @@ export function ReviewCarousel({ reviews }) {
             key={idx}
             type="button"
             className={idx === i ? styles.dotActive : styles.dot}
-            aria-label={`Отзыв ${idx + 1}`}
+            aria-label={`${t('reviewCarousel.reviewN')} ${idx + 1}`}
             onClick={() => setI(idx)}
           />
         ))}

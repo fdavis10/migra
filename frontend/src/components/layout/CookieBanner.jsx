@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/Button'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './CookieBanner.module.css'
 
 const KEY = 'resident_cookie_ok'
 
 export function CookieBanner() {
+  const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -25,13 +27,10 @@ export function CookieBanner() {
   if (!visible) return null
 
   return (
-    <div className={styles.bar} role="dialog" aria-label="Файлы cookie">
-      <p className={styles.text}>
-        Мы используем cookie для удобства работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с
-        обработкой данных.
-      </p>
+    <div className={styles.bar} role="dialog" aria-label={t('cookie.aria')}>
+      <p className={styles.text}>{t('cookie.text')}</p>
       <Button type="button" size="sm" onClick={accept}>
-        Принять
+        {t('cookie.accept')}
       </Button>
     </div>
   )

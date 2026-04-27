@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "@/i18n/useTranslation";
 import styles from "./Footer.module.css";
 
 export function Footer({ site, services = [] }) {
+  const { t } = useTranslation();
   const phone = site?.phone || "";
   const email = site?.email || "";
 
@@ -42,33 +44,33 @@ export function Footer({ site, services = [] }) {
           </div>
         </div>
         <div>
-          <h3 className={styles.h}>О компании</h3>
-          <Link to="/o-kompanii">О нас</Link>
-          <Link to="/garantii">Гарантии</Link>
-          <Link to="/otzyvy">Отзывы</Link>
-          <Link to="/o-kompanii/oplata">Оплата</Link>
+          <h3 className={styles.h}>{t("footer.columnAboutTitle")}</h3>
+          <Link to="/o-kompanii">{t("footer.columnAboutLinks.about")}</Link>
+          <Link to="/garantii">{t("footer.columnAboutLinks.guarantees")}</Link>
+          <Link to="/otzyvy">{t("footer.columnAboutLinks.reviews")}</Link>
+          <Link to="/o-kompanii/oplata">{t("footer.columnAboutLinks.payment")}</Link>
         </div>
         <div>
-          <h3 className={styles.h}>Услуги</h3>
+          <h3 className={styles.h}>{t("footer.columnServicesTitle")}</h3>
           {services.slice(0, 10).map((s) => (
             <Link key={s.slug} to={`/uslugi/${s.slug}`}>
               {s.title}
             </Link>
           ))}
-          <Link to="/uslugi">Все услуги</Link>
+          <Link to="/uslugi">{t("footer.allServices")}</Link>
         </div>
         <div>
-          <h3 className={styles.h}>Информация</h3>
-          <Link to="/novosti">Новости</Link>
-          <Link to="/faq">Вопросы и ответы</Link>
-          <Link to="/kontakty">Контакты</Link>
+          <h3 className={styles.h}>{t("footer.columnInfoTitle")}</h3>
+          <Link to="/novosti">{t("footer.columnInfoLinks.news")}</Link>
+          <Link to="/faq">{t("footer.columnInfoLinks.faq")}</Link>
+          <Link to="/kontakty">{t("footer.columnInfoLinks.contacts")}</Link>
         </div>
       </div>
       <div className={styles.bottom}>
         <div className={`container ${styles.bottomInner}`}>
-          <span>© 2026 «РЕЗИДЕНТ»</span>
-          <Link to="/privacy">Политика конфиденциальности</Link>
-          <Link to="/uslugi">Карта сайта</Link>
+          <span>{t("footer.copyright")}</span>
+          <Link to="/privacy">{t("footer.privacy")}</Link>
+          <Link to="/sitemap">{t("footer.sitemapLink")}</Link>
         </div>
       </div>
     </footer>

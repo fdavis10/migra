@@ -4,6 +4,7 @@ import { getServices } from '@/api/services'
 import { ServiceCard } from '@/components/sections/ServiceCard'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { unwrapList } from '@/utils/apiList'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './ServicesPage.module.css'
 
 function clamp(n, min, max) {
@@ -11,6 +12,7 @@ function clamp(n, min, max) {
 }
 
 export function ServicesPage() {
+  const { t } = useTranslation()
   const [list, setList] = useState(null)
   const parallaxFrameRef = useRef(null)
   const parallaxMoverRef = useRef(null)
@@ -68,12 +70,12 @@ export function ServicesPage() {
   return (
     <>
       <Helmet>
-        <title>Услуги — РЕЗИДЕНТ</title>
-        <meta name="description" content="Миграционные услуги для иностранных граждан: РВП, ВНЖ, гражданство РФ и другое." />
+        <title>{t('servicesPage.title')}</title>
+        <meta name="description" content={t('servicesPage.metaDesc')} />
       </Helmet>
       <div className="section">
         <div className="container">
-          <h1 className={styles.h1}>Миграционные услуги для иностранных граждан</h1>
+          <h1 className={styles.h1}>{t('servicesPage.h1')}</h1>
           <figure ref={parallaxFrameRef} className={styles.parallaxFrame}>
             <div ref={parallaxMoverRef} className={styles.parallaxMover}>
               <img

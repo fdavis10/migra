@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './CountdownTimer.module.css'
 
 function pad(n) {
@@ -6,6 +7,7 @@ function pad(n) {
 }
 
 export function CountdownTimer({ until }) {
+  const { t } = useTranslation()
   const [left, setLeft] = useState(null)
 
   useEffect(() => {
@@ -27,9 +29,10 @@ export function CountdownTimer({ until }) {
   if (!until || !left) return null
   return (
     <div className={styles.root}>
-      <span className={styles.label}>До конца месяца:</span>
+      <span className={styles.label}>{t('countdownSection.monthEnd')}</span>
       <span className={styles.time}>
-        {left.days}д {pad(left.h)}:{pad(left.m)}:{pad(left.s)}
+        {left.days}
+        {t('countdownSection.daySuffix')} {pad(left.h)}:{pad(left.m)}:{pad(left.s)}
       </span>
     </div>
   )

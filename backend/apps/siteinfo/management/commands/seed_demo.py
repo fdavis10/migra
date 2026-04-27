@@ -36,8 +36,8 @@ class Command(BaseCommand):
                 "Профессиональная помощь в оформлении РВП, ВНЖ и гражданства РФ. "
                 "Сопровождаем на каждом этапе — от первой консультации до паспорта."
             ),
-            phone="+7 (495) 000-00-00",
-            email="info@resident-service.example",
+            phone="+7 (916) 303-28-63",
+            email="residentservic@mail.ru",
             address="г. Москва, ул. Примерная, д. 1, офис 100 (замените на реальные данные)",
             work_hours="Пн–Вс 09:00–21:00",
             map_embed_html=(
@@ -46,7 +46,7 @@ class Command(BaseCommand):
                 'frameborder="0" allowfullscreen="true" style="position:relative;">'
                 "</iframe>"
             ),
-            whatsapp_url="https://wa.me/74950000000",
+            whatsapp_url="https://wa.me/79163032863",
             telegram_url="https://t.me/resident_example",
             vk_url="https://vk.com/resident_example",
             about_company=(

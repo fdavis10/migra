@@ -24,6 +24,7 @@ import { Skeleton } from '@/components/ui/Skeleton'
 import { Accordion } from '@/components/sections/Accordion'
 import { ServiceLeadForm } from '@/components/sections/ServiceLeadForm'
 import { useLeadModal } from '@/context/LeadModalContext'
+import { useTranslation } from '@/i18n/useTranslation'
 import { formatRub, priceLine } from '@/utils/money'
 import { unwrapList } from '@/utils/apiList'
 import styles from './ServiceDetailPage.module.css'
@@ -154,6 +155,7 @@ function renderContentSection(block, i) {
 export function ServiceDetailPage() {
   const { slug } = useParams()
   const { openModal } = useLeadModal()
+  const { t } = useTranslation()
   const [status, setStatus] = useState('loading')
   const [svc, setSvc] = useState(null)
   const [all, setAll] = useState([])
@@ -189,8 +191,8 @@ export function ServiceDetailPage() {
   if (status === 'error') {
     return (
       <div className="section container">
-        <p>Услуга не найдена.</p>
-        <Link to="/uslugi">К списку услуг</Link>
+        <p>{t('serviceDetail.notFound')}</p>
+        <Link to="/uslugi">{t('serviceDetail.toList')}</Link>
       </div>
     )
   }
@@ -210,7 +212,9 @@ export function ServiceDetailPage() {
   return (
     <>
       <Helmet>
-        <title>{svc.title} — РЕЗИДЕНТ</title>
+        <title>
+          {svc.title} {t('common.titleSuffix')}
+        </title>
         <meta name="description" content={svc.short_desc} />
       </Helmet>
 
@@ -220,7 +224,7 @@ export function ServiceDetailPage() {
         >
           <div className={styles.heroMain}>
             <h1 className={styles.h1}>{svc.title}</h1>
-            <p className={styles.price}>{priceLine(svc)}</p>
+            <p className={styles.price}>{priceLine(svc, t)}</p>
             {introBlocks.map((t, i) => (
               <p key={i} className={styles.intro}>
                 {t}
@@ -228,10 +232,10 @@ export function ServiceDetailPage() {
             ))}
             <div className={styles.cta}>
               <Button type="button" size="lg" onClick={() => openModal(svc.title)}>
-                Бесплатная консультация
+                {t('header.ctaConsultation')}
               </Button>
               <Link to="/ceny" className={styles.linkCeny}>
-                Прайс-лист
+                {t('serviceDetail.priceList')}
               </Link>
             </div>
           </div>
@@ -264,7 +268,7 @@ export function ServiceDetailPage() {
       ) : null}
 
       {d.why_choose?.length ? (
-        <DetailSection icon={SparklesIcon} title="Почему выбирают нас">
+        <DetailSection icon={SparklesIcon} title={t('serviceDetail.whyChoose')}>
           <ul className={styles.whyGrid}>
             {d.why_choose.map((t, i) => (
               <li key={i} className={styles.whyItem}>
@@ -277,12 +281,14 @@ export function ServiceDetailPage() {
       ) : null}
 
       {d.packages?.length ? (
-        <DetailSection icon={GiftIcon} title="Пакеты услуг" muted>
+        <DetailSection icon={GiftIcon} title={t('serviceDetail.packages')} muted>
           <div className={styles.pkgGrid}>
             {d.packages.map((p) => (
               <Card key={p.name} className={styles.pkg}>
                 <h3>{p.name}</h3>
-                <p className={styles.pkgPrice}>{p.price ? `от ${formatRub(p.price)}` : ''}</p>
+                <p className={styles.pkgPrice}>
+                  {p.price ? `${t('common.priceFrom')} ${formatRub(p.price)}` : ''}
+                </p>
                 <p className={styles.pkgDesc}>{p.description}</p>
               </Card>
             ))}
@@ -291,7 +297,7 @@ export function ServiceDetailPage() {
       ) : null}
 
       {d.status_advantages?.length ? (
-        <DetailSection icon={ShieldCheckIcon} title="Преимущества статуса">
+        <DetailSection icon={ShieldCheckIcon} title={t('serviceDetail.statusAdv')}>
           <div className={styles.advGrid}>
             {d.status_advantages.map((x) => (
               <Card key={x.title} className={styles.adv}>
@@ -307,7 +313,7 @@ export function ServiceDetailPage() {
       ) : null}
 
       {d.appeal_stages?.length ? (
-        <DetailSection icon={ScaleIcon} title="Этапы и ориентиры по стоимости">
+        <DetailSection icon={ScaleIcon} title={t('serviceDetail.appealStages')}>
           <ol className={styles.stagesEnhanced}>
             {d.appeal_stages.map((st, idx) => {
               const stagePrice = st.price ?? st.price_from
@@ -317,7 +323,11 @@ export function ServiceDetailPage() {
                   <div className={styles.stageBody}>
                     <strong className={styles.stageTitle}>{st.title}</strong>
                     <p className={styles.stageMeta}>
-                      {stagePrice != null ? <>от {formatRub(stagePrice)} · </> : null}
+                      {stagePrice != null ? (
+                        <>
+                          {t('common.priceFrom')} {formatRub(stagePrice)} ·{' '}
+                        </>
+                      ) : null}
                       {st.duration}
                     </p>
                   </div>
@@ -329,7 +339,7 @@ export function ServiceDetailPage() {
       ) : null}
 
       {d.steps_timeline?.length ? (
-        <DetailSection icon={ArrowPathRoundedSquareIcon} title="Путь к гражданству" muted>
+        <DetailSection icon={ArrowPathRoundedSquareIcon} title={t('serviceDetail.pathCitizenship')} muted>
           <div className={styles.timeline}>
             {d.steps_timeline.map((t, i) => (
               <div key={t} className={styles.tlItem}>
@@ -347,7 +357,7 @@ export function ServiceDetailPage() {
             <Card className={styles.warn}>
               <div className={styles.warnHead}>
                 <ExclamationTriangleIcon className={styles.warnIcon} aria-hidden />
-                <h2 className={styles.warnTitle}>Риски самостоятельного оформления</h2>
+                <h2 className={styles.warnTitle}>{t('serviceDetail.risksTitle')}</h2>
               </div>
               <p className={styles.warnText}>{d.risks}</p>
             </Card>
@@ -356,7 +366,7 @@ export function ServiceDetailPage() {
       ) : null}
 
       {d.documents?.length && !richArticle ? (
-        <DetailSection icon={ClipboardDocumentListIcon} title="Необходимые документы" muted>
+        <DetailSection icon={ClipboardDocumentListIcon} title={t('serviceDetail.documents')} muted>
           <ol className={styles.docsEnhanced}>
             {d.documents.map((line, i) => (
               <li key={i} className={styles.docRow}>
@@ -369,13 +379,15 @@ export function ServiceDetailPage() {
       ) : null}
 
       {d.steps?.length && !richArticle ? (
-        <DetailSection icon={ListBulletIcon} title="Этапы работы">
+        <DetailSection icon={ListBulletIcon} title={t('serviceDetail.stepsWork')}>
           <ol className={styles.stepsFlow}>
             {d.steps.map((line, i) => (
               <li key={i} className={styles.stepFlowItem}>
                 <span className={styles.stepFlowDot} aria-hidden />
                 <div>
-                  <span className={styles.stepFlowLabel}>Шаг {i + 1}</span>
+                  <span className={styles.stepFlowLabel}>
+                    {t('serviceDetail.stepLabel')} {i + 1}
+                  </span>
                   <p className={styles.stepFlowText}>{line}</p>
                 </div>
               </li>
@@ -386,25 +398,23 @@ export function ServiceDetailPage() {
 
       <DetailSection
         icon={ChatBubbleLeftRightIcon}
-        title="Заявка на услугу"
+        title={t('serviceDetail.leadSection')}
         muted
         bodyClassName={styles.panelBodyLead}
       >
-        <p className={styles.leadLead}>
-          Заполните форму — перезвоним, уточним детали и предложим удобное время встречи или онлайн-консультации.
-        </p>
+        <p className={styles.leadLead}>{t('serviceDetail.leadLead')}</p>
         <div id="zayavka" className={styles.leadFormWrap}>
           <ServiceLeadForm serviceTitle={svc.title} sourcePath={`/uslugi/${slug}`} />
         </div>
       </DetailSection>
 
       {faqItems?.length ? (
-        <DetailSection icon={QuestionMarkCircleIcon} title="Частые вопросы">
+        <DetailSection icon={QuestionMarkCircleIcon} title={t('serviceDetail.faq')}>
           <Accordion items={faqItems} />
         </DetailSection>
       ) : null}
 
-      <DetailSection icon={LinkIcon} title="Похожие услуги">
+      <DetailSection icon={LinkIcon} title={t('serviceDetail.similar')}>
         <ul className={styles.simGrid}>
           {similar.map((s) => (
             <li key={s.slug}>

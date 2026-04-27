@@ -6,6 +6,8 @@ class Review(models.Model):
     service = models.CharField("Услуга", max_length=200, blank=True)
     service_slug = models.SlugField("Слаг услуги", max_length=120, blank=True)
     text = models.TextField("Текст")
+    text_en = models.TextField("Текст (EN)", blank=True)
+    service_en = models.CharField("Услуга (EN)", max_length=200, blank=True)
     source = models.CharField("Источник", max_length=50, blank=True)
     rating = models.PositiveIntegerField("Оценка", default=5)
     is_active = models.BooleanField("Показывать", default=True)

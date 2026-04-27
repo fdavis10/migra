@@ -1,16 +1,20 @@
 import { Button } from '@/components/ui/Button'
+import { useTranslation } from '@/i18n/useTranslation'
 import styles from './PromoFeaturedTiles.module.css'
 
 export function PromoFeaturedTiles({ onConsult }) {
+  const { t } = useTranslation()
   return (
     <div className={styles.row}>
-      <div className={styles.tileStatic} aria-label="Акция: тест на скидку">
+      <div className={styles.tileStatic} aria-label={t('promoTiles.testAria')}>
         <p className={styles.tileStaticText}>
-          Пройдите простой тест из 6 вопросов и получите скидку <span className={styles.accent}>7%</span>
+          {t('promoTiles.testBefore')}
+          <span className={styles.accent}>7%</span>
+          {t('promoTiles.testAfter')}
         </p>
       </div>
 
-      <div className={styles.flipScene} tabIndex={0} aria-label="Акция для пар: наведите для подробностей">
+      <div className={styles.flipScene} tabIndex={0} aria-label={t('promoTiles.couplesAria')}>
         <div className={styles.flipInner}>
           <div className={styles.faceFront}>
             <img
@@ -22,7 +26,7 @@ export function PromoFeaturedTiles({ onConsult }) {
               loading="lazy"
               decoding="async"
             />
-            <span className={styles.frontHint}>Наведите, чтобы узнать условия</span>
+            <span className={styles.frontHint}>{t('promoTiles.hoverHint')}</span>
           </div>
           <div className={styles.faceBack}>
             <img
@@ -36,11 +40,11 @@ export function PromoFeaturedTiles({ onConsult }) {
             />
             <div className={styles.backScrim} aria-hidden />
             <div className={styles.backContent}>
-              <p className={styles.backKicker}>ВМЕСТЕ ВЫГОДНЕЕ</p>
-              <p className={styles.backDiscount}>СКИДКА 10%</p>
-              <p className={styles.backLead}>Для семейных пар при одновременном оформлении</p>
+              <p className={styles.backKicker}>{t('promoTiles.backKicker')}</p>
+              <p className={styles.backDiscount}>{t('promoTiles.backDiscount')}</p>
+              <p className={styles.backLead}>{t('promoTiles.backLead')}</p>
               <Button type="button" size="md" onClick={onConsult}>
-                Бесплатная консультация
+                {t('promoTiles.cta')}
               </Button>
             </div>
           </div>

@@ -6,12 +6,15 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { useLeadModal } from '@/context/LeadModalContext'
+import { useTranslation } from '@/i18n/useTranslation'
 import { mediaUrl } from '@/utils/mediaUrl'
 import styles from './NewsDetailPage.module.css'
 
 export function NewsDetailPage() {
   const { slug } = useParams()
   const { openModal } = useLeadModal()
+  const { t, locale } = useTranslation()
+  const dateLocale = locale === 'en' ? 'en-US' : 'ru-RU'
   const [article, setArticle] = useState(null)
   const [related, setRelated] = useState([])
   const [err, setErr] = useState(false)
@@ -39,8 +42,8 @@ export function NewsDetailPage() {
   if (err) {
     return (
       <div className="section container">
-        <p>Статья не найдена.</p>
-        <Link to="/novosti">К новостям</Link>
+        <p>{t('newsDetailPage.notFound')}</p>
+        <Link to="/novosti">{t('newsDetailPage.toNews')}</Link>
       </div>
     )
   }
@@ -56,13 +59,17 @@ export function NewsDetailPage() {
   return (
     <>
       <Helmet>
-        <title>{article.title} — РЕЗИДЕНТ</title>
+        <title>
+          {article.title} {t('common.titleSuffix')}
+        </title>
         <meta name="description" content={article.excerpt} />
       </Helmet>
       <article className="section">
         <div className="container">
           <header className={styles.head}>
-            <time>{article.published_at ? new Date(article.published_at).toLocaleDateString('ru-RU') : ''}</time>
+            <time>
+              {article.published_at ? new Date(article.published_at).toLocaleDateString(dateLocale) : ''}
+            </time>
             {article.category ? <span className={styles.cat}>{article.category}</span> : null}
             <h1 className={styles.h1}>{article.title}</h1>
           </header>
@@ -80,7 +87,7 @@ export function NewsDetailPage() {
           ) : null}
           <div className={styles.body} dangerouslySetInnerHTML={{ __html: article.content }} />
 
-          <h2 className={styles.h2}>Похожие статьи</h2>
+          <h2 className={styles.h2}>{t('newsDetailPage.related')}</h2>
           <ul className={styles.rel}>
             {related.map((n) => (
               <li key={n.slug}>
@@ -90,9 +97,9 @@ export function NewsDetailPage() {
           </ul>
 
           <Card className={styles.cta}>
-            <p>Нужна консультация по теме статьи?</p>
+            <p>{t('newsDetailPage.cta')}</p>
             <Button type="button" variant="primary" onClick={() => openModal()}>
-              Бесплатная консультация
+              {t('header.ctaConsultation')}
             </Button>
           </Card>
         </div>
