@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { getServices } from '@/api/services'
 import { ServiceCard } from '@/components/sections/ServiceCard'
 import { Skeleton } from '@/components/ui/Skeleton'
+import otherPassportsImage from '@assets/image/other_passpots.jpeg'
 import { unwrapList } from '@/utils/apiList'
 import { useTranslation } from '@/i18n/useTranslation'
 import styles from './ServicesPage.module.css'
@@ -79,7 +80,7 @@ export function ServicesPage() {
           <figure ref={parallaxFrameRef} className={styles.parallaxFrame}>
             <div ref={parallaxMoverRef} className={styles.parallaxMover}>
               <img
-                src="/images/uslugi_image.png"
+                src={otherPassportsImage}
                 alt=""
                 className={styles.parallaxImg}
                 width={625}

@@ -53,10 +53,38 @@
   background: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-white) 100%);
 }
 
+.founderLayout {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 900px) {
+  .founderLayout {
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+  }
+}
+
+.founderFigure {
+  margin: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  background: var(--color-white);
+}
+
+.founderPhoto {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .qmark {
   position: absolute;
-  top: var(--spacing-md);
-  left: var(--spacing-lg);
+  top: var(--spacing-sm);
+  left: 0;
   font-size: 64px;
   line-height: 1;
   color: var(--color-primary);

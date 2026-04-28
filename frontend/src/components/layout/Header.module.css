@@ -32,6 +32,10 @@
   min-width: 0;
 }
 
+.localeBarDesk {
+  display: none;
+}
+
 .langWrap {
   position: relative;
   flex-shrink: 0;
@@ -49,10 +53,6 @@
   font-weight: 600;
   color: var(--color-text-main);
   cursor: pointer;
-}
-
-.langTrigger:hover {
-  color: var(--color-text-main);
 }
 
 .langIcon {
@@ -125,6 +125,10 @@
 }
 
 @media (min-width: 1024px) {
+  .localeBarDesk {
+    display: flex;
+  }
+
   .officeAddress {
     display: flex;
   }
@@ -145,10 +149,6 @@
   font-weight: 600;
   color: var(--color-text-main);
   cursor: pointer;
-}
-
-.cityTrigger:hover {
-  color: var(--color-text-main);
 }
 
 .cityName {
@@ -177,7 +177,7 @@
 }
 
 .yandexLogo {
-  display: block;
+  display: none;
   flex-shrink: 0;
   height: 28px;
   width: auto;
@@ -186,6 +186,7 @@
 
 @media (min-width: 1024px) {
   .yandexLogo {
+    display: block;
     height: 32px;
   }
 }
@@ -209,7 +210,7 @@
 }
 
 .contacts {
-  display: none;
+  display: flex;
   position: relative;
   z-index: 5;
   justify-content: flex-end;
@@ -219,7 +220,6 @@
 
 @media (min-width: 1024px) {
   .contacts {
-    display: flex;
     justify-self: end;
   }
 }
@@ -248,7 +248,16 @@
   flex-shrink: 0;
 }
 
-/* TG / WA — компактнее, чтобы не доминировали над номером и кнопкой */
+.messengerIconsDesk {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .messengerIconsDesk {
+    display: inline-flex;
+  }
+}
+
 .messengerIconLink {
   display: flex;
   align-items: center;
@@ -278,7 +287,6 @@
   object-fit: contain;
 }
 
-/* MAX: высота логотипа 63px; отрицательный margin — ближе к Telegram */
 .messengerIconLinkMax {
   width: auto;
   min-width: 63px;
@@ -294,6 +302,7 @@
   max-height: none;
   object-fit: contain;
 }
+
 
 .ctaDesk {
   display: none;
@@ -363,6 +372,7 @@
   padding-top: var(--spacing-sm);
   padding-bottom: var(--spacing-sm);
 }
+
 
 .nav a {
   color: var(--color-text-main);

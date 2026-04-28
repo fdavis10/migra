@@ -8,6 +8,9 @@ import styles from './SpecialistChat.module.css'
 
 const STORAGE_KEY = 'resident_specialist_chat_v1'
 const OP_PICK_KEY = 'resident_op_pick'
+const CHAT_CLICK_COUNT_KEY = 'resident_chat_click_count'
+const CHAT_ACTIVATED_KEY = 'resident_chat_activated'
+const CHAT_ACTIVATION_CLICKS = 2
 const TYPING_MS = 15_000
 
 const OPERATORS = [
@@ -133,6 +136,7 @@ export function SpecialistChat() {
   const [draft, setDraft] = useState('')
   const [typing, setTyping] = useState(false)
   const [inputLocked, setInputLocked] = useState(false)
+  const [activated, setActivated] = useState(false)
 
   const listRef = useRef(null)
   const timerRef = useRef(null)
@@ -153,15 +157,22 @@ export function SpecialistChat() {
     hydrated.current = true
     const p = loadPersisted()
     if (p) {
+      setActivated(true)
       setMessages(Array.isArray(p.messages) ? p.messages : [])
       setStep(typeof p.step === 'number' ? p.step : 0)
       setCityReply(p.cityReply || '')
       setDone(Boolean(p.done))
       setLeadOk(typeof p.leadOk === 'boolean' ? p.leadOk : null)
     }
+    try {
+      if (sessionStorage.getItem(CHAT_ACTIVATED_KEY) === '1') {
+        setActivated(true)
+      }
+    } catch {}
   }, [])
 
   useEffect(() => {
+    if (!activated) return
     if (didAutoOpen.current) return
     didAutoOpen.current = true
     setMinimized(false)
@@ -170,6 +181,27 @@ export function SpecialistChat() {
       return [{ id: uid(), role: 'assistant', text: chatMsg.greet }]
     })
   }, [chatMsg.greet])
+
+  useEffect(() => {
+    if (activated) return
+    const onClick = () => {
+      let count = 0
+      try {
+        count = Number(sessionStorage.getItem(CHAT_CLICK_COUNT_KEY) || '0') + 1
+        sessionStorage.setItem(CHAT_CLICK_COUNT_KEY, String(count))
+      } catch {
+        count = 0
+      }
+      if (count >= CHAT_ACTIVATION_CLICKS) {
+        try {
+          sessionStorage.setItem(CHAT_ACTIVATED_KEY, '1')
+        } catch {}
+        setActivated(true)
+      }
+    }
+    document.addEventListener('click', onClick, true)
+    return () => document.removeEventListener('click', onClick, true)
+  }, [activated])
 
   const persist = useCallback(() => {
     savePersisted({
@@ -329,7 +361,7 @@ export function SpecialistChat() {
     return last?.role === 'assistant' ? 1 : 0
   }, [minimized, messages])
 
-  if (!mounted) return null
+  if (!mounted || !activated) return null
 
   const node = (
     <div className={styles.wrap} aria-live="polite">

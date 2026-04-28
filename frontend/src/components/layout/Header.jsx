@@ -59,7 +59,7 @@ export function Header({ site }) {
           />
         </div>
 
-        <div className={styles.localeBar} ref={localeBarRef}>
+        <div className={`${styles.localeBar} ${styles.localeBarDesk}`} ref={localeBarRef}>
           <button
             type="button"
             className={styles.cityTrigger}
@@ -106,8 +106,8 @@ export function Header({ site }) {
             ) : null}
           </div>
           <address className={styles.officeAddress}>
-            <span className={styles.officeAddressLine}>{t('headerAddress.line1')}</span>
-            <span className={styles.officeAddressLine}>{t('headerAddress.line2')}</span>
+            <span className={styles.officeAddressLine}>{t("headerAddress.line1")}</span>
+            <span className={styles.officeAddressLine}>{t("headerAddress.line2")}</span>
           </address>
         </div>
 
@@ -116,7 +116,7 @@ export function Header({ site }) {
             <a className={styles.phone} href={`tel:${String(phone).replace(/\s/g, "")}`}>
               {phone}
             </a>
-            <div className={styles.messengerIcons}>
+            <div className={`${styles.messengerIcons} ${styles.messengerIconsDesk}`}>
               {maxMessengerUrl ? (
                 <a
                   className={`${styles.messengerIconLink} ${styles.messengerIconLinkMax}`}
@@ -232,7 +232,6 @@ export function Header({ site }) {
           </Button>
         </div>
       </nav>
-
       <CityPickerModal open={cityOpen} onClose={() => setCityOpen(false)} />
     </header>
   );
