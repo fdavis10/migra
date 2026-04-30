@@ -6,6 +6,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  background: var(--color-page);
 }
 
 body {
@@ -13,7 +14,7 @@ body {
   font-family: var(--font-main);
   font-size: var(--font-size-base);
   color: var(--color-text-main);
-  background: var(--color-bg-soft);
+  background: var(--color-page);
   line-height: 1.5;
 }
 

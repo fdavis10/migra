@@ -1,6 +1,6 @@
 .hero {
   padding: var(--spacing-2xl) 0;
-  background: linear-gradient(165deg, var(--color-primary-bg) 0%, var(--color-bg-soft) 55%);
+  background: var(--color-page);
 }
 
 .heroGrid {

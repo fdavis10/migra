@@ -16,8 +16,8 @@ import {
 
 import sizes from '@/components/icons/heroIconSizes.module.css'
 
-export function ServiceIcon({ name, className }) {
-  const cn = [sizes.size48, className].filter(Boolean).join(' ')
+export function ServiceIcon({ name, className, compact }) {
+  const cn = [compact ? sizes.size32 : sizes.size48, className].filter(Boolean).join(' ')
   switch (name) {
     case 'rvp':
     case 'document':

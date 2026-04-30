@@ -9,7 +9,9 @@
   --color-accent-peach: #f0c9a0;
 
   --color-white: #ffffff;
-  --color-bg-soft: #f8f9fb;
+  /* Единый фон страницы: body, нижний навбар и зоны с --color-bg-soft */
+  --color-page: #f8f9fb;
+  --color-bg-soft: var(--color-page);
   --color-bg-card: #ffffff;
   --color-border: #d9edf7;
 

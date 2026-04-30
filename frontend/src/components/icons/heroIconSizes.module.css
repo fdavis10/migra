@@ -1,3 +1,9 @@
+.size32 {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
 .size40 {
   width: 40px;
   height: 40px;

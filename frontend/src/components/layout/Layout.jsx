@@ -37,7 +37,7 @@ export function Layout() {
   return (
     <>
       <ScrollToTop />
-      <Header site={site} />
+      <Header site={site} services={services} />
       <main>
         <Outlet context={{ site, services }} />
       </main>
