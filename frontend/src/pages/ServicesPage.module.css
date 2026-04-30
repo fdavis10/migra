@@ -10,7 +10,8 @@
   max-width: 720px;
   margin: 0 auto var(--spacing-xl);
   padding: 0;
-  aspect-ratio: 16 / 7;
+  /* Совпадает с исходником other_passpots.jpeg (625×350) — без обрезки по краям */
+  aspect-ratio: 25 / 14;
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
@@ -21,28 +22,18 @@
 
 .parallaxMover {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: -14%;
-  height: 128%;
-  will-change: transform;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .parallaxImg {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .parallaxMover {
-    top: 0;
-    height: 100%;
-    will-change: auto;
-    transform: none !important;
-  }
+  object-fit: contain;
+  object-position: center;
 }
 
 .grid {

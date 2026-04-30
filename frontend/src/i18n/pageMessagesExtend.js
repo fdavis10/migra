@@ -1,7 +1,7 @@
 /** Дополнительные ключи для полного перевода публичного сайта (мержатся в SITE_I18N). */
 export const extendRu = {
   common: {
-    titleSuffix: '— РЕЗИДЕНТ',
+    titleSuffix: '— Миграционный сервис «Резидент»',
     priceFrom: 'от',
     rangeSep: ' — ',
     priceOnRequest: 'уточняется',
@@ -30,9 +30,9 @@ export const extendRu = {
     similar: 'Похожие услуги',
   },
   pricesPage: {
-    metaTitle: 'Цены — РЕЗИДЕНТ',
+    metaTitle: 'Цены — Миграционный сервис «Резидент»',
     metaDesc: 'Прайс-лист миграционного сервиса. Фиксированные цены в договоре.',
-    h1: 'Прайс-лист миграционного сервиса «РЕЗИДЕНТ»',
+    h1: 'Прайс-лист миграционного сервиса «Резидент»',
     lead: 'Фиксированные цены. Окончательная стоимость прописывается в договоре и не меняется.',
     discountTitle: 'Гибкая система скидок — от 7% до 16%',
     paymentTitle: 'Способы оплаты',
@@ -44,7 +44,7 @@ export const extendRu = {
     na: '—',
   },
   contactsPage: {
-    title: 'Контакты — РЕЗИДЕНТ',
+    title: 'Контакты — Миграционный сервис «Резидент»',
     metaDesc: 'Адрес, телефон, режим работы и форма обратной связи.',
     h1: 'Контакты',
     mapTitle: 'Карта',
@@ -57,21 +57,21 @@ export const extendRu = {
     alertOk: 'Сообщение отправлено.',
   },
   faqPage: {
-    title: 'Вопросы и ответы — РЕЗИДЕНТ',
+    title: 'Вопросы и ответы — Миграционный сервис «Резидент»',
     metaDesc: 'Ответы на частые вопросы о РВП, ВНЖ, гражданстве и документах.',
     h1: 'Вопросы и ответы',
   },
   guaranteesPage: {
-    title: 'Гарантии — РЕЗИДЕНТ',
-    metaDesc: 'Гарантии миграционного сервиса РЕЗИДЕНТ: подачи, цена, документы, договор.',
+    title: 'Гарантии — Миграционный сервис «Резидент»',
+    metaDesc: 'Гарантии миграционного сервиса «Резидент»: подачи, цена, документы, договор.',
     h1: 'Наши гарантии',
     cta: 'Ознакомьтесь с отзывами клиентов и перечнем услуг.',
     reviews: 'Отзывы',
     services: 'Услуги',
   },
   reviewsPage: {
-    title: 'Отзывы — РЕЗИДЕНТ',
-    metaDesc: 'Отзывы клиентов миграционного сервиса РЕЗИДЕНТ.',
+    title: 'Отзывы — Миграционный сервис «Резидент»',
+    metaDesc: 'Отзывы клиентов миграционного сервиса «Резидент».',
     h1: 'Отзывы наших клиентов',
     avg: 'Средняя оценка:',
     outOf: '/ 5',
@@ -82,12 +82,12 @@ export const extendRu = {
     filterOther: 'Прочее',
   },
   promotionsPage: {
-    title: 'Акции — РЕЗИДЕНТ',
-    metaDesc: 'Акции и специальные предложения миграционного сервиса РЕЗИДЕНТ.',
+    title: 'Акции — Миграционный сервис «Резидент»',
+    metaDesc: 'Акции и специальные предложения миграционного сервиса «Резидент».',
     h1: 'Акции и специальные предложения',
   },
   newsPage: {
-    title: 'Новости — РЕЗИДЕНТ',
+    title: 'Новости — Миграционный сервис «Резидент»',
     metaDesc: 'Новости миграционного законодательства.',
     h1: 'Новости миграционного законодательства',
     readMore: 'Читать далее',
@@ -104,15 +104,15 @@ export const extendRu = {
     cta: 'Нужна консультация по теме статьи?',
   },
   privacyPage: {
-    title: 'Политика конфиденциальности — РЕЗИДЕНТ',
+    title: 'Политика конфиденциальности — Миграционный сервис «Резидент»',
     h1: 'Политика конфиденциальности',
     p1:
-      'Настоящая страница описывает базовые принципы обработки персональных данных на сайте миграционного сервиса «РЕЗИДЕНТ». Актуальный юридический текст предоставляется заказчиком и подключается на этапе запуска.',
+      'Настоящая страница описывает базовые принципы обработки персональных данных на сайте миграционного сервиса «Резидент». Актуальный юридический текст предоставляется заказчиком и подключается на этапе запуска.',
     p2:
       'Заявки, отправленные через формы сайта, используются только для связи с вами по вопросу консультации и не передаются третьим лицам без законных оснований.',
   },
   sitemapPage: {
-    title: 'Карта сайта — РЕЗИДЕНТ',
+    title: 'Карта сайта — Миграционный сервис «Резидент»',
     h1: 'Карта сайта',
     linkHome: 'Главная',
     linkAbout: 'О нас',
@@ -130,25 +130,25 @@ export const extendRu = {
     linkPrivacy: 'Политика конфиденциальности',
   },
   aboutUsPage: {
-    title: 'О нас — РЕЗИДЕНТ',
-    metaDesc: 'Миграционный сервис РЕЗИДЕНТ: команда специалистов по легализации в РФ.',
+    title: 'О нас — Миграционный сервис «Резидент»',
+    metaDesc: 'Миграционный сервис «Резидент»: команда специалистов по легализации в РФ.',
     h1: 'О нас',
   },
   aboutFounderPage: {
-    title: 'Основатель — РЕЗИДЕНТ',
-    metaDesc: 'Письмо основателя миграционного сервиса «РЕЗИДЕНТ» Андрея Степанова.',
+    title: 'Основатель — Миграционный сервис «Резидент»',
+    metaDesc: 'Письмо основателя миграционного сервиса «Резидент» Андрея Степанова.',
     h1: 'Основатель',
     signName: 'Андрей Степанов',
-    signRole: 'Основатель миграционного сервиса «РЕЗИДЕНТ»',
+    signRole: 'Основатель миграционного сервиса «Резидент»',
   },
   aboutAdvantagesPage: {
-    title: 'Преимущества — РЕЗИДЕНТ',
-    metaDesc: 'Почему клиенты выбирают миграционный сервис «РЕЗИДЕНТ».',
+    title: 'Преимущества — Миграционный сервис «Резидент»',
+    metaDesc: 'Почему клиенты выбирают миграционный сервис «Резидент».',
     h1: 'Преимущества',
   },
   aboutPaymentPage: {
-    title: 'Оплата — РЕЗИДЕНТ',
-    metaDesc: 'Способы оплаты услуг миграционного сервиса «РЕЗИДЕНТ».',
+    title: 'Оплата — Миграционный сервис «Резидент»',
+    metaDesc: 'Способы оплаты услуг миграционного сервиса «Резидент».',
     h1: 'Способы оплаты',
   },
   aboutSubNav: {
@@ -177,16 +177,13 @@ export const extendRu = {
   },
   chatPerson: {
     name: 'Андрей Степанов',
-    role: 'Специалист «РЕЗИДЕНТ»',
-  },
-  specialistLocation: {
-    question: 'Вы находитесь в {{city}} или {{area}}?',
+    role: 'Специалист миграционного сервиса «Резидент»',
   },
 }
 
 export const extendEn = {
   common: {
-    titleSuffix: '— RESIDENT',
+    titleSuffix: '— Migration service «Resident»',
     priceFrom: 'from',
     rangeSep: ' — ',
     priceOnRequest: 'On request',
@@ -215,9 +212,9 @@ export const extendEn = {
     similar: 'Related services',
   },
   pricesPage: {
-    metaTitle: 'Prices — RESIDENT',
-    metaDesc: 'RESIDENT price list. Fixed prices in the contract.',
-    h1: 'RESIDENT immigration service price list',
+    metaTitle: 'Prices — Migration service «Resident»',
+    metaDesc: 'Migration service «Resident» price list. Fixed prices in the contract.',
+    h1: 'Migration service «Resident» price list',
     lead: 'Fixed prices. The final amount is stated in the contract and does not change.',
     discountTitle: 'Flexible discounts — from 7% to 16%',
     paymentTitle: 'Payment methods',
@@ -229,7 +226,7 @@ export const extendEn = {
     na: '—',
   },
   contactsPage: {
-    title: 'Contacts — RESIDENT',
+    title: 'Contacts — Migration service «Resident»',
     metaDesc: 'Address, phone, hours, and contact form.',
     h1: 'Contacts',
     mapTitle: 'Map',
@@ -242,21 +239,21 @@ export const extendEn = {
     alertOk: 'Message sent.',
   },
   faqPage: {
-    title: 'Q&A — RESIDENT',
+    title: 'Q&A — Migration service «Resident»',
     metaDesc: 'Answers about temporary residence, permanent residence, citizenship, and documents.',
     h1: 'Questions and answers',
   },
   guaranteesPage: {
-    title: 'Guarantees — RESIDENT',
-    metaDesc: 'RESIDENT immigration service guarantees: filings, price, documents, contract.',
+    title: 'Guarantees — Migration service «Resident»',
+    metaDesc: 'Migration service «Resident» guarantees: filings, price, documents, contract.',
     h1: 'Our guarantees',
     cta: 'See client reviews and our services.',
     reviews: 'Reviews',
     services: 'Services',
   },
   reviewsPage: {
-    title: 'Reviews — RESIDENT',
-    metaDesc: 'Client reviews of RESIDENT immigration services.',
+    title: 'Reviews — Migration service «Resident»',
+    metaDesc: 'Client reviews of Migration service «Resident».',
     h1: 'Client reviews',
     avg: 'Average rating:',
     outOf: '/ 5',
@@ -267,12 +264,12 @@ export const extendEn = {
     filterOther: 'Other',
   },
   promotionsPage: {
-    title: 'Promotions — RESIDENT',
-    metaDesc: 'Promotions and special offers from RESIDENT.',
+    title: 'Promotions — Migration service «Resident»',
+    metaDesc: 'Promotions and special offers from Migration service «Resident».',
     h1: 'Promotions and special offers',
   },
   newsPage: {
-    title: 'News — RESIDENT',
+    title: 'News — Migration service «Resident»',
     metaDesc: 'Immigration law news.',
     h1: 'Immigration law news',
     readMore: 'Read more',
@@ -289,15 +286,15 @@ export const extendEn = {
     cta: 'Need a consultation on this topic?',
   },
   privacyPage: {
-    title: 'Privacy policy — RESIDENT',
+    title: 'Privacy policy — Migration service «Resident»',
     h1: 'Privacy policy',
     p1:
-      'This page describes basic principles of personal data processing on the RESIDENT immigration service website. The final legal text is provided by the client at launch.',
+      'This page describes basic principles of personal data processing on the Migration service «Resident» website. The final legal text is provided by the client at launch.',
     p2:
       'Requests sent through site forms are used only to contact you about your inquiry and are not shared with third parties without legal grounds.',
   },
   sitemapPage: {
-    title: 'Sitemap — RESIDENT',
+    title: 'Sitemap — Migration service «Resident»',
     h1: 'Sitemap',
     linkHome: 'Home',
     linkAbout: 'About us',
@@ -315,25 +312,25 @@ export const extendEn = {
     linkPrivacy: 'Privacy policy',
   },
   aboutUsPage: {
-    title: 'About us — RESIDENT',
-    metaDesc: 'RESIDENT: specialists in legalization in Russia.',
+    title: 'About us — Migration service «Resident»',
+    metaDesc: 'Migration service «Resident»: specialists in legalization in Russia.',
     h1: 'About us',
   },
   aboutFounderPage: {
-    title: 'Founder — RESIDENT',
-    metaDesc: 'Letter from Andrey Stepanov, founder of RESIDENT.',
+    title: 'Founder — Migration service «Resident»',
+    metaDesc: 'Letter from Andrey Stepanov, founder of Migration service «Resident».',
     h1: 'Founder',
     signName: 'Andrey Stepanov',
-    signRole: 'Founder of RESIDENT immigration service',
+    signRole: 'Founder of Migration service «Resident»',
   },
   aboutAdvantagesPage: {
-    title: 'Advantages — RESIDENT',
-    metaDesc: 'Why clients choose RESIDENT.',
+    title: 'Advantages — Migration service «Resident»',
+    metaDesc: 'Why clients choose Migration service «Resident».',
     h1: 'Advantages',
   },
   aboutPaymentPage: {
-    title: 'Payment — RESIDENT',
-    metaDesc: 'How to pay for RESIDENT services.',
+    title: 'Payment — Migration service «Resident»',
+    metaDesc: 'How to pay for Migration service «Resident» services.',
     h1: 'Payment methods',
   },
   aboutSubNav: {
@@ -362,9 +359,6 @@ export const extendEn = {
   },
   chatPerson: {
     name: 'Andrey Stepanov',
-    role: 'RESIDENT specialist',
-  },
-  specialistLocation: {
-    question: 'Are you in {{city}} or {{area}}?',
+    role: 'Migration service «Resident» specialist',
   },
 }

@@ -76,4 +76,5 @@ export const COUNTRIES_HELP = [
   { name: 'Казахстан', code: 'kz' },
   { name: 'Армения', code: 'am' },
   { name: 'Азербайджан', code: 'az' },
+  { name: 'И другие страны мира', code: 'other' },
 ]

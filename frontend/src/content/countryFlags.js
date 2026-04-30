@@ -7,8 +7,9 @@ import flagUz from '@assets/flags/Uzbekistan.png'
 import flagKz from '@assets/flags/kazakstan.png'
 import flagAm from '@assets/flags/armenia.png'
 import flagAz from '@assets/flags/azerbaidjan.webp'
+import flagOther from '@assets/flags/other_countries.jpg'
 
-/** ISO 3166-1 alpha-2 → URL после сборки (исходники в `assets/flags`) */
+/** ISO 3166-1 alpha-2 → URL после сборки (исходники в `assets/flags`); `other` — прочие страны */
 export const COUNTRY_FLAG_SRC = {
   ua: flagUa,
   kg: flagKg,
@@ -19,4 +20,5 @@ export const COUNTRY_FLAG_SRC = {
   kz: flagKz,
   am: flagAm,
   az: flagAz,
+  other: flagOther,
 }

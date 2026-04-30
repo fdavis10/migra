@@ -1,5 +1,5 @@
 export const SITE = {
-  name: 'РЕЗИДЕНТ',
+  name: 'Миграционный сервис «Резидент»',
   phoneDisplay: '+7 (916) 303-28-63',
   phoneTel: '+79163032863',
   email: 'residentservic@mail.ru',

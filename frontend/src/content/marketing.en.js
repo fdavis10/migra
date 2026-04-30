@@ -66,4 +66,5 @@ export const COUNTRY_NAMES_EN = {
   kz: 'Kazakhstan',
   am: 'Armenia',
   az: 'Azerbaijan',
+  other: 'And other countries of the world',
 }

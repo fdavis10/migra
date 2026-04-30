@@ -28,7 +28,7 @@ export function PanelLayout() {
         Панель
       </div>
       <aside className={`${styles.sidebar} ${menuOpen ? styles.open : ''}`}>
-        <div className={styles.brand}>РЕЗИДЕНТ — панель</div>
+        <div className={styles.brand}>Миграционный сервис «Резидент» — панель</div>
         <nav className={styles.nav} onClick={() => setMenuOpen(false)}>
           <NavLink to="/panel" end className={navCls}>
             Обзор

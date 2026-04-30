@@ -6,12 +6,11 @@ import { submitLead } from '@/api/leads'
 import { useTranslation } from '@/i18n/useTranslation'
 import styles from './SpecialistChat.module.css'
 
-const STORAGE_KEY = 'resident_specialist_chat_v1'
+const STORAGE_KEY = 'resident_specialist_chat_v2'
 const OP_PICK_KEY = 'resident_op_pick'
-const CHAT_CLICK_COUNT_KEY = 'resident_chat_click_count'
-const CHAT_ACTIVATED_KEY = 'resident_chat_activated'
-const CHAT_ACTIVATION_CLICKS = 2
-const TYPING_MS = 15_000
+const TYPING_MS = 1400
+/** Авто-раскрытие панели чата после загрузки страницы (иконка видна сразу) */
+const CHAT_AUTO_EXPAND_DELAY_MS = 10_000
 
 const OPERATORS = [
   { id: 'alena', avatar: '/images/operator_alena.webp' },
@@ -42,36 +41,17 @@ function uid() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`
 }
 
-function capitalizeWords(s) {
-  if (!s.trim()) return ''
-  return s
-    .trim()
+function normalizeDisplayName(s) {
+  const t = s.trim().replace(/\s+/g, ' ')
+  if (!t) return ''
+  return t
     .split(/\s+/)
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
     .join(' ')
 }
 
-function parseCityReply(text, t) {
-  const raw = text.trim().replace(/\s+/g, ' ')
-  if (!raw) {
-    return { city: t('specialistChat.locationFallbackCity'), area: t('specialistChat.locationFallbackArea') }
-  }
-  const parts = raw
-    .split(/\s*[;,]\s*|\s+(?:или|or)\s+/i)
-    .map((p) => p.replace(/[()]/g, '').trim())
-    .filter(Boolean)
-  const city = capitalizeWords(parts[0] || raw)
-  const area = parts[1] ? capitalizeWords(parts[1]) : t('specialistChat.locationFallbackArea')
-  return { city, area }
-}
-
-function buildLocationQuestion(cityReply, t) {
-  const { city, area } = parseCityReply(cityReply, t)
-  return t('specialistLocation.question').replace('{{city}}', city).replace('{{area}}', area)
-}
-
 function extractPhone(text) {
-  const t = text.trim().slice(0, 30)
+  const t = text.trim().slice(0, 40)
   const digits = t.replace(/\D/g, '')
   if (digits.length >= 10) return t
   if (t.length >= 8) return t
@@ -89,7 +69,7 @@ function loadPersisted() {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return null
     const data = JSON.parse(raw)
-    if (!data || data.version !== 1) return null
+    if (!data || data.version !== 2) return null
     return data
   } catch {
     return null
@@ -98,7 +78,7 @@ function loadPersisted() {
 
 function savePersisted(data) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, ...data }))
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 2, ...data }))
   } catch {}
 }
 
@@ -119,29 +99,32 @@ export function SpecialistChat() {
   const chatMsg = useMemo(
     () => ({
       greet: t('specialistChat.greet'),
+      askName: t('specialistChat.askName'),
       askCity: t('specialistChat.askCity'),
-      askPhone: t('specialistChat.askPhone'),
+      connectAndAskPhone: t('specialistChat.connectAndAskPhone'),
       thanks: t('specialistChat.thanks'),
       thanksNoApi: t('specialistChat.thanksNoApi'),
     }),
     [t],
   )
   const [mounted, setMounted] = useState(false)
-  const [minimized, setMinimized] = useState(false)
+  /** Кнопка всегда видна; панель — по клику или авто через CHAT_AUTO_EXPAND_DELAY_MS */
+  const [minimized, setMinimized] = useState(true)
   const [messages, setMessages] = useState([])
+  /** 0 привет / любой ответ → 1 имя → 2 город → 3 телефон → 4 готово */
   const [step, setStep] = useState(0)
+  const [userName, setUserName] = useState('')
   const [cityReply, setCityReply] = useState('')
   const [done, setDone] = useState(false)
   const [leadOk, setLeadOk] = useState(null)
   const [draft, setDraft] = useState('')
   const [typing, setTyping] = useState(false)
   const [inputLocked, setInputLocked] = useState(false)
-  const [activated, setActivated] = useState(false)
 
   const listRef = useRef(null)
   const timerRef = useRef(null)
+  const autoExpandTimerRef = useRef(0)
   const hydrated = useRef(false)
-  const didAutoOpen = useRef(false)
   const messagesRef = useRef([])
 
   useEffect(() => {
@@ -156,58 +139,27 @@ export function SpecialistChat() {
     if (hydrated.current) return
     hydrated.current = true
     const p = loadPersisted()
-    if (p) {
-      setActivated(true)
-      setMessages(Array.isArray(p.messages) ? p.messages : [])
+    const saved = p && Array.isArray(p.messages) ? p.messages : []
+    if (saved.length > 0) {
+      setMessages(saved)
       setStep(typeof p.step === 'number' ? p.step : 0)
+      setUserName(p.userName || '')
       setCityReply(p.cityReply || '')
       setDone(Boolean(p.done))
       setLeadOk(typeof p.leadOk === 'boolean' ? p.leadOk : null)
+      if (typeof p.minimized === 'boolean') setMinimized(p.minimized)
+    } else {
+      setMessages([{ id: uid(), role: 'assistant', text: chatMsg.greet }])
+      setMinimized(true)
     }
-    try {
-      if (sessionStorage.getItem(CHAT_ACTIVATED_KEY) === '1') {
-        setActivated(true)
-      }
-    } catch {}
-  }, [])
-
-  useEffect(() => {
-    if (!activated) return
-    if (didAutoOpen.current) return
-    didAutoOpen.current = true
-    setMinimized(false)
-    setMessages((prev) => {
-      if (prev.length > 0) return prev
-      return [{ id: uid(), role: 'assistant', text: chatMsg.greet }]
-    })
   }, [chatMsg.greet])
-
-  useEffect(() => {
-    if (activated) return
-    const onClick = () => {
-      let count = 0
-      try {
-        count = Number(sessionStorage.getItem(CHAT_CLICK_COUNT_KEY) || '0') + 1
-        sessionStorage.setItem(CHAT_CLICK_COUNT_KEY, String(count))
-      } catch {
-        count = 0
-      }
-      if (count >= CHAT_ACTIVATION_CLICKS) {
-        try {
-          sessionStorage.setItem(CHAT_ACTIVATED_KEY, '1')
-        } catch {}
-        setActivated(true)
-      }
-    }
-    document.addEventListener('click', onClick, true)
-    return () => document.removeEventListener('click', onClick, true)
-  }, [activated])
 
   const persist = useCallback(() => {
     savePersisted({
       minimized,
       messages,
       step,
+      userName,
       cityReply,
       done,
       leadOk,
@@ -218,7 +170,7 @@ export function SpecialistChat() {
         sessionStorage.setItem(OP_PICK_KEY, operatorId)
       } catch {}
     }
-  }, [minimized, messages, step, cityReply, done, leadOk, operatorId])
+  }, [minimized, messages, step, userName, cityReply, done, leadOk, operatorId])
 
   useEffect(() => {
     persist()
@@ -231,7 +183,26 @@ export function SpecialistChat() {
     })
   }, [chatMsg.greet])
 
+  useEffect(() => {
+    if (!mounted) return
+    autoExpandTimerRef.current = window.setTimeout(() => {
+      autoExpandTimerRef.current = 0
+      setMinimized(false)
+      ensureGreeting()
+    }, CHAT_AUTO_EXPAND_DELAY_MS)
+    return () => {
+      if (autoExpandTimerRef.current) {
+        window.clearTimeout(autoExpandTimerRef.current)
+        autoExpandTimerRef.current = 0
+      }
+    }
+  }, [mounted, ensureGreeting])
+
   const openPanel = () => {
+    if (autoExpandTimerRef.current) {
+      window.clearTimeout(autoExpandTimerRef.current)
+      autoExpandTimerRef.current = 0
+    }
     setMinimized(false)
     ensureGreeting()
   }
@@ -267,16 +238,25 @@ export function SpecialistChat() {
     }, TYPING_MS)
   }, [])
 
-  const submitConversation = async (allMessages, phoneText) => {
+  const submitConversation = async (allMessages, phoneText, name, city) => {
     const transcript = formatTranscript(allMessages, operatorLabel, t)
+    const phone = extractPhone(phoneText)
+    const footer = [
+      '',
+      '---',
+      `${t('specialistChat.leadSummaryName')}: ${name || '—'}`,
+      `${t('specialistChat.leadSummaryCity')}: ${city || '—'}`,
+      `${t('specialistChat.leadSummaryPhone')}: ${phone}`,
+    ].join('\n')
+    const message = `${transcript}${footer}`.slice(0, 5000)
     try {
       await submitLead({
-        name: '',
-        phone: extractPhone(phoneText),
+        name: (name || '').slice(0, 200),
+        phone,
         citizenship: '',
-        region: cityReply || '',
+        region: (city || '').slice(0, 100),
         service: t('specialistChat.leadService'),
-        message: transcript.slice(0, 5000),
+        message,
         source_page: pathname,
         source: 'chat',
       })
@@ -297,29 +277,33 @@ export function SpecialistChat() {
 
     if (step === 0) {
       setStep(1)
-      scheduleReply(chatMsg.askCity)
+      scheduleReply(chatMsg.askName)
       return
     }
     if (step === 1) {
-      setCityReply(text)
+      setUserName(normalizeDisplayName(text) || text.trim())
       setStep(2)
-      scheduleReply(buildLocationQuestion(text, t))
+      scheduleReply(chatMsg.askCity)
       return
     }
     if (step === 2) {
+      setCityReply(text.trim())
       setStep(3)
-      scheduleReply(chatMsg.askPhone)
+      scheduleReply(chatMsg.connectAndAskPhone)
       return
     }
     if (step === 3) {
       setStep(4)
       setInputLocked(true)
       setTyping(true)
+      const nameSnap = (userName || '').trim() || '—'
+      const citySnap = (cityReply || '').trim() || '—'
+      const transcriptMessages = [...messagesRef.current, userMsg]
       if (timerRef.current) clearTimeout(timerRef.current)
       timerRef.current = setTimeout(async () => {
         timerRef.current = null
         setTyping(false)
-        const ok = await submitConversation(messagesRef.current, text)
+        const ok = await submitConversation(transcriptMessages, text, nameSnap, citySnap)
         pushAssistant(ok ? chatMsg.thanks : chatMsg.thanksNoApi)
         setDone(true)
         setInputLocked(true)
@@ -340,12 +324,14 @@ export function SpecialistChat() {
     } catch {}
     setMessages([{ id: uid(), role: 'assistant', text: chatMsg.greet }])
     setStep(0)
+    setUserName('')
     setCityReply('')
     setDone(false)
     setLeadOk(null)
     setDraft('')
     setTyping(false)
     setInputLocked(false)
+    setMinimized(true)
   }
 
   const onKeyDown = (e) => {
@@ -361,7 +347,7 @@ export function SpecialistChat() {
     return last?.role === 'assistant' ? 1 : 0
   }, [minimized, messages])
 
-  if (!mounted || !activated) return null
+  if (!mounted) return null
 
   const node = (
     <div className={styles.wrap} aria-live="polite">

@@ -8,7 +8,7 @@ import { ServiceIcon } from '@/components/illustrations/ServiceIcon'
 import btn from '@/components/ui/Button.module.css'
 import styles from './ServiceCard.module.css'
 
-export function ServiceCard({ service }) {
+export function ServiceCard({ service, showPrice = true }) {
   const { openModal } = useLeadModal()
   const { t } = useTranslation()
   return (
@@ -20,7 +20,7 @@ export function ServiceCard({ service }) {
         <Link to={`/uslugi/${service.slug}`}>{service.title}</Link>
       </h3>
       <p className={styles.desc}>{service.short_desc}</p>
-      <p className={styles.price}>{priceLine(service, t)}</p>
+      {showPrice ? <p className={styles.price}>{priceLine(service, t)}</p> : null}
       <div className={styles.actions}>
         <Link
           to={`/uslugi/${service.slug}`}

@@ -192,21 +192,7 @@ export function Header({ site, services = [] }) {
                 </span>
                 <PhoneIcon className={styles.phoneIcon} aria-hidden />
                 <span className={styles.phoneDigits} aria-hidden>
-                  {phone.split("").map((ch, i) =>
-                    /\d/.test(ch) ? (
-                      <span
-                        key={`${i}-${ch}`}
-                        className={styles.phoneCharDigit}
-                        style={{ animationDelay: `${i * 0.07}s` }}
-                      >
-                        {ch}
-                      </span>
-                    ) : (
-                      <span key={`${i}-${ch}`} className={styles.phoneChar}>
-                        {ch}
-                      </span>
-                    ),
-                  )}
+                  {phone}
                 </span>
               </button>
               {callbackOpen ? (
@@ -351,7 +337,11 @@ export function Header({ site, services = [] }) {
                     setAboutOpen((v) => !v);
                   }}
                 >
-                  {t("header.navAbout")}
+                  <span>{t("header.navAbout")}</span>
+                  <ChevronDownIcon
+                    className={`${styles.dropBtnChevron} ${aboutOpen ? styles.dropBtnChevronOpen : ""}`}
+                    aria-hidden
+                  />
                 </button>
                 {aboutOpen ? (
                   <div className={styles.dropPanel}>
@@ -379,11 +369,13 @@ export function Header({ site, services = [] }) {
               <NavLink to="/akcii" onClick={() => setMenuOpen(false)}>
                 {t("header.navPromos")}
               </NavLink>
-              <NavLink to="/novosti" onClick={() => setMenuOpen(false)}>
-                {t("header.navBlog")}
-              </NavLink>
-              <NavLink to="/faq" onClick={() => setMenuOpen(false)}>
-                {t("header.navFaq")}
+              <NavLink
+                to="/novosti"
+                className={styles.navInfoLink}
+                onClick={() => setMenuOpen(false)}
+              >
+                <span>{t("header.navBlog")}</span>
+                <ChevronDownIcon className={styles.dropBtnChevron} aria-hidden />
               </NavLink>
               <NavLink to="/kontakty" onClick={() => setMenuOpen(false)}>
                 {t("header.navContacts")}
