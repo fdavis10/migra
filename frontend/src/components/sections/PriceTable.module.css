@@ -1,6 +1,7 @@
 .table {
   width: 100%;
   min-width: 520px;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: var(--font-size-sm);
   background: var(--color-white);
@@ -9,11 +10,41 @@
   box-shadow: var(--shadow-sm);
 }
 
+.colService {
+  width: 50%;
+}
+
+.colCost {
+  width: 22%;
+}
+
+.colTerm {
+  width: 28%;
+}
+
 .table th,
 .table td {
   padding: var(--spacing-md);
-  text-align: left;
   border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.thService,
+.tdService {
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.thCost,
+.tdCost {
+  text-align: right;
+  word-break: break-word;
+}
+
+.thTerm,
+.tdTerm {
+  text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .table th {

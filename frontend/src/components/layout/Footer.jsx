@@ -157,7 +157,7 @@ export function Footer({ site, services = [] }) {
         </div>
         <div>
           <h3 className={styles.h}>{t("footer.columnInfoTitle")}</h3>
-          <Link to="/novosti">{t("footer.columnInfoLinks.news")}</Link>
+          <Link to="/novosti">{t("footer.columnInfoLinks.usefulArticles")}</Link>
           <Link to="/faq">{t("footer.columnInfoLinks.faq")}</Link>
           <Link to="/kontakty">{t("footer.columnInfoLinks.contacts")}</Link>
         </div>

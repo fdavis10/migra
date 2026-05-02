@@ -131,6 +131,7 @@ function renderContentSection(block, i) {
           className={styles.figureImg}
           width={1200}
           height={675}
+          sizes="(max-width: 1200px) 100vw, 900px"
           loading="lazy"
           decoding="async"
         />
@@ -247,8 +248,10 @@ export function ServiceDetailPage() {
                 className={styles.heroImg}
                 width={heroVisual.width}
                 height={heroVisual.height}
+                sizes="(max-width: 1023px) 100vw, 45vw"
                 loading="eager"
                 decoding="async"
+                fetchPriority="high"
               />
             </figure>
           ) : null}

@@ -57,6 +57,7 @@ export function NewsPage() {
                             className={styles.thumb}
                             width={640}
                             height={360}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             loading="lazy"
                             decoding="async"
                           />

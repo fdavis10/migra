@@ -1,0 +1,197 @@
+.block {
+  margin-bottom: calc(var(--spacing-2xl) / 4);
+}
+
+.catTitle {
+  font-size: var(--font-size-lg);
+  margin: 0;
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  color: var(--color-text-main);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.trigger:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.triggerText {
+  flex: 1;
+  min-width: 0;
+}
+
+.chevron,
+.chevronOpen {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--color-primary-dark);
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  transition:
+    grid-template-rows 0.28s ease,
+    margin-top 0.28s ease;
+}
+
+.panel[data-open='true'] {
+  grid-template-rows: 1fr;
+  margin-top: var(--spacing-md);
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.ctaLink {
+  --cta-dur: 0.55s;
+  --cta-ease: cubic-bezier(0.33, 1, 0.22, 1);
+  display: inline-flex;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--cta-border);
+  background: transparent;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.ctaDetails {
+  --cta-border: var(--color-primary);
+  --cta-fill: var(--color-primary);
+  --cta-fg: var(--color-primary-dark);
+}
+
+.ctaOrder {
+  --cta-border: var(--color-error);
+  --cta-fill: var(--color-error);
+  --cta-fg: var(--color-error);
+}
+
+.ctaSheath {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--spacing-lg);
+}
+
+.ctaFill {
+  position: absolute;
+  inset: 0;
+  background: var(--cta-fill);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--cta-dur) var(--cta-ease);
+  z-index: 0;
+}
+
+.ctaLink:hover .ctaFill,
+.ctaLink:focus-visible .ctaFill {
+  transform: scaleX(1);
+}
+
+.ctaLabel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+.ctaTextBase,
+.ctaTextOver {
+  grid-area: 1 / 1;
+  max-width: 100%;
+}
+
+.ctaTextBase {
+  color: var(--cta-fg);
+}
+
+.ctaTextOver {
+  color: var(--color-white);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--cta-dur) var(--cta-ease);
+}
+
+.ctaLink:hover .ctaTextOver,
+.ctaLink:focus-visible .ctaTextOver {
+  clip-path: inset(0 0 0 0);
+}
+
+.ctaDetails:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+.ctaOrder:focus-visible {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaLink {
+    --cta-dur: 0.08s;
+    --cta-ease: ease-out;
+  }
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .ctaLink {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ctaSheath {
+    width: 100%;
+  }
+}

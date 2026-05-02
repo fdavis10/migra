@@ -711,6 +711,12 @@
   padding: var(--spacing-xs) 0;
 }
 
+.dropBtnActive {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .dropBtnChevron {
   width: 16px;
   height: 16px;
@@ -726,22 +732,6 @@
 
 .dropBtnChevronOpen {
   transform: rotate(180deg);
-}
-
-.navInfoLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-}
-
-.navInfoLink:hover .dropBtnChevron {
-  color: var(--color-text-main);
-}
-
-.navInfoLink:global(.active) .dropBtnChevron {
-  color: var(--color-primary-dark);
-  opacity: 1;
 }
 
 .dropPanel {
@@ -768,6 +758,27 @@
 .dropPanel a:hover {
   background: var(--color-primary-bg);
   text-decoration: none;
+}
+
+.infoDropPanel {
+  min-width: 260px;
+  padding: var(--spacing-md);
+  gap: var(--spacing-lg);
+}
+
+.infoDropGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.infoDropHeading {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  padding: 0 var(--spacing-sm);
 }
 
 .ctaMob {

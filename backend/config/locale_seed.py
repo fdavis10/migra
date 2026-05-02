@@ -14,8 +14,11 @@ DURATION_EN = {
 }
 
 PRICE_CATEGORY_TITLE_EN = {
+    "Квота на РВП": "TRP quota",
+    "Квота на временное проживание (РВП)": "Temporary residence quota (TRP)",
     "Разрешение на временное проживание (РВП)": "Temporary residence permit (TRP)",
     "Вид на жительство (ВНЖ)": "Permanent residence (PRP)",
+    "Получение внутреннего паспорта РФ": "Internal passport of Russia (obtaining)",
     "Гражданство РФ": "Citizenship of Russia",
     "Внутренний паспорт РФ": "Internal passport of Russia",
     "Временное убежище (ВУ)": "Temporary asylum",
@@ -24,61 +27,136 @@ PRICE_CATEGORY_TITLE_EN = {
     "Патент (полный пакет — 58 000 руб.)": "Work patent (full package — 58,000 ₽)",
     "Разрешение на работу (РНР)": "Work permit (quota / HQS)",
     "Обжалование": "Appeals",
+    "Обжалование решения о запрете на въезд": "Appealing an entry ban decision",
+    "Обжалование решения о выдворении": "Appealing an administrative removal decision",
+    "Обжалование решения о депортации": "Appealing a deportation decision",
+    "Репатриация в Россию": "Repatriation to Russia",
     "Сопровождение и прочие услуги": "Support and other services",
+    "Сопровождение клиента юристом при подаче документов": "Lawyer escort for document filing",
     "Истребование документов из ЗАГСов": "Vital records retrieval from registry offices",
+    "Истребование документов из ЗАГСов заграницей": "Vital records retrieval from foreign registry offices",
+    "Перевод документов + нотариальное заверение": "Document translation + notarized certification",
+    "Запросы к МВД": "Inquiries to the Ministry of Internal Affairs",
 }
 
 PRICE_ITEM_TITLE_EN = {
     "Ведение дела по получению квоты на РВП (Москва и МО, безлимитные подачи)": (
         "TRP quota full service (Moscow/MO region, unlimited filings)"
     ),
+    "Ведение миграционного дела по получению квоты на РВП по Москве и МО (безлимитные подачи)": (
+        "Full migration case for TRP quota in Moscow/MO (unlimited filings)"
+    ),
     "Ведение дела по получению РВП (Москва или МО)": (
         "Full TRP filing service (Moscow or Moscow region)"
+    ),
+    "Ведение миграционного дела по получению РВП по Москве или МО": (
+        "Full migration case for TRP in Moscow or Moscow region"
     ),
     "Ведение дела по получению РВП для ребёнка (до 18 лет)": (
         "Full TRP filing service for a child (under 18)"
     ),
+    "Ведение миграционного дела по получению РВП для ребёнка (до 18 лет) по Москве или МО": (
+        "Full migration case for a child’s TRP in Moscow or Moscow region"
+    ),
     "Юридическое сопровождение при получении РВП": (
         "Legal support for TRP application"
     ),
+    "Юридическое сопровождение при получении РВП в г. Москва": (
+        "Legal support for TRP application in Moscow"
+    ),
+    "Ежегодное уведомление по РВП": "Annual TRP notification",
     "Ведение дела по получению ВНЖ (Москва или МО)": (
         "Full PRP filing service (Moscow or Moscow region)"
+    ),
+    "Ведение миграционного дела по получению ВНЖ по Москве или МО": (
+        "Full migration case for PRP in Moscow or Moscow region"
     ),
     "Ведение дела по получению ВНЖ для ребёнка (до 18 лет)": (
         "Full PRP filing service for a child (under 18)"
     ),
+    "Ведение миграционного дела по получению ВНЖ для ребёнка (до 18 лет) по Москве или МО": (
+        "Full migration case for a child’s PRP in Moscow or Moscow region"
+    ),
     "Продление/замена ВНЖ": "PRP renewal / replacement",
+    "Ведение миграционного дела по продлению/замене ВНЖ по Москве или МО": (
+        "Full migration case for PRP renewal/replacement in Moscow or Moscow region"
+    ),
     "Юридическое сопровождение при получении ВНЖ": (
         "Legal support for PRP application"
+    ),
+    "Юридическое сопровождение при получении ВНЖ в г. Москва": (
+        "Legal support for PRP application in Moscow"
+    ),
+    "Юридическая помощь при подаче ежегодного уведомления по Москве": (
+        "Legal assistance filing annual notification in Moscow"
     ),
     "Ежегодное уведомление по ВНЖ": "Annual PRP notification",
     "Ведение дела по получению гражданства (Москва или МО)": (
         "Full citizenship filing (Moscow or Moscow region)"
     ),
+    "Ведение миграционного дела по получению гражданства по Москве или МО": (
+        "Full migration case for citizenship in Moscow or Moscow region"
+    ),
     "Гражданство по указу №11 (ЛНР, ДНР, Украина)": (
         "Citizenship under Decree No. 11 (LNR, DNR, Ukraine)"
+    ),
+    "Ведение миграционного дела по получению гражданства по Москве или МО по указу №11 для жителей ЛНР, ДНР, Украины": (
+        "Full migration case for citizenship under Decree No. 11 (LNR, DNR, Ukraine residents)"
     ),
     "Гражданство для ребёнка отдельно от родителей": (
         "Citizenship for a child separately from parents"
     ),
+    "Ведение миграционного дела по получению гражданства по Москве или МО для ребёнка (до 18 лет) отдельно от родителей": (
+        "Full migration case for a child’s citizenship separately from parents"
+    ),
     "Гражданство для ребёнка совместно с родителем": (
         "Citizenship for a child together with a parent"
     ),
+    "Ведение миграционного дела по получению гражданства по Москве или МО для ребёнка (до 18 лет) совместно с родителем": (
+        "Full migration case for a child’s citizenship together with a parent"
+    ),
     "Выход из гражданства РФ": "Renunciation of Russian citizenship",
+    "Ведение миграционного дела по процедуре выхода из гражданства РФ по Москве или МО": (
+        "Full migration case for renunciation of Russian citizenship in Moscow or Moscow region"
+    ),
     "Репатриация в Россию": "Repatriation to Russia",
+    "Ведение миграционного дела по получению статуса репатрианта в Россию": (
+        "Full migration case for repatriate status to Russia"
+    ),
+    "Ведение миграционного дела по получению статуса репатрианта": (
+        "Full migration case for repatriate status"
+    ),
+    "Ведение миграционного дела по получению статуса репатрианта (члены семьи)": (
+        "Full migration case for repatriate status (family members)"
+    ),
     "Подготовка документов и сопровождение на паспорт": (
         "Documents and escort for internal passport"
+    ),
+    "(Для новых клиентов) Ведение миграционного дела по получению паспорта гражданина РФ (для жителей Херсонской, Запорожской, Луганской и Донецкой областей) в Москве или МО": (
+        "(New clients) Full migration case for RF passport (Kherson, Zaporizhzhia, Luhansk, Donetsk residents) in Moscow/MO"
+    ),
+    "(После гражданства) Подготовка документов и сопровождение на получение паспорта в Москве": (
+        "(After citizenship) Documents and escort for passport in Moscow"
     ),
     "Заполнение заявления на загранпаспорт": (
         "Application assistance for foreign passport"
     ),
     "Получение ВУ": "Temporary asylum application",
+    "Ведение миграционного дела по получению ВУ (временное убежище)": (
+        "Full migration case for temporary asylum"
+    ),
+    "Ведение миграционного дела по получению ВУ (временное убежище) для детей до 18 лет": (
+        "Full migration case for temporary asylum for children under 18"
+    ),
     "Получение ВУ для детей до 18 лет": (
         "Temporary asylum application for children under 18"
     ),
     "Получение статуса беженца": "Refugee status application",
     "Установление личности (Москва или МО)": (
         "Identity establishment (Moscow or Moscow region)"
+    ),
+    "Ведение миграционного дела по установлению личности по Москве или МО": (
+        "Full migration case for identity establishment in Moscow or Moscow region"
     ),
     "Перевод паспорта": "Passport translation",
     "Заявление": "Application form",
@@ -92,8 +170,23 @@ PRICE_ITEM_TITLE_EN = {
     "ИТОГО": "TOTAL",
     "РНР для ВКС": "Work permit for highly qualified specialists",
     "РНР (внеквотная должность)": "Work permit (off-quota position)",
+    "Ведение миграционного дела по получению РНР для иностранного гражданина (ВКС) по Москве или МО": (
+        "Full migration case for HQS work permit in Moscow or Moscow region"
+    ),
+    "Ведение миграционного дела по получению РНР для иностранного гражданина (внеквотная должность) по Москве или МО": (
+        "Full migration case for off-quota work permit in Moscow or Moscow region"
+    ),
     "Правовой анализ (запрет на въезд / депортация / выдворение)": (
         "Legal analysis (entry ban / deportation / removal)"
+    ),
+    'Правовой анализ ситуации «Выяснение причины и оснований запрета на въезд»': (
+        "Legal analysis: reasons and grounds for entry ban"
+    ),
+    'Правовой анализ ситуации «Выяснение причины и оснований выдворения»': (
+        "Legal analysis: reasons and grounds for administrative removal"
+    ),
+    'Правовой анализ ситуации «Выяснение причины и оснований депортации»': (
+        "Legal analysis: reasons and grounds for deportation"
     ),
     "Обжалование решения о запрете на въезд": "Appealing an entry ban decision",
     "Обжалование решения о депортации": "Appealing a deportation decision",
@@ -101,16 +194,31 @@ PRICE_ITEM_TITLE_EN = {
     "Подача заявления в МВД об исключении из списков": (
         "Application to the Ministry of Internal Affairs for list exclusion"
     ),
+    "Подача заявления в МВД об исключении из контрольного списка": (
+        "Application to the Ministry of Internal Affairs for exclusion from the watch list"
+    ),
     "Сопровождение юристом в ММЦ Сахарово": (
         "Lawyer escort at MMC Sakharovo"
     ),
+    "Сопровождение клиента юристом в ММЦ Сахарово": "Lawyer escort for client at MMC Sakharovo",
     "Сопровождение юристом в МО": "Lawyer escort in Moscow region",
+    "Сопровождение клиента юристом в МО": "Lawyer escort for client in Moscow region",
     "Сопровождение юристом в районные ОВМ": (
         "Lawyer escort at district migration offices"
     ),
+    "Сопровождение клиента юристом в районные ОВМ": (
+        "Lawyer escort for client at district migration offices"
+    ),
+    "Сопровождение клиента юристом в ГУВМ МВД за справкой о наличии или отсутствии гражданства РФ": (
+        "Lawyer escort at GUVM for certificate of Russian citizenship presence/absence"
+    ),
     "Запись в ММЦ Сахарово (талон)": "MMC Sakharovo appointment (ticket)",
+    "Запись на подачу в ММЦ Сахарово (талон)": "Appointment for filing at MMC Sakharovo (ticket)",
     "Запрос в МВД о готовности документов": (
         "Inquiry to the Ministry of Internal Affairs on document readiness"
+    ),
+    "Запрос в ГУВМ МВД о готовности документов (РВП, ВНЖ, гражданство)": (
+        "GUVM inquiry on readiness of documents (TRP, PRP, citizenship)"
     ),
     "Перевод паспорта + нотариальное заверение": (
         "Passport translation + notarized certification"
@@ -120,6 +228,18 @@ PRICE_ITEM_TITLE_EN = {
         "Complex document translation (extracts, employment records, court rulings)"
     ),
     "Повторный перевод": "Re-translation",
+    "Стандартный документ (паспорт, СОР, СОБ, диплом)": (
+        "Standard document (passport, civil registry extracts, diploma)"
+    ),
+    "Выписки, трудовые, приложения, решение суда и др.": (
+        "Extracts, employment records, attachments, court rulings, etc."
+    ),
+    "Повторный перевод любого документа": "Re-translation of any document",
+    "Истребование документов из ЗАГСа Украины": "Vital records retrieval from Ukraine",
+    "Истребование документов из ЗАГСа Узбекистана": "Vital records retrieval from Uzbekistan",
+    "Истребование документов из ЗАГСа Казахстана": "Vital records retrieval from Kazakhstan",
+    "Истребование документов из ЗАГСа Киргизии": "Vital records retrieval from Kyrgyzstan",
+    "Истребование документов из ЗАГСа Молдовы": "Vital records retrieval from Moldova",
     "Украина": "Ukraine",
     "Узбекистан": "Uzbekistan",
     "Казахстан": "Kazakhstan",

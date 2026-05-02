@@ -18,19 +18,24 @@ export function PriceTable({ category }) {
   return (
     <div className="tableWrap">
       <table className={styles.table}>
+        <colgroup>
+          <col className={styles.colService} />
+          <col className={styles.colCost} />
+          <col className={styles.colTerm} />
+        </colgroup>
         <thead>
           <tr>
-            <th>{t('priceTable.service')}</th>
-            <th>{t('priceTable.cost')}</th>
-            <th>{t('priceTable.term')}</th>
+            <th className={styles.thService}>{t('priceTable.service')}</th>
+            <th className={styles.thCost}>{t('priceTable.cost')}</th>
+            <th className={styles.thTerm}>{t('priceTable.term')}</th>
           </tr>
         </thead>
         <tbody>
           {category.items.map((row) => (
             <tr key={row.id}>
-              <td>{row.title}</td>
-              <td>{cellPrice(row, t)}</td>
-              <td>{row.duration || t('priceTable.na')}</td>
+              <td className={styles.tdService}>{row.title}</td>
+              <td className={styles.tdCost}>{cellPrice(row, t)}</td>
+              <td className={styles.tdTerm}>{row.duration || t('priceTable.na')}</td>
             </tr>
           ))}
         </tbody>

@@ -11,15 +11,6 @@
   margin: 0 auto var(--spacing-2xl);
 }
 
-.block {
-  margin-bottom: var(--spacing-2xl);
-}
-
-.catTitle {
-  font-size: var(--font-size-lg);
-  margin: 0 0 var(--spacing-md);
-}
-
 .h2 {
   margin: var(--spacing-2xl) 0 var(--spacing-lg);
   font-size: var(--font-size-xl);

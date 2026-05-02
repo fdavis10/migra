@@ -81,7 +81,9 @@ export function NewsDetailPage() {
                 className={styles.featuredImg}
                 width={960}
                 height={540}
+                sizes="(max-width: 1200px) 100vw, 960px"
                 decoding="async"
+                fetchPriority="high"
               />
             </figure>
           ) : null}

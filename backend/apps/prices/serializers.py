@@ -29,10 +29,16 @@ class PriceItemSerializer(serializers.ModelSerializer):
 
 class PriceCategorySerializer(serializers.ModelSerializer):
     items = PriceItemSerializer(many=True, read_only=True)
+    service_slug = serializers.SerializerMethodField()
 
     class Meta:
         model = PriceCategory
-        fields = ("id", "title", "order", "service", "items")
+        fields = ("id", "title", "order", "service", "service_slug", "items")
+
+    def get_service_slug(self, obj):
+        if obj.service_id and getattr(obj, "service", None):
+            return obj.service.slug
+        return None
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

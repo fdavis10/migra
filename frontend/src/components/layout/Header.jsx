@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDownIcon, GlobeAltIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { submitLead } from "@/api/leads";
 import logoYandex from "@assets/image/logo_yandex.svg";
@@ -21,11 +21,13 @@ import styles from "./Header.module.css";
 
 export function Header({ site, services = [] }) {
   const { openModal } = useLeadModal();
+  const { pathname } = useLocation();
   const { city } = useCity();
   const { locale, setLocale } = useLocale();
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
   const [cityOpen, setCityOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [callbackOpen, setCallbackOpen] = useState(false);
@@ -83,6 +85,7 @@ export function Header({ site, services = [] }) {
   }, [callbackOpen, reset]);
 
   const phoneTelHref = `tel:${String(phone).replace(/\s/g, "")}`;
+  const infoNavActive = pathname.startsWith("/novosti") || pathname.startsWith("/faq");
 
   const onCallbackSubmit = async (values) => {
     if (!values.consent) return;
@@ -316,6 +319,7 @@ export function Header({ site, services = [] }) {
                 aria-label={t("header.servicesMegaOpenAria")}
                 onClick={() => {
                   setAboutOpen(false);
+                  setInfoOpen(false);
                   setServicesMegaOpen((v) => !v);
                 }}
               >
@@ -332,10 +336,11 @@ export function Header({ site, services = [] }) {
                   type="button"
                   className={styles.dropBtn}
                   aria-expanded={aboutOpen}
-                  onClick={() => {
-                    setServicesMegaOpen(false);
-                    setAboutOpen((v) => !v);
-                  }}
+                onClick={() => {
+                  setServicesMegaOpen(false);
+                  setInfoOpen(false);
+                  setAboutOpen((v) => !v);
+                }}
                 >
                   <span>{t("header.navAbout")}</span>
                   <ChevronDownIcon
@@ -369,14 +374,60 @@ export function Header({ site, services = [] }) {
               <NavLink to="/akcii" onClick={() => setMenuOpen(false)}>
                 {t("header.navPromos")}
               </NavLink>
-              <NavLink
-                to="/novosti"
-                className={styles.navInfoLink}
-                onClick={() => setMenuOpen(false)}
-              >
-                <span>{t("header.navBlog")}</span>
-                <ChevronDownIcon className={styles.dropBtnChevron} aria-hidden />
-              </NavLink>
+              <div className={styles.dropdown} onMouseLeave={() => setInfoOpen(false)}>
+                <button
+                  type="button"
+                  className={`${styles.dropBtn} ${infoNavActive ? styles.dropBtnActive : ""}`}
+                  aria-expanded={infoOpen}
+                  aria-controls="header-info-panel"
+                  id="header-info-trigger"
+                  onClick={() => {
+                    setServicesMegaOpen(false);
+                    setAboutOpen(false);
+                    setInfoOpen((v) => !v);
+                  }}
+                >
+                  <span>{t("header.navBlog")}</span>
+                  <ChevronDownIcon
+                    className={`${styles.dropBtnChevron} ${infoOpen ? styles.dropBtnChevronOpen : ""}`}
+                    aria-hidden
+                  />
+                </button>
+                {infoOpen ? (
+                  <div id="header-info-panel" className={`${styles.dropPanel} ${styles.infoDropPanel}`} role="menu">
+                    <div className={styles.infoDropGroup} role="none">
+                      <span className={styles.infoDropHeading} role="presentation">
+                        {t("header.infoUsefulArticles")}
+                      </span>
+                      <Link
+                        role="menuitem"
+                        to="/novosti"
+                        onClick={() => {
+                          setInfoOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        {t("header.infoArticlesLink")}
+                      </Link>
+                    </div>
+                    <div className={styles.infoDropGroup} role="none">
+                      <span className={styles.infoDropHeading} role="presentation">
+                        {t("header.infoQa")}
+                      </span>
+                      <Link
+                        role="menuitem"
+                        to="/faq"
+                        onClick={() => {
+                          setInfoOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        {t("footer.columnInfoLinks.faq")}
+                      </Link>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
               <NavLink to="/kontakty" onClick={() => setMenuOpen(false)}>
                 {t("header.navContacts")}
               </NavLink>

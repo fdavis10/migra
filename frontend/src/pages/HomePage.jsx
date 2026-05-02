@@ -155,6 +155,7 @@ export function HomePage() {
             className={styles.bandImg}
             width={1200}
             height={560}
+            sizes="(max-width: 1023px) 100vw, min(1200px, 100vw)"
             loading="lazy"
             decoding="async"
           />
@@ -170,7 +171,7 @@ export function HomePage() {
             {services === null
               ? [...Array(6)].map((_, i) => <Skeleton key={i} style={{ height: 260, borderRadius: 20 }} />)
               : services.map((s) => (
-                  <ServiceCard key={s.slug} service={s} />
+                  <ServiceCard key={s.slug} service={s} showPrice={false} />
                 ))}
           </div>
         </div>
@@ -179,11 +180,12 @@ export function HomePage() {
       <section className={styles.figureBandMuted} aria-label={t('home.figureAria')}>
         <div className="container">
           <img
-            src="/images/consulatation.webp"
+            src="/images/consultation_migrant.jpg"
             alt=""
             className={styles.bandImg}
-            width={1200}
-            height={560}
+            width={1400}
+            height={933}
+            sizes="(max-width: 1023px) 100vw, min(1200px, 100vw)"
             loading="lazy"
             decoding="async"
           />
@@ -340,8 +342,9 @@ export function HomePage() {
               src="/images/consultatuion_lawyear.jpg"
               alt={t('home.consultImgAlt')}
               className={styles.leadFig}
-              width={900}
-              height={600}
+              width={1200}
+              height={800}
+              sizes="(max-width: 1023px) 100vw, 480px"
               loading="lazy"
               decoding="async"
             />

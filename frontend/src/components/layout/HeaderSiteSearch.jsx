@@ -46,8 +46,16 @@ function buildStaticPages(t) {
     { path: "/uslugi", title: t("header.navServices"), haystack: t("header.navServices") },
     { path: "/ceny", title: t("header.navPrices"), haystack: t("header.navPrices") },
     { path: "/akcii", title: t("header.navPromos"), haystack: t("header.navPromos") },
-    { path: "/novosti", title: t("header.navBlog"), haystack: t("header.navBlog") },
-    { path: "/faq", title: t("header.navFaq"), haystack: t("header.navFaq") },
+    {
+      path: "/novosti",
+      title: t("footer.columnInfoLinks.usefulArticles"),
+      haystack: `${t("footer.columnInfoLinks.usefulArticles")} ${t("header.navBlog")}`,
+    },
+    {
+      path: "/faq",
+      title: t("footer.columnInfoLinks.faq"),
+      haystack: `${t("footer.columnInfoLinks.faq")} ${t("header.navFaq")}`,
+    },
     { path: "/kontakty", title: t("header.navContacts"), haystack: t("header.navContacts") },
     { path: "/privacy", title: t("footer.privacy"), haystack: t("footer.privacy") },
     { path: "/sitemap", title: t("footer.sitemapLink"), haystack: t("footer.sitemapLink") },

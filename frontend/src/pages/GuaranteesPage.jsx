@@ -54,6 +54,7 @@ export function GuaranteesPage() {
                           className={styles.cardImg}
                           width={400}
                           height={400}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                           loading="lazy"
                           decoding="async"
                         />
