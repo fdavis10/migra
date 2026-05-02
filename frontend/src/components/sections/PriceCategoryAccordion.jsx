@@ -22,7 +22,7 @@ function CtaFillLink({ to, variant, children }) {
   )
 }
 
-export function PriceCategoryAccordion({ category }) {
+export function PriceCategoryAccordion({ category, className }) {
   const { t } = useTranslation()
   const panelId = useId()
   const [open, setOpen] = useState(false)
@@ -34,7 +34,7 @@ export function PriceCategoryAccordion({ category }) {
   if (!category?.items?.length) return null
 
   return (
-    <section className={styles.block}>
+    <section className={[styles.block, className].filter(Boolean).join(' ')}>
       <h2 className={styles.catTitle}>
         <button
           type="button"

@@ -9,7 +9,6 @@ import { useTranslation } from '@/i18n/useTranslation'
 import { unwrapList } from '@/utils/apiList'
 import styles from './PricesPage.module.css'
 
-/** Квота и РВП — фиксированный порядок; остальные — по полю order с бэкенда. */
 function sortPriceCategories(list) {
   if (!list?.length) return list
   const priority = (cat) => {
@@ -42,6 +41,9 @@ export function PricesPage() {
     }
   }, [])
 
+  const rvpCategory = cats?.find((c) => c.service_slug === 'rvp')
+  const categoriesWithoutRvp = cats?.filter((c) => c.service_slug !== 'rvp')
+
   return (
     <>
       <Helmet>
@@ -49,13 +51,14 @@ export function PricesPage() {
         <meta name="description" content={t('pricesPage.metaDesc')} />
       </Helmet>
       <div className="section">
+        {rvpCategory ? <PriceCategoryAccordion category={rvpCategory} className={styles.rvpAboveContainer} /> : null}
         <div className="container">
           <h1 className={styles.h1}>{t('pricesPage.h1')}</h1>
           <p className={styles.lead}>{t('pricesPage.lead')}</p>
 
           {cats === null
             ? [...Array(4)].map((_, i) => <Skeleton key={i} style={{ height: 160, marginBottom: 24 }} />)
-            : cats.map((cat) => <PriceCategoryAccordion key={cat.id} category={cat} />)}
+            : categoriesWithoutRvp.map((cat) => <PriceCategoryAccordion key={cat.id} category={cat} />)}
 
           <h2 className={styles.h2}>{t('pricesPage.discountTitle')}</h2>
           <div className={styles.discGrid}>
