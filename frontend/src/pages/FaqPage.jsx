@@ -37,12 +37,13 @@ export function FaqPage() {
           {cats === null ? (
             <Skeleton style={{ height: 300 }} />
           ) : (
-            cats.map((cat) => (
-              <section key={cat.id} className={styles.block}>
-                <h2 className={styles.cat}>{cat.title}</h2>
-                <Accordion items={(cat.items || []).map((i) => ({ q: i.question, a: i.answer }))} />
-              </section>
-            ))
+            <section className={styles.block}>
+              <Accordion
+                items={cats.flatMap((cat) =>
+                  (cat.items || []).map((i) => ({ q: i.question, a: i.answer })),
+                )}
+              />
+            </section>
           )}
         </div>
       </div>

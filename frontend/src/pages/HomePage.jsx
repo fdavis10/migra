@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { getPromotions } from '@/api/promos'
+import { PromoDetailsLink } from '@/components/promotions/PromoDetailsLink'
 import { getReviews } from '@/api/reviews'
 import { getServices } from '@/api/services'
 import { Button } from '@/components/ui/Button'
@@ -207,7 +208,7 @@ export function HomePage() {
                   <Card key={p.id} className={styles.promoCard}>
                     <span className={styles.disc}>{p.discount}</span>
                     <h3 className={styles.promoTitle}>{p.title}</h3>
-                    <p className={styles.promoDesc}>{p.description}</p>
+                    <PromoDetailsLink promotionId={p.id} />
                   </Card>
                 ))}
           </div>

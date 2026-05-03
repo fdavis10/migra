@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDownIcon, GlobeAltIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { submitLead } from "@/api/leads";
+import logoResident from "@assets/image/logo.png";
 import logoYandex from "@assets/image/logo_yandex.svg";
 import logoMax from "@assets/image/logo_max.png";
 import logoTelegram from "@assets/image/logo_telegram.png";
@@ -108,7 +109,7 @@ export function Header({ site, services = [] }) {
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
           <Link to="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-            <img src="/logo.png" width={2083} height={2083} alt={t("header.logoAlt")} />
+            <img src={logoResident} alt={t("header.logoAlt")} decoding="async" />
           </Link>
           <img
             className={styles.yandexLogo}
@@ -395,36 +396,26 @@ export function Header({ site, services = [] }) {
                 </button>
                 {infoOpen ? (
                   <div id="header-info-panel" className={`${styles.dropPanel} ${styles.infoDropPanel}`} role="menu">
-                    <div className={styles.infoDropGroup} role="none">
-                      <span className={styles.infoDropHeading} role="presentation">
-                        {t("header.infoUsefulArticles")}
-                      </span>
-                      <Link
-                        role="menuitem"
-                        to="/novosti"
-                        onClick={() => {
-                          setInfoOpen(false);
-                          setMenuOpen(false);
-                        }}
-                      >
-                        {t("header.infoArticlesLink")}
-                      </Link>
-                    </div>
-                    <div className={styles.infoDropGroup} role="none">
-                      <span className={styles.infoDropHeading} role="presentation">
-                        {t("header.infoQa")}
-                      </span>
-                      <Link
-                        role="menuitem"
-                        to="/faq"
-                        onClick={() => {
-                          setInfoOpen(false);
-                          setMenuOpen(false);
-                        }}
-                      >
-                        {t("footer.columnInfoLinks.faq")}
-                      </Link>
-                    </div>
+                    <Link
+                      role="menuitem"
+                      to="/novosti"
+                      onClick={() => {
+                        setInfoOpen(false);
+                        setMenuOpen(false);
+                      }}
+                    >
+                      {t("header.infoArticlesLink")}
+                    </Link>
+                    <Link
+                      role="menuitem"
+                      to="/faq"
+                      onClick={() => {
+                        setInfoOpen(false);
+                        setMenuOpen(false);
+                      }}
+                    >
+                      {t("footer.columnInfoLinks.faq")}
+                    </Link>
                   </div>
                 ) : null}
               </div>

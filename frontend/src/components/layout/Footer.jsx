@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlobeAltIcon, LanguageIcon } from "@heroicons/react/24/outline";
+import logoResident from "@assets/image/logo.png";
 import logoMax from "@assets/image/logo_max.png";
 import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
@@ -39,7 +40,7 @@ export function Footer({ site, services = [] }) {
       <div className={`container ${styles.grid}`}>
         <div>
           <Link to="/" className={styles.logo}>
-            <img src="/logo.png" width={2083} height={2083} alt="" />
+            <img src={logoResident} alt="" decoding="async" />
           </Link>
           {phone ? (
             <p className={styles.line}>

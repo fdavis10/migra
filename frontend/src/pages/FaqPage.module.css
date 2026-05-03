@@ -7,8 +7,3 @@
 .block {
   margin-bottom: var(--spacing-2xl);
 }
-
-.cat {
-  font-size: var(--font-size-lg);
-  margin: 0 0 var(--spacing-md);
-}

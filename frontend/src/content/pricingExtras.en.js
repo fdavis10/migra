@@ -1,11 +1,29 @@
 export const DISCOUNT_CARDS_EN = [
-  { discount: '7%', title: 'Website quiz', text: 'Take a short 6-question quiz.' },
-  { discount: '10%', title: 'Better together', text: 'Couples filing at the same time.' },
-  { discount: '10%', title: 'Refer a friend', text: 'Discount for you and your referral.' },
-  { discount: '12%', title: 'Family package', text: 'When filing for 3+ family members.' },
-  { discount: '15%', title: 'Student start', text: 'For students on TRP for education.' },
-  { discount: '15%', title: 'Perspective', text: 'TRP + PRP or PRP + citizenship.' },
-  { discount: '16%', title: 'Full package', text: 'TRP + PRP + citizenship.' },
+  {
+    discount: '5%',
+    title: 'Website quiz',
+    text: 'Take a short five-question quiz on our website — and get a discount on agency services.',
+  },
+  {
+    discount: '10%',
+    title: 'Refer a friend',
+    text: 'Recommend us to someone you know — and you both get a discount on our services.',
+  },
+  {
+    discount: '12%',
+    title: 'Family package',
+    text: 'Preparing documents for the whole family? A 12% discount when filing for three or more family members.',
+  },
+  {
+    discount: '15%',
+    title: 'Student start',
+    text: 'Special terms for international students studying at Russian universities.',
+  },
+  {
+    discount: '15%',
+    title: 'Perspective',
+    text: 'Planning to stay in Russia for the long term? A discount when you order two legalization stages at once.',
+  },
 ]
 
 export const PAYMENT_METHODS_EN = [

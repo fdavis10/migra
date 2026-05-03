@@ -16,6 +16,7 @@ import { AboutFounderPage } from '@/pages/AboutFounderPage'
 import { AboutAdvantagesPage } from '@/pages/AboutAdvantagesPage'
 import { AboutPaymentPage } from '@/pages/AboutPaymentPage'
 import { PromotionsPage } from '@/pages/PromotionsPage'
+import { PromotionDetailPage } from '@/pages/PromotionDetailPage'
 import { GuaranteesPage } from '@/pages/GuaranteesPage'
 import { ReviewsPage } from '@/pages/ReviewsPage'
 import { NewsPage } from '@/pages/NewsPage'
@@ -47,6 +48,7 @@ export default function App() {
         <Route path="/o-kompanii/oplata" element={<AboutPaymentPage />} />
         <Route path="/o-kompanii" element={<AboutUsPage />} />
         <Route path="/akcii" element={<PromotionsPage />} />
+        <Route path="/akcii/:promotionId" element={<PromotionDetailPage />} />
         <Route path="/garantii" element={<GuaranteesPage />} />
         <Route path="/otzyvy" element={<ReviewsPage />} />
         <Route path="/novosti" element={<NewsPage />} />

@@ -171,7 +171,14 @@
 }
 
 .promoCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
   padding: var(--spacing-lg);
+}
+
+.promoCard .disc {
+  margin-bottom: 0;
 }
 
 .disc {
@@ -182,14 +189,9 @@
 }
 
 .promoTitle {
-  margin: 0 0 var(--spacing-sm);
-  font-size: var(--font-size-base);
-}
-
-.promoDesc {
   margin: 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  flex: 1;
+  font-size: var(--font-size-base);
 }
 
 .morePromo {

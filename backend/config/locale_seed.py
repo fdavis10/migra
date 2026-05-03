@@ -1,5 +1,7 @@
 """Bundled EN strings for seed_english_locale management command."""
 
+from config.promotion_descriptions_en import PROMO_DESCRIPTIONS_EN
+
 DURATION_EN = {
     "": "",
     "5 дней": "5 days",
@@ -636,33 +638,25 @@ GUARANTEE_EN = {
 }
 
 PROMOTION_EN = {
-    "Вместе выгоднее": {
-        "title_en": "Better together",
-        "description_en": "For couples filing together.",
-    },
     "Приведи друга": {
         "title_en": "Refer a friend",
-        "description_en": "Discount for you and your referral.",
+        "description_en": PROMO_DESCRIPTIONS_EN["Приведи друга"],
     },
     "Семейный пакет": {
         "title_en": "Family package",
-        "description_en": "When filing for 3+ family members.",
+        "description_en": PROMO_DESCRIPTIONS_EN["Семейный пакет"],
     },
     "Студенческий старт": {
         "title_en": "Student start",
-        "description_en": "For students on TRP for education.",
+        "description_en": PROMO_DESCRIPTIONS_EN["Студенческий старт"],
     },
     "Перспектива": {
         "title_en": "Perspective",
-        "description_en": "When ordering TRP+PRP or PRP+citizenship.",
-    },
-    "Полный пакет": {
-        "title_en": "Full package",
-        "description_en": "Maximum discount on TRP+PRP+citizenship.",
+        "description_en": PROMO_DESCRIPTIONS_EN["Перспектива"],
     },
     "Скидка за тест": {
         "title_en": "Quiz discount",
-        "description_en": "Take the 6-question quiz on the website.",
+        "description_en": PROMO_DESCRIPTIONS_EN["Скидка за тест"],
     },
 }
 

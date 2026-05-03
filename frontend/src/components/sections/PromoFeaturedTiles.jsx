@@ -1,17 +1,50 @@
+import { useCallback, useState } from 'react'
+import { PromotionDiscountQuiz } from '@/components/promotions/PromotionDiscountQuiz'
 import { Button } from '@/components/ui/Button'
 import { useTranslation } from '@/i18n/useTranslation'
 import styles from './PromoFeaturedTiles.module.css'
 
 export function PromoFeaturedTiles({ onConsult }) {
   const { t } = useTranslation()
+  const [testOpen, setTestOpen] = useState(false)
+  const [quizKey, setQuizKey] = useState(0)
+
+  const closeTest = useCallback(() => {
+    setTestOpen(false)
+    setQuizKey((k) => k + 1)
+  }, [])
+
   return (
     <div className={styles.row}>
-      <div className={styles.tileStatic} aria-label={t('promoTiles.testAria')}>
-        <p className={styles.tileStaticText}>
-          {t('promoTiles.testBefore')}
-          <span className={styles.accent}>7%</span>
-          {t('promoTiles.testAfter')}
-        </p>
+      <div
+        className={`${styles.tileStatic} ${testOpen ? styles.tileStaticOpen : ''}`}
+        aria-expanded={testOpen}
+      >
+        {!testOpen ? (
+          <button
+            type="button"
+            className={styles.tileTeaser}
+            aria-label={t('promoTiles.testAria')}
+            onClick={() => setTestOpen(true)}
+          >
+            <p className={styles.tileStaticText}>
+              {t('promoTiles.testBefore')}
+              <span className={styles.accent}>5%</span>
+              {t('promoTiles.testAfter')}
+            </p>
+          </button>
+        ) : (
+          <>
+            <div className={styles.tileQuizToolbar}>
+              <button type="button" className={styles.tileQuizClose} onClick={closeTest}>
+                {t('promoTiles.closeQuiz')}
+              </button>
+            </div>
+            <div className={styles.tileQuizBody}>
+              <PromotionDiscountQuiz key={quizKey} variant="embedded" skipIdle />
+            </div>
+          </>
+        )}
       </div>
 
       <div className={styles.flipScene} tabIndex={0} aria-label={t('promoTiles.couplesAria')}>

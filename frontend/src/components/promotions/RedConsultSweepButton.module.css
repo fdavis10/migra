@@ -1,0 +1,78 @@
+.root {
+  --consult-red: #d97878;
+  --consult-red-dark: #c46868;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: var(--spacing-md) var(--spacing-xl);
+  box-sizing: border-box;
+  border: 2px solid var(--consult-red);
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  color: var(--consult-red);
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.2s ease;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg, var(--consult-red) 0%, var(--consult-red-dark) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  line-height: 1.35;
+  transition: color 0.28s ease;
+}
+
+.root:hover,
+.root:focus-visible {
+  border-color: var(--consult-red-dark);
+}
+
+.root:hover .fill,
+.root:focus-visible .fill {
+  transform: scaleX(1);
+}
+
+.root:hover .label,
+.root:focus-visible .label {
+  color: var(--color-white);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--consult-red);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+
+  .label {
+    transition: none;
+  }
+
+  .root:hover .fill,
+  .root:focus-visible .fill {
+    transform: scaleX(1);
+  }
+}

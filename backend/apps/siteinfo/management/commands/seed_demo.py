@@ -12,6 +12,7 @@ from apps.promotions.models import Promotion
 from apps.reviews.models import Review
 from apps.services.models import Service
 from apps.siteinfo.models import SiteContent
+from config.promotion_descriptions_ru import PROMO_DESCRIPTIONS
 
 
 class Command(BaseCommand):
@@ -37,9 +38,9 @@ class Command(BaseCommand):
                 "Сопровождаем на каждом этапе — от первой консультации до паспорта."
             ),
             phone="+7 (916) 303-28-63",
-            email="residentservic@mail.ru",
+            email="info@residentservicerf.ru",
             address="г. Москва, ул. Примерная, д. 1, офис 100 (замените на реальные данные)",
-            work_hours="Пн–Вс 09:00–21:00",
+            work_hours="Пн–Вс 09:00–20:00",
             map_embed_html=(
                 '<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A'
                 'placeholder&amp;source=constructor" width="100%" height="400" '
@@ -699,13 +700,11 @@ class Command(BaseCommand):
         c16 = cat("Гибкая система скидок", 200)
         for order, (t, d) in enumerate(
             [
-                ("7% — тест из 6 вопросов на сайте", "7%"),
-                ("10% — семейные пары при одновременном оформлении", "10%"),
+                ("5% — тест из 5 вопросов на сайте", "5%"),
                 ("10% — приведи друга", "10%"),
                 ("12% — семейный пакет (3+ члена семьи)", "12%"),
                 ("15% — студентам на РВПО", "15%"),
                 ("15% — при заказе нескольких услуг (РВП+ВНЖ или ВНЖ+гражданство)", "15%"),
-                ("16% — полный пакет РВП+ВНЖ+гражданство", "16%"),
             ],
             start=1,
         ):
@@ -713,13 +712,11 @@ class Command(BaseCommand):
 
     def _promotions(self):
         promos = [
-            ("Вместе выгоднее", "10%", "Для семейных пар при одновременном оформлении.", 1),
-            ("Приведи друга", "10%", "Скидка для вас и вашего знакомого.", 2),
-            ("Семейный пакет", "12%", "При оформлении для 3+ членов семьи.", 3),
-            ("Студенческий старт", "15%", "Для студентов на РВПО.", 4),
-            ("Перспектива", "15%", "При заказе РВП+ВНЖ или ВНЖ+гражданство.", 5),
-            ("Полный пакет", "16%", "Максимальная скидка на РВП+ВНЖ+гражданство.", 6),
-            ("Скидка за тест", "7%", "Пройдите тест из 6 вопросов на сайте.", 7),
+            ("Приведи друга", "10%", PROMO_DESCRIPTIONS["Приведи друга"], 1),
+            ("Семейный пакет", "12%", PROMO_DESCRIPTIONS["Семейный пакет"], 2),
+            ("Студенческий старт", "15%", PROMO_DESCRIPTIONS["Студенческий старт"], 3),
+            ("Перспектива", "15%", PROMO_DESCRIPTIONS["Перспектива"], 4),
+            ("Скидка за тест", "5%", PROMO_DESCRIPTIONS["Скидка за тест"], 5),
         ]
         for title, discount, desc, order in promos:
             Promotion.objects.create(

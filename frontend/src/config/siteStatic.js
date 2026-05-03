@@ -1,7 +1,7 @@
 export const SITE_STATIC = {
   phone: '+7 (916) 303-28-63',
-  email: 'residentservic@mail.ru',
-  work_hours: 'Пн–Вс 09:00–21:00',
+  email: 'info@residentservicerf.ru',
+  work_hours: 'Пн–Вс 09:00–20:00',
   address: 'г. Москва (уточните адрес у заказчика)',
   whatsapp_url: 'https://wa.me/79163032863',
   telegram_url: 'https://t.me/resident_migration',

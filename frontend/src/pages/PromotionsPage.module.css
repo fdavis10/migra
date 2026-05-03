@@ -22,22 +22,27 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
   padding: var(--spacing-xl);
 }
 
 .card h2 {
-  margin: var(--spacing-sm) 0;
-  font-size: var(--font-size-md);
-}
-
-.card p {
   margin: 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  flex: 1;
+  font-size: var(--font-size-md);
 }
 
 .disc {
   font-weight: 800;
   color: var(--color-primary-dark);
   font-size: var(--font-size-lg);
+}
+
+.listFooter {
+  max-width: 520px;
+  margin: var(--spacing-2xl) auto 0;
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
 }

@@ -11,6 +11,7 @@ from apps.prices.models import PriceCategory, PriceItem
 from apps.promotions.models import Promotion
 from apps.reviews.models import Review
 from apps.services.models import Service
+from config.promotion_descriptions_ru import PROMO_DESCRIPTIONS
 
 
 def month_end(dt):
@@ -1497,60 +1498,44 @@ class Command(BaseCommand):
     def _promotions(self, exp):
         return [
             {
-                "title": "Вместе выгоднее",
+                "title": "Приведи друга",
                 "discount": "10%",
-                "description": "Для семейных пар при одновременном оформлении.",
+                "description": PROMO_DESCRIPTIONS["Приведи друга"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 1,
             },
             {
-                "title": "Приведи друга",
-                "discount": "10%",
-                "description": "Скидка для вас и вашего знакомого.",
+                "title": "Семейный пакет",
+                "discount": "12%",
+                "description": PROMO_DESCRIPTIONS["Семейный пакет"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 2,
             },
             {
-                "title": "Семейный пакет",
-                "discount": "12%",
-                "description": "При оформлении для 3+ членов семьи.",
+                "title": "Студенческий старт",
+                "discount": "15%",
+                "description": PROMO_DESCRIPTIONS["Студенческий старт"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 3,
             },
             {
-                "title": "Студенческий старт",
+                "title": "Перспектива",
                 "discount": "15%",
-                "description": "Для студентов на РВПО.",
+                "description": PROMO_DESCRIPTIONS["Перспектива"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 4,
             },
             {
-                "title": "Перспектива",
-                "discount": "15%",
-                "description": "При заказе РВП+ВНЖ или ВНЖ+гражданство.",
+                "title": "Скидка за тест",
+                "discount": "5%",
+                "description": PROMO_DESCRIPTIONS["Скидка за тест"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 5,
-            },
-            {
-                "title": "Полный пакет",
-                "discount": "16%",
-                "description": "Максимальная скидка на РВП+ВНЖ+гражданство.",
-                "is_active": True,
-                "expires_at": exp,
-                "order": 6,
-            },
-            {
-                "title": "Скидка за тест",
-                "discount": "7%",
-                "description": "Пройдите тест из 6 вопросов на сайте.",
-                "is_active": True,
-                "expires_at": exp,
-                "order": 7,
             },
         ]
 

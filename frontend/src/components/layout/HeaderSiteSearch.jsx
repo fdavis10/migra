@@ -151,7 +151,7 @@ export function HeaderSiteSearch({ services = [], onNavigate }) {
     for (const p of remote.promos) {
       items.push({
         id: `pr-${p.id}`,
-        path: "/akcii",
+        path: `/akcii/${p.id}`,
         title: p.title,
         haystack: `${p.title} ${p.description || ""} ${p.discount || ""}`,
         type: typePromo,

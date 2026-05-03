@@ -225,9 +225,9 @@
 
 .logo img {
   display: block;
-  height: 40px;
+  height: 70px;
   width: auto;
-  max-height: 40px;
+  max-height: 70px;
   object-fit: contain;
 }
 
@@ -762,23 +762,6 @@
 
 .infoDropPanel {
   min-width: 260px;
-  padding: var(--spacing-md);
-  gap: var(--spacing-lg);
-}
-
-.infoDropGroup {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.infoDropHeading {
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-text-secondary);
-  padding: 0 var(--spacing-sm);
 }
 
 .ctaMob {

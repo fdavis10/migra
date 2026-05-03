@@ -5,7 +5,7 @@ def update_contact(apps, schema_editor):
     SiteContent = apps.get_model("siteinfo", "SiteContent")
     SiteContent.objects.all().update(
         phone="+7 (916) 303-28-63",
-        email="residentservic@mail.ru",
+        email="info@residentservicerf.ru",
         whatsapp_url="https://wa.me/79163032863",
     )
 
