@@ -1277,11 +1277,13 @@
     "model": "promotions.promotion",
     "pk": 9,
     "fields": {
-      "title": "Приведи друга",
+      "title": "Приведи друга — выгода для двоих",
       "discount": "10%",
-      "description": "Порекомендуйте нас своему знакомому — и оба получите скидку на наши услуги.\nМиграционные вопросы часто затрагивают сразу несколько человек: коллег, соседей, земляков. Если вы уже воспользовались нашими услугами или только планируете обратиться, приведите друга — и каждый из вас получит персональную скидку на оформление документов.\nЭто простой способ сэкономить и помочь близкому человеку решить миграционные вопросы надёжно и без лишних хлопот.\nЗапишитесь на бесплатную консультацию и узнайте подробности акции.\nСкидка распространяется только на услуги агентства и не включает государственные пошлины.",
+      "description": "Мы гордимся тем, что многие новые клиенты приходят к нам по совету друзей и знакомых. Это лучшее подтверждение высокого качества нашей работы. В знак благодарности мы запускаем акцию, которая сделает сотрудничество с нами ещё более выгодным.\nКак получить скидку?\nЕсли вы обращаетесь к нам по рекомендации или приводите друга на консультацию, каждый из Вас получает скидку 10% на стоимость услуг.\nУсловия участия:\n• Перед подписанием договора сообщите юристу, что узнали о нас от знакомого.\n• Для подтверждения достаточно назвать фамилию или номер телефона рекомендателя.\n• Мы проверим информацию в базе и сразу же предоставим скидку.\n• Ваш друг также получит аналогичную скидку на свои будущие услуги.\nВарианты участия:\n1. Вы приходите по совету друга — скидка для Вас.\n2. Вы приводите друга, который ещё не был нашим клиентом — скидка для Вас обоих уже на первой встрече.\nНа какие услуги действует акция? Скидка распространяется на все основные направления — **ВНЖ**, **РВП**, **получение гражданства**.\n\nЗапишитесь на бесплатную консультацию, чтобы узнать все подробности и начать оформление.\nСкидка распространяется исключительно на услуги компании и не покрывает размер государственных пошлин.",
+      "title_en": "Refer a friend — benefits for both",
+      "description_en": "We are proud that many new clients come to us on the advice of friends and acquaintances. That is the best confirmation of the quality of our work. As a thank-you, we are launching a promotion that makes working with us even more beneficial.\nHow do you get the discount?\nIf you contact us on a recommendation or bring a friend to a consultation, each of you receives a 10% discount on our services.\nParticipation terms:\n• Before signing the contract, tell the lawyer that you learned about us from an acquaintance.\n• To confirm, it is enough to give the recommender’s surname or phone number.\n• We will verify the information in our database and apply the discount right away.\n• Your friend will also receive a similar discount on their future services.\nWays to participate:\n1. You come on a friend’s advice — a discount for you.\n2. You bring a friend who has not yet been our client — a discount for both of you from the first meeting.\nWhich services does the promotion cover? The discount applies to all main areas — **PRP**, **TRP**, **citizenship acquisition**.\n\nBook a free consultation to learn all the details and start the process.\nThe discount applies only to the company’s services and does not cover state fees.",
       "is_active": true,
-      "expires_at": "2026-04-30T23:59:59.490Z",
+      "expires_at": "2026-12-31T23:59:59Z",
       "order": 1
     }
   },
@@ -1290,10 +1292,12 @@
     "pk": 10,
     "fields": {
       "title": "Семейный пакет",
-      "discount": "12%",
-      "description": "Оформляете документы для всей семьи? Скидка 12% при подаче на троих и более членов семьи.\nПереезд семьёй — это вдвойне ответственный шаг. Каждому члену семьи необходимо оформить свой пакет документов: пройти медкомиссию, подтвердить знание языка, подготовить заявления. Мы возьмём на себя весь процесс — от консультации до получения результата.\nПри одновременном оформлении документов для трёх и более членов семьи вы получаете скидку 12% на услуги агентства. Меньше затрат, меньше стресса — и вся семья под защитой закона.\nЗапишитесь на бесплатную консультацию и узнайте, какие документы нужны вашей семье.\nСкидка распространяется только на услуги агентства и не включает государственные пошлины.",
+      "discount": "10%",
+      "description": "Оформляете документы для всей семьи? Скидка 10% при подаче на троих и более членов семьи. Переезд семьёй — это вдвойне ответственный шаг. Каждому члену семьи необходимо оформить свой пакет документов: пройти медкомиссию, подтвердить знание языка, подготовить заявления.\nМы возьмём весь процесс на себя — от консультации до получения результата.\nПри одновременном оформлении документов для трёх и более членов семьи Вы получаете скидку 10% на услуги компании.\n\nНа какие услуги действует акция? Скидка распространяется на все основные направления — **ВНЖ**, **РВП**, **получение гражданства**.\n\nМеньше затрат, меньше стресса — и вся семья под защитой закона.\n\nЗапишитесь на бесплатную консультацию, чтобы узнать все подробности и начать оформление.\nСкидка распространяется исключительно на услуги компании и не покрывает размер государственных пошлин.",
+      "title_en": "Family package",
+      "description_en": "Preparing documents for the whole family? A 10% discount when filing for three or more family members. Moving as a family is doubly responsible. Each family member needs their own document package: medical examination, language test, applications.\nWe take the whole process on ourselves — from consultation to the result.\nWhen documents for three or more family members are prepared at the same time, you receive a 10% discount on the company’s services.\n\nWhich services does the promotion cover? The discount applies to all main areas — **PRP**, **TRP**, **citizenship acquisition**.\n\nLower costs, less stress — and the whole family stays on the right side of the law.\n\nBook a free consultation to learn all the details and start the process.\nThe discount applies only to the company’s services and does not cover state fees.",
       "is_active": true,
-      "expires_at": "2026-04-30T23:59:59.490Z",
+      "expires_at": "2026-12-31T23:59:59Z",
       "order": 2
     }
   },
@@ -1301,11 +1305,13 @@
     "model": "promotions.promotion",
     "pk": 11,
     "fields": {
-      "title": "Студенческий старт",
-      "discount": "15%",
-      "description": "Специальные условия для иностранных студентов, обучающихся в российских вузах.\nИностранные граждане, получающие образование в России, имеют право на оформление разрешения на временное проживание в целях обучения (РВПО) — без квоты и на упрощённых условиях. Это важный шаг к легальному проживанию и дальнейшему построению жизни в стране.\nМы помогаем студентам разобраться в требованиях, собрать документы и избежать ошибок, которые могут стоить времени и нервов. По акции «Студенческий старт» вы получаете скидку на оформление РВПО — потому что начало новой жизни не должно начинаться с лишних расходов.\nЗапишитесь на бесплатную консультацию и узнайте, как оформить РВПО быстро и правильно.\nСкидка распространяется только на услуги агентства и не включает государственные пошлины.",
+      "title": "Работодатель",
+      "discount": "20%",
+      "description": "Привлекаете иностранных специалистов? Мы поможем легализовать их трудовую деятельность в России быстро, грамотно и без рисков для вашей компании.\nПри одновременном оформлении документов для трёх и более сотрудников Вы получаете скидку 20% на услуги нашей компании.\nПочему это важно и выгодно?\nРазрешение на работу (**РНР**) — обязательный документ для легального трудоустройства иностранных граждан из визовых стран. Процесс оформления включает:\n• прохождение медицинского осмотра;\n• сдачу экзамена по русскому языку, истории и праву;\n• сбор и подготовку большого пакета документов.\nОшибки в документах чреваты отказом, срывом сроков и штрафами для работодателя. Наши юристы возьмут на себя всю бюрократическую работу, гарантируя корректность оформления и соблюдение всех требований законодательства.\nЭта акция — идеальное решение для компаний, которым необходимо оформить несколько сотрудников одновременно. Вы не только экономите бюджет компании, но и освобождаете время кадровой службы, получая гарантированный результат.\nЗапишитесь на бесплатную консультацию, чтобы узнать все детали и оформить **РНР** для ваших специалистов быстро и по закону.\n\nСкидка распространяется исключительно на услуги компании и не покрывает размер государственных пошлин.",
+      "title_en": "Employer",
+      "description_en": "Do you hire foreign specialists? We will help legalize their employment in Russia quickly, professionally, and without risks for your company.\nWhen documents for three or more employees are prepared at the same time, you receive a 20% discount on our company’s services.\nWhy does it matter?\nA **work permit** is a mandatory document for legal employment of foreign nationals from visa countries. The process includes:\n• a medical examination;\n• an exam in Russian, history, and law;\n• collecting and preparing a large document package.\nMistakes in documents can lead to refusal, missed deadlines, and fines for the employer. Our lawyers take on all the paperwork, ensuring correct filing and compliance with the law.\nThis promotion is ideal for companies that need to onboard several employees at once. You save budget and free up HR time while getting a reliable result.\nBook a free consultation to learn all the details and obtain a **work permit** for your specialists quickly and lawfully.\n\nThe discount applies only to the company’s services and does not cover state fees.",
       "is_active": true,
-      "expires_at": "2026-04-30T23:59:59.490Z",
+      "expires_at": "2026-12-31T23:59:59Z",
       "order": 3
     }
   },
@@ -1315,22 +1321,54 @@
     "fields": {
       "title": "Перспектива",
       "discount": "15%",
-      "description": "Планируете остаться в России надолго? Скидка при заказе двух этапов легализации сразу: РВП + ВНЖ или ВНЖ + гражданство.\nПуть к постоянному проживанию и гражданству состоит из нескольких последовательных шагов, и каждый из них требует отдельного пакета документов, сроков и знания законодательства. Планируя заранее, вы экономите и время, и деньги.\nАкция «Перспектива» создана для тех, кто смотрит вперёд: при заказе сопровождения сразу двух этапов вы получаете скидку на услуги агентства. Мы выстроим для вас чёткий маршрут и проведём через каждый этап без лишних задержек.\nЗапишитесь на бесплатную консультацию и узнайте, какой путь к ВНЖ или гражданству подходит именно вам.\nСкидка распространяется только на услуги агентства и не включает государственные пошлины.",
+      "description": "Планируете долгосрочное проживание в России? Сделайте первый шаг к своей цели с выгодой! При одновременном заказе сопровождения по двум этапам легализации Вы получаете скидку 15% на услуги нашей компании.\nВыбирайте удобную для вас комбинацию:\n• получение **РВП** + **ВНЖ**;\n• оформление **ВНЖ** + **Гражданства**.\nМы понимаем, что путь к постоянному статусу состоит из нескольких сложных шагов. Каждый этап требует сбора отдельного пакета документов и соблюдения строгих сроков. Наша акция создана специально для тех, кто предпочитает планировать будущее заранее. Вы не только экономите средства, но и получаете комплексное сопровождение, что гарантирует отсутствие задержек и ошибок при переходе с одного этапа на другой.\nМы разработаем для Вас чёткий план действий и проведём через всю процедуру до желаемого результата.\nЗапишитесь на бесплатную консультацию, чтобы узнать все подробности и начать оформление.\nСкидка распространяется исключительно на услуги компании и не покрывает размер государственных пошлин.",
+      "title_en": "Perspective",
+      "description_en": "Planning long-term residence in Russia? Take the first step toward your goal with a benefit! When you order support for two legalization stages at once, you receive a 15% discount on our company’s services.\nChoose a combination that suits you:\n• obtaining **TRP** + **PRP**;\n• preparing **PRP** + **Citizenship**.\nWe know the path to a stable status involves several complex steps. Each stage requires its own document package and strict deadlines. Our promotion is designed for those who prefer to plan ahead. You save money and get end-to-end support, reducing delays and errors when moving from one stage to the next.\nWe will design a clear action plan and guide you through the whole procedure to the result you want.\nBook a free consultation to learn all the details and start the process.\nThe discount applies only to the company’s services and does not cover state fees.",
       "is_active": true,
-      "expires_at": "2026-04-30T23:59:59.490Z",
+      "expires_at": "2026-12-31T23:59:59Z",
       "order": 4
+    }
+  },
+  {
+    "model": "promotions.promotion",
+    "pk": 13,
+    "fields": {
+      "title": "Несовершеннолетний ребенок",
+      "discount": "10%",
+      "description": "Проживание ребёнка в России без официального статуса создаёт множество трудностей: от сложностей с поступлением в школу или вуз до ограничений в получении медицинской помощи и социальных гарантий. Чтобы обеспечить Вашему ребёнку стабильное будущее и равные права, важно своевременно оформить разрешение на временное проживание (**РВП**).\nКомпания «Резидент» предлагает родителям специальное условие: скидка 10% на услуги по подготовке и сопровождению документов для оформления **РВП**, а также **ВНЖ** и **получения гражданства** для несовершеннолетних (до 18 лет).\nМы работаем как с родителями, которые уже получили свой статус, так и с теми, кто обращается к нам впервые исключительно ради оформления документов для ребёнка.\nНаши юристы берут на себя всю процедуру:\n• проводят бесплатную консультацию и разъясняют все этапы;\n• помогают собрать и правильно оформить пакет документов;\n• проверяют бумаги на соответствие требованиям законодательства;\n• сопровождают Вас при подаче документов в госорганы.\nТакой подход исключает ошибки, минимизирует риск отказа и избавляет от необходимости многократных визитов в миграционные службы.\n**РВП** для ребёнка — это:\n• законное пребывание на территории РФ;\n• право на обучение в российских образовательных учреждениях;\n• доступ к государственной медицине и социальным программам;\n• первый шаг к получению вида на жительство (**ВНЖ**) и **гражданства России**.\nОформляя статус для ребёнка сейчас, Вы открываете ему прямой и беспрепятственный путь к полноценной интеграции в российское общество.\nЗапишитесь на бесплатную консультацию, чтобы узнать все подробности и начать оформление.\nСкидка распространяется исключительно на услуги компании и не покрывает размер государственных пошлин.",
+      "title_en": "Minor child",
+      "description_en": "Living in Russia without official status creates many difficulties for a child — from enrolling in school or university to limits on medical care and social guarantees. To give your child a stable future and equal rights, it is important to obtain a temporary residence permit (**TRP**) in time.\nRESIDENT offers parents a special rate: a 10% discount on preparing and supporting documents for **TRP**, as well as **PRP** and **citizenship acquisition** for minors (under 18).\nWe work both with parents who already have their status and with those who contact us for the first time solely to arrange documents for a child.\nOur lawyers handle the whole procedure:\n• a free consultation and explanation of every stage;\n• help to collect and correctly prepare the document package;\n• checks for compliance with legal requirements;\n• support when filing with government agencies.\nThis approach reduces errors, lowers the risk of refusal, and saves repeated visits to migration offices.\n**TRP** for a child means:\n• lawful stay in the Russian Federation;\n• the right to study at Russian educational institutions;\n• access to public healthcare and social programmes;\n• the first step toward **PRP** and **citizenship of Russia**.\nBy securing status for your child now, you open a direct path to full integration into Russian society.\nBook a free consultation to learn all the details and start the process.\nThe discount applies only to the company’s services and does not cover state fees.",
+      "is_active": true,
+      "expires_at": "2026-12-31T23:59:59Z",
+      "order": 5
     }
   },
   {
     "model": "promotions.promotion",
     "pk": 14,
     "fields": {
+      "title": "Студенческий старт",
+      "discount": "15%",
+      "description": "Получаете высшее образование в России? Мы поможем Вам легализовать пребывание в стране на время учёбы быстро, просто и с выгодой.\nИностранные студенты имеют уникальную возможность оформить разрешение на временное проживание в целях обучения (**РВПО**). Этот статус предоставляется вне квот и на упрощённых условиях, что является важным шагом к комфортной и законной жизни в России.\nМы понимаем, с какими сложностями сталкиваются студенты при сборе документов. Наши специалисты помогут вам разобраться во всех требованиях, подготовить полный пакет бумаг и избежать ошибок, которые могут привести к задержкам.\nВ рамках акции «Студенческий старт» Вы получаете скидку 15% на наши услуги по оформлению **РВПО**. Мы верим, что начало нового этапа в жизни не должно быть омрачено лишними расходами.\nЗапишитесь на бесплатную консультацию, чтобы узнать все подробности и начать оформление.\nСкидка распространяется исключительно на услуги компании и не покрывает размер государственных пошлин.",
+      "title_en": "Student start",
+      "description_en": "Studying for a degree in Russia? We will help you legalize your stay for the duration of your studies — quickly, simply, and with a benefit.\nInternational students have a unique opportunity to obtain a temporary residence permit for study purposes (**TRP for study**). This status is granted without a quota and under simplified rules — an important step toward a comfortable, lawful life in Russia.\nWe know how hard it can be for students to gather documents. Our specialists help you understand every requirement, prepare a complete package, and avoid mistakes that cause delays.\nUnder the “Student start” promotion you receive a 15% discount on our services for **TRP for study**. We believe the start of a new chapter should not be overshadowed by unnecessary costs.\nBook a free consultation to learn all the details and start the process.\nThe discount applies only to the company’s services and does not cover state fees.",
+      "is_active": true,
+      "expires_at": "2026-12-31T23:59:59Z",
+      "order": 6
+    }
+  },
+  {
+    "model": "promotions.promotion",
+    "pk": 15,
+    "fields": {
       "title": "Скидка за тест",
       "discount": "5%",
       "description": "Пройдите короткий тест из 5 вопросов на нашем сайте — и получите скидку на услуги агентства.\nМы хотим лучше понимать вашу ситуацию ещё до первой встречи. Небольшой тест поможет нам заранее оценить, какие документы вам нужны, а вам — получить более точную консультацию с первых минут общения. И в качестве благодарности за ваше время — персональная скидка на оформление.\nЭто занимает меньше двух минут, а результат работает в вашу пользу.\nПройти тест и получить скидку — просто нажмите и ответьте на 5 вопросов.\nСкидка распространяется только на услуги агентства и не включает государственные пошлины.",
+      "title_en": "Quiz discount",
+      "description_en": "Take a short five-question quiz on our website — and get a discount on agency services.\nWe want to understand your situation better even before the first meeting. A short quiz helps us assess in advance which documents you may need, and helps you get a more accurate consultation from the first minutes of our conversation. As a thank-you for your time — a personal discount on preparation.\nIt takes less than two minutes, and the benefit works in your favour.\nTo take the quiz and get the discount, simply tap through five questions.\nThe discount applies only to agency services and does not include state fees.",
       "is_active": true,
-      "expires_at": "2026-04-30T23:59:59.490Z",
-      "order": 5
+      "expires_at": "2026-12-31T23:59:59Z",
+      "order": 7
     }
   },
   {

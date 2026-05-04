@@ -638,21 +638,29 @@ GUARANTEE_EN = {
 }
 
 PROMOTION_EN = {
-    "Приведи друга": {
-        "title_en": "Refer a friend",
-        "description_en": PROMO_DESCRIPTIONS_EN["Приведи друга"],
+    "Приведи друга — выгода для двоих": {
+        "title_en": "Refer a friend — benefits for both",
+        "description_en": PROMO_DESCRIPTIONS_EN["Приведи друга — выгода для двоих"],
     },
     "Семейный пакет": {
         "title_en": "Family package",
         "description_en": PROMO_DESCRIPTIONS_EN["Семейный пакет"],
     },
-    "Студенческий старт": {
-        "title_en": "Student start",
-        "description_en": PROMO_DESCRIPTIONS_EN["Студенческий старт"],
+    "Работодатель": {
+        "title_en": "Employer",
+        "description_en": PROMO_DESCRIPTIONS_EN["Работодатель"],
     },
     "Перспектива": {
         "title_en": "Perspective",
         "description_en": PROMO_DESCRIPTIONS_EN["Перспектива"],
+    },
+    "Несовершеннолетний ребенок": {
+        "title_en": "Minor child",
+        "description_en": PROMO_DESCRIPTIONS_EN["Несовершеннолетний ребенок"],
+    },
+    "Студенческий старт": {
+        "title_en": "Student start",
+        "description_en": PROMO_DESCRIPTIONS_EN["Студенческий старт"],
     },
     "Скидка за тест": {
         "title_en": "Quiz discount",

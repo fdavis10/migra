@@ -1,3 +1,6 @@
+/** Главный логотип в шапке/подвале: файл `frontend/public/logo.png` (корень сайта `/logo.png`). */
+export const SITE_LOGO_SRC = `${import.meta.env.BASE_URL}logo.png`
+
 export const SITE_STATIC = {
   phone: '+7 (916) 303-28-63',
   email: 'info@residentservicerf.ru',

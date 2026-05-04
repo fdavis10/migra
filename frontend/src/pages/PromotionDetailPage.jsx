@@ -3,12 +3,26 @@ import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { getPromotion, getPromotions } from '@/api/promos'
+import { PromotionDiscountQuiz } from '@/components/promotions/PromotionDiscountQuiz'
 import { RedConsultSweepButton } from '@/components/promotions/RedConsultSweepButton'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { useLeadModal } from '@/context/LeadModalContext'
 import { useTranslation } from '@/i18n/useTranslation'
 import { unwrapList } from '@/utils/apiList'
+import { PromoDescriptionBody } from '@/utils/promoDescriptionLinks'
 import styles from './PromotionDetailPage.module.css'
+
+function plainPromoMetaDescription(raw) {
+  if (raw == null || raw === '') return ''
+  return String(raw).replace(/\*\*([^*]+)\*\*/g, '$1').slice(0, 200)
+}
+
+const QUIZ_PROMO_TITLES = new Set(['скидка за тест', 'quiz discount'])
+
+function isQuizDiscountPromotion(p) {
+  const title = (p?.title || '').trim().toLowerCase()
+  return QUIZ_PROMO_TITLES.has(title)
+}
 
 export function PromotionDetailPage() {
   const { promotionId } = useParams()
@@ -108,7 +122,7 @@ export function PromotionDetailPage() {
         <title>
           {promo.title} — {t('promotionsPage.h1')}
         </title>
-        <meta name="description" content={(promo.description || '').slice(0, 200)} />
+        <meta name="description" content={plainPromoMetaDescription(promo.description)} />
       </Helmet>
       <div className="section">
         <div className={`container ${styles.narrow}`}>
@@ -124,7 +138,17 @@ export function PromotionDetailPage() {
               {t('promotionsPage.validUntil')}: {until}
             </p>
           ) : null}
-          <div className={styles.body}>{promo.description}</div>
+          <PromoDescriptionBody
+            text={promo.description}
+            className={styles.body}
+            linkClassName={styles.serviceLink}
+          />
+
+          {isQuizDiscountPromotion(promo) ? (
+            <div className={styles.quizSection} aria-label={t('promoTiles.testAria')}>
+              <PromotionDiscountQuiz />
+            </div>
+          ) : null}
 
           <footer className={styles.footer}>
             <RedConsultSweepButton

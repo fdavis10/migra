@@ -53,6 +53,21 @@
   white-space: pre-wrap;
 }
 
+.quizSection {
+  margin-top: var(--spacing-xl);
+}
+
+.serviceLink {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.serviceLink:hover {
+  color: var(--color-primary);
+}
+
 .footer {
   display: flex;
   flex-direction: column;

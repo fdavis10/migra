@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlobeAltIcon, LanguageIcon } from "@heroicons/react/24/outline";
-import logoResident from "@assets/image/logo.png";
 import logoMax from "@assets/image/logo_max.png";
 import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
+import { SITE_LOGO_SRC } from "@/config/siteStatic";
 import { LOCALE_ITEMS } from "@/content/languageOptions";
 import { useCity } from "@/context/CityContext";
 import { useLocale } from "@/context/LanguageContext";
@@ -40,7 +40,7 @@ export function Footer({ site, services = [] }) {
       <div className={`container ${styles.grid}`}>
         <div>
           <Link to="/" className={styles.logo}>
-            <img src={logoResident} alt="" decoding="async" />
+            <img src={SITE_LOGO_SRC} alt="" decoding="async" />
           </Link>
           {phone ? (
             <p className={styles.line}>

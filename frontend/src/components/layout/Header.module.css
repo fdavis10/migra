@@ -225,9 +225,8 @@
 
 .logo img {
   display: block;
-  height: 70px;
-  width: auto;
-  max-height: 70px;
+  width: 150px;
+  height: 65px;
   object-fit: contain;
 }
 

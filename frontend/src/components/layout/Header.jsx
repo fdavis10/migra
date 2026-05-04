@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDownIcon, GlobeAltIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { submitLead } from "@/api/leads";
-import logoResident from "@assets/image/logo.png";
 import logoYandex from "@assets/image/logo_yandex.svg";
 import logoMax from "@assets/image/logo_max.png";
 import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
+import { SITE_LOGO_SRC } from "@/config/siteStatic";
 import { ABOUT_NAV_ITEMS } from "@/content/aboutNav";
 import { LOCALE_ITEMS } from "@/content/languageOptions";
 import { useCity } from "@/context/CityContext";
@@ -109,7 +109,7 @@ export function Header({ site, services = [] }) {
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
           <Link to="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-            <img src={logoResident} alt={t("header.logoAlt")} decoding="async" />
+            <img src={SITE_LOGO_SRC} alt={t("header.logoAlt")} decoding="async" />
           </Link>
           <img
             className={styles.yandexLogo}

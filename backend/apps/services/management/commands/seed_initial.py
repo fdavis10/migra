@@ -1498,25 +1498,25 @@ class Command(BaseCommand):
     def _promotions(self, exp):
         return [
             {
-                "title": "Приведи друга",
+                "title": "Приведи друга — выгода для двоих",
                 "discount": "10%",
-                "description": PROMO_DESCRIPTIONS["Приведи друга"],
+                "description": PROMO_DESCRIPTIONS["Приведи друга — выгода для двоих"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 1,
             },
             {
                 "title": "Семейный пакет",
-                "discount": "12%",
+                "discount": "10%",
                 "description": PROMO_DESCRIPTIONS["Семейный пакет"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 2,
             },
             {
-                "title": "Студенческий старт",
-                "discount": "15%",
-                "description": PROMO_DESCRIPTIONS["Студенческий старт"],
+                "title": "Работодатель",
+                "discount": "20%",
+                "description": PROMO_DESCRIPTIONS["Работодатель"],
                 "is_active": True,
                 "expires_at": exp,
                 "order": 3,
@@ -1530,12 +1530,28 @@ class Command(BaseCommand):
                 "order": 4,
             },
             {
+                "title": "Несовершеннолетний ребенок",
+                "discount": "10%",
+                "description": PROMO_DESCRIPTIONS["Несовершеннолетний ребенок"],
+                "is_active": True,
+                "expires_at": exp,
+                "order": 5,
+            },
+            {
+                "title": "Студенческий старт",
+                "discount": "15%",
+                "description": PROMO_DESCRIPTIONS["Студенческий старт"],
+                "is_active": True,
+                "expires_at": exp,
+                "order": 6,
+            },
+            {
                 "title": "Скидка за тест",
                 "discount": "5%",
                 "description": PROMO_DESCRIPTIONS["Скидка за тест"],
                 "is_active": True,
                 "expires_at": exp,
-                "order": 5,
+                "order": 7,
             },
         ]
 
