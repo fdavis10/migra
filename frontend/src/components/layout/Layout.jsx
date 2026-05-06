@@ -8,6 +8,7 @@ import { ScrollToTop } from "./ScrollToTop.jsx";
 import { CookieBanner } from "./CookieBanner.jsx";
 import { GlobalLeadModal } from "./GlobalLeadModal.jsx";
 import { SpecialistChat } from "./SpecialistChat.jsx";
+import { PageViewTracker } from "../analytics/PageViewTracker.jsx";
 
 export function Layout() {
   const [site, setSite] = useState(null);
@@ -36,6 +37,7 @@ export function Layout() {
 
   return (
     <>
+      <PageViewTracker />
       <ScrollToTop />
       <Header site={site} services={services} />
       <main>

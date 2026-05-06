@@ -1,5 +1,15 @@
 import { useState } from 'react'
 import { NavLink, Navigate, Outlet, useNavigate } from 'react-router-dom'
+import {
+  ArrowRightOnRectangleIcon,
+  Bars3Icon,
+  BuildingLibraryIcon,
+  Cog6ToothIcon,
+  GlobeAltIcon,
+  HomeIcon,
+  NewspaperIcon,
+  UserGroupIcon,
+} from '@heroicons/react/24/outline'
 import { clearTokens, isPanelAuthenticated } from './authStorage'
 import './panel.css'
 import styles from './PanelLayout.module.css'
@@ -23,28 +33,48 @@ export function PanelLayout() {
     <div className="panelShell">
       <div className={styles.mobileBar}>
         <button type="button" className={styles.burger} onClick={() => setMenuOpen((o) => !o)} aria-label="Меню">
-          ☰
+          <Bars3Icon className={styles.burgerIcon} aria-hidden />
         </button>
-        Панель
+        <span className={styles.mobileTitle}>Резидент · CMS</span>
       </div>
       <aside className={`${styles.sidebar} ${menuOpen ? styles.open : ''}`}>
-        <div className={styles.brand}>Миграционный сервис «Резидент» — панель</div>
+        <div className={styles.brand}>
+          <span className={styles.brandTitle}>Резидент</span>
+          <span className={styles.brandSub}>Панель управления сайтом</span>
+        </div>
         <nav className={styles.nav} onClick={() => setMenuOpen(false)}>
+          <p className={styles.navSection}>Рабочий стол</p>
           <NavLink to="/panel" end className={navCls}>
-            Обзор
+            <HomeIcon className={styles.navIcon} aria-hidden />
+            Дашборд
           </NavLink>
+          <p className={styles.navSection}>Клиенты</p>
           <NavLink to="/panel/leads" className={navCls}>
+            <UserGroupIcon className={styles.navIcon} aria-hidden />
             Заявки
           </NavLink>
+          <p className={styles.navSection}>Контент</p>
           <NavLink to="/panel/news" className={navCls}>
-            Блог (новости)
+            <NewspaperIcon className={styles.navIcon} aria-hidden />
+            Блог
           </NavLink>
           <NavLink to="/panel/site" className={navCls}>
-            Контент сайта
+            <Cog6ToothIcon className={styles.navIcon} aria-hidden />
+            Настройки сайта
           </NavLink>
+          <p className={styles.navSection}>Внешнее</p>
+          <a href="/" className={styles.navLink} target="_blank" rel="noreferrer">
+            <GlobeAltIcon className={styles.navIcon} aria-hidden />
+            Публичный сайт
+          </a>
+          <a href="/admin/" className={styles.navLink} target="_blank" rel="noreferrer">
+            <BuildingLibraryIcon className={styles.navIcon} aria-hidden />
+            Django Admin
+          </a>
         </nav>
         <div className={styles.footer}>
           <button type="button" className={styles.logout} onClick={logout}>
+            <ArrowRightOnRectangleIcon className={styles.navIcon} aria-hidden />
             Выйти
           </button>
         </div>

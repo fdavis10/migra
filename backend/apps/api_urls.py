@@ -1,6 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
+from apps.analytics.views import PageViewCreateView
 from apps.faq.views import FAQCategoryViewSet
 from apps.guarantees.views import GuaranteeViewSet
 from apps.leads.views import LeadCreateView
@@ -22,6 +23,7 @@ router.register(r"guarantees", GuaranteeViewSet, basename="guarantee")
 
 urlpatterns = [
     path("", include(router.urls)),
+    path("analytics/pageview/", PageViewCreateView.as_view(), name="analytics-pageview"),
     path("leads/", LeadCreateView.as_view(), name="lead-create"),
     path("site/contact/", site_contact, name="site-contact"),
     path("panel/", include("apps.panel.urls")),

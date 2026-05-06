@@ -3,21 +3,38 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 220px;
-  background: #1e293b;
+  width: 260px;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 55%, #1a2332 100%);
   color: #e2e8f0;
   padding: var(--spacing-md) 0;
   z-index: 40;
   display: flex;
   flex-direction: column;
+  box-shadow: 4px 0 24px rgba(15, 23, 42, 0.35);
 }
 
 .brand {
   padding: 0 var(--spacing-md) var(--spacing-md);
-  font-weight: 700;
-  font-size: var(--font-size-base);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: var(--spacing-md);
+}
+
+.brandTitle {
+  display: block;
+  font-weight: 800;
+  font-size: var(--font-size-md);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.brandSub {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .nav {
@@ -25,14 +42,47 @@
   flex-direction: column;
   gap: 2px;
   flex: 1;
+  overflow-y: auto;
+  padding: 0 8px;
+}
+
+.navSection {
+  margin: var(--spacing-md) 0 6px;
+  padding: 0 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.navSection:first-child {
+  margin-top: 0;
 }
 
 .navLink {
-  padding: 10px var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
   color: #cbd5e1;
   text-decoration: none;
   text-align: left;
   font-size: var(--font-size-sm);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .navLink:hover {
@@ -41,8 +91,9 @@
 }
 
 .active {
-  background: rgba(91, 168, 212, 0.25);
+  background: linear-gradient(90deg, rgba(91, 168, 212, 0.35) 0%, rgba(91, 168, 212, 0.12) 100%);
   color: #fff;
+  border: 1px solid rgba(91, 168, 212, 0.35);
 }
 
 .footer {
@@ -51,28 +102,46 @@
 }
 
 .logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-sm);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.04);
   color: #e2e8f0;
   cursor: pointer;
   font-size: var(--font-size-sm);
+  font-weight: 600;
 }
 
 .logout:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.45);
+  color: #fecaca;
 }
 
 .mobileBar {
   display: none;
 }
 
+.mobileTitle {
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+}
+
+.burgerIcon {
+  width: 22px;
+  height: 22px;
+}
+
 @media (max-width: 900px) {
   .sidebar {
+    width: 260px;
     transform: translateX(-100%);
-    transition: transform 0.2s ease;
+    transition: transform 0.22s ease;
   }
 
   .sidebar.open {
@@ -89,15 +158,18 @@
     right: 0;
     height: 52px;
     padding: 0 12px;
-    background: #1e293b;
+    background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
     color: #fff;
     z-index: 30;
-    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.4);
   }
 
   .burger {
-    width: 40px;
-    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
     border: none;
     border-radius: var(--radius-sm);
     background: rgba(255, 255, 255, 0.1);
