@@ -5,3 +5,6 @@ class LeadsConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "apps.leads"
     verbose_name = "Заявки"
+
+    def ready(self) -> None:
+        from . import signals  # noqa: F401  (register post_save handler)

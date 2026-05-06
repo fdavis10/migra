@@ -6,6 +6,11 @@ import './panel.css'
 const SOURCES = [
   { value: '', label: 'Все источники' },
   { value: 'modal', label: 'Модальные формы' },
+  { value: 'callback', label: 'Обратный звонок' },
+  { value: 'home', label: 'Главная страница' },
+  { value: 'contacts', label: 'Контакты' },
+  { value: 'service', label: 'Страница услуги' },
+  { value: 'quiz', label: 'Тест на скидку' },
   { value: 'chat', label: 'Чат' },
   { value: 'other', label: 'Другое' },
 ]
@@ -27,6 +32,11 @@ const STATUS_LABEL = {
 
 const SOURCE_LABEL = {
   modal: 'Форма',
+  callback: 'Обр. звонок',
+  home: 'Главная',
+  contacts: 'Контакты',
+  service: 'Услуга',
+  quiz: 'Тест-скидка',
   chat: 'Чат',
   other: 'Другое',
 }

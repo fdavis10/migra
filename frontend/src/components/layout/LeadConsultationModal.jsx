@@ -48,6 +48,7 @@ export function LeadConsultationModal() {
       service: values.service,
       message: values.message,
       source_page: values.source_page,
+      source: 'modal',
     })
     reset()
     closeModal()

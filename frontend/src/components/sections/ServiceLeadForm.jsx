@@ -26,6 +26,7 @@ export function ServiceLeadForm({ serviceTitle, sourcePath }) {
         service: serviceTitle || '',
         message: fd.get('message') || '',
         source_page: sourcePath || '',
+        source: 'service',
       })
       setLeadStatus('ok')
       e.target.reset()
