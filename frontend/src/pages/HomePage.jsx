@@ -14,6 +14,7 @@ import { ServiceCard } from '@/components/sections/ServiceCard'
 import { ReviewCarousel } from '@/components/sections/ReviewCarousel'
 import { PromoParallaxCountdown } from '@/components/sections/PromoParallaxCountdown'
 import { PromoFeaturedTiles } from '@/components/sections/PromoFeaturedTiles'
+import familyImage from '@assets/image/family.png'
 import { SITE } from '@/config/site'
 import { getAboutCompanyParagraphs } from '@/content/about.i18n'
 import { COUNTRY_FLAG_SRC } from '@/content/countryFlags'
@@ -270,11 +271,11 @@ export function HomePage() {
                   <strong>{t('home.statThousandsStrong')}</strong> {t('home.statThousandsRest')}
                 </li>
                 <li>
-                  <strong>7/7</strong> {t('home.statConsult')}
+                  <strong>12 453</strong> {t('home.statConsult')}
                 </li>
               </ul>
               <img
-                src="/images/about-side.svg"
+                src={familyImage}
                 alt=""
                 className={styles.aboutFig}
                 width={420}

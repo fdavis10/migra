@@ -1,5 +1,7 @@
-/** Главный логотип в шапке/подвале: файл `frontend/public/logo.png` (корень сайта `/logo.png`). */
-export const SITE_LOGO_SRC = `${import.meta.env.BASE_URL}logo.png`
+import logoVersion2 from '@assets/image/logo_version2.png'
+
+/** Главный логотип в шапке/подвале. */
+export const SITE_LOGO_SRC = logoVersion2
 
 export const SITE_STATIC = {
   phone: '+7 (916) 303-28-63',

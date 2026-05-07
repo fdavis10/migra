@@ -25,7 +25,7 @@ import { Accordion } from '@/components/sections/Accordion'
 import { ServiceLeadForm } from '@/components/sections/ServiceLeadForm'
 import { useLeadModal } from '@/context/LeadModalContext'
 import { useTranslation } from '@/i18n/useTranslation'
-import { formatRub, priceLine } from '@/utils/money'
+import deportAppealImage from '@assets/image/objalovanie_deportacii.jpg'
 import { unwrapList } from '@/utils/apiList'
 import styles from './ServiceDetailPage.module.css'
 
@@ -37,7 +37,7 @@ const SERVICE_HERO_IMAGES = {
   'pasport-rf': { src: '/images/pass.jpg', width: 735, height: 490 },
   rnr: { src: '/images/rnr.jpg', width: 1200, height: 800 },
   'zapret-na-vezd': { src: '/images/znv.jpg', width: 1200, height: 800 },
-  deportaciya: { src: '/images/deport.jpg', width: 1000, height: 667 },
+  deportaciya: { src: deportAppealImage, width: 1000, height: 667 },
   vydvorenie: { src: '/images/admin.jpg', width: 900, height: 600 },
   'vremennoe-ubezhishhe': { src: '/images/vubezh.jpg', width: 907, height: 605 },
   'ustanovlenie-lichnosti': { src: '/images/person.jpg', width: 735, height: 490 },
@@ -225,7 +225,6 @@ export function ServiceDetailPage() {
         >
           <div className={styles.heroMain}>
             <h1 className={styles.h1}>{svc.title}</h1>
-            <p className={styles.price}>{priceLine(svc, t)}</p>
             {introBlocks.map((t, i) => (
               <p key={i} className={styles.intro}>
                 {t}
@@ -289,9 +288,6 @@ export function ServiceDetailPage() {
             {d.packages.map((p) => (
               <Card key={p.name} className={styles.pkg}>
                 <h3>{p.name}</h3>
-                <p className={styles.pkgPrice}>
-                  {p.price ? `${t('common.priceFrom')} ${formatRub(p.price)}` : ''}
-                </p>
                 <p className={styles.pkgDesc}>{p.description}</p>
               </Card>
             ))}
@@ -319,20 +315,12 @@ export function ServiceDetailPage() {
         <DetailSection icon={ScaleIcon} title={t('serviceDetail.appealStages')}>
           <ol className={styles.stagesEnhanced}>
             {d.appeal_stages.map((st, idx) => {
-              const stagePrice = st.price ?? st.price_from
               return (
                 <li key={st.title} className={styles.stageRow}>
                   <span className={styles.stageNum}>{idx + 1}</span>
                   <div className={styles.stageBody}>
                     <strong className={styles.stageTitle}>{st.title}</strong>
-                    <p className={styles.stageMeta}>
-                      {stagePrice != null ? (
-                        <>
-                          {t('common.priceFrom')} {formatRub(stagePrice)} ·{' '}
-                        </>
-                      ) : null}
-                      {st.duration}
-                    </p>
+                    <p className={styles.stageMeta}>{st.duration}</p>
                   </div>
                 </li>
               )
