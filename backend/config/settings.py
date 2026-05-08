@@ -161,3 +161,79 @@ if not DEBUG:
     if os.environ.get("DJANGO_SESSION_COOKIE_SECURE", "0") == "1":
         SESSION_COOKIE_SECURE = True
         CSRF_COOKIE_SECURE = True
+
+# ---------------------------------------------------------------------------
+# Email (SMTP) configuration
+# ---------------------------------------------------------------------------
+# Provider defaults are tailored to Timeweb (smtp.timeweb.ru:465 SSL),
+# but every value can be overridden via environment variables.
+
+EMAIL_BACKEND = os.environ.get(
+    "EMAIL_BACKEND",
+    "django.core.mail.backends.smtp.EmailBackend"
+    if os.environ.get("EMAIL_HOST_USER") or not DEBUG
+    else "django.core.mail.backends.console.EmailBackend",
+)
+EMAIL_HOST = os.environ.get("EMAIL_HOST", "smtp.timeweb.ru")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", "465"))
+EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", "1") == "1"
+EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "0") == "1"
+if EMAIL_USE_SSL and EMAIL_USE_TLS:
+    EMAIL_USE_TLS = False  # mutually exclusive in Django
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "leads@residentservicerf.ru")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+EMAIL_TIMEOUT = int(os.environ.get("EMAIL_TIMEOUT", "20"))
+
+DEFAULT_FROM_EMAIL = os.environ.get(
+    "DEFAULT_FROM_EMAIL",
+    f'Миграционный сервис «Резидент» <{EMAIL_HOST_USER}>',
+)
+SERVER_EMAIL = os.environ.get("SERVER_EMAIL", EMAIL_HOST_USER)
+
+# Recipients of new-lead notifications (comma-separated env var supported).
+LEADS_RECIPIENT_EMAILS = [
+    a.strip()
+    for a in os.environ.get(
+        "LEADS_RECIPIENT_EMAILS",
+        os.environ.get("LEADS_RECIPIENT_EMAIL", "info@residentservicerf.ru"),
+    ).split(",")
+    if a.strip()
+]
+LEADS_EMAIL_SUBJECT_PREFIX = os.environ.get(
+    "LEADS_EMAIL_SUBJECT_PREFIX", "[Резидент]"
+)
+LEADS_EMAIL_FAIL_SILENTLY = os.environ.get("LEADS_EMAIL_FAIL_SILENTLY", "1") == "1"
+SITE_PUBLIC_URL = os.environ.get(
+    "SITE_PUBLIC_URL", "https://residentservicerf.ru"
+).rstrip("/")
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "standard": {
+            "format": "[{asctime}] {levelname} {name}: {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "standard",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.environ.get("DJANGO_LOG_LEVEL", "INFO"),
+        },
+        "apps.leads": {
+            "handlers": ["console"],
+            "level": os.environ.get("LEADS_LOG_LEVEL", "INFO"),
+            "propagate": False,
+        },
+    },
+}

@@ -5,6 +5,7 @@ import { SITE } from '@/config/site'
 import { SITE_STATIC } from '@/config/siteStatic'
 import { Button } from '@/components/ui/Button'
 import { useTranslation } from '@/i18n/useTranslation'
+import { submitLead } from '@/api/leads'
 import styles from './PromotionDiscountQuiz.module.css'
 
 const TOPICS = ['patent', 'quota', 'rvp', 'vnzh', 'citizenship', 'other']
@@ -77,9 +78,37 @@ export function PromotionDiscountQuiz({ variant = 'default', skipIdle = false } 
     return true
   }, [step, name, phone, topic, source, subAck, repostAck, t])
 
+  const submitQuizLead = useCallback(() => {
+    const topicLabel = topic ? t(`promotionsPage.quizTopic_${topic}`) : ''
+    const sourceLabel = source ? t(`promotionsPage.quizSource_${source}`) : ''
+    const messageParts = [
+      'Тест на скидку 5%: пройден полностью.',
+      topicLabel ? `Интересует: ${topicLabel}` : '',
+      sourceLabel ? `Узнал(а) о нас: ${sourceLabel}` : '',
+      subAck ? 'Подписка на соцсети: подтверждена.' : '',
+      repostAck ? 'Репост поста-визитки: подтверждён.' : '',
+    ].filter(Boolean)
+    const pathname =
+      typeof window !== 'undefined' && window.location ? window.location.pathname : ''
+    const payload = {
+      name: (name || '').slice(0, 200),
+      phone,
+      citizenship: '',
+      region: '',
+      service: topicLabel ? `Тест на скидку 5% · ${topicLabel}` : 'Тест на скидку 5%',
+      message: messageParts.join('\n'),
+      source_page: pathname,
+      source: 'quiz',
+    }
+    submitLead(payload).catch(() => {
+      /* swallow: success UI is shown regardless; backend logs will flag failures */
+    })
+  }, [topic, source, name, phone, subAck, repostAck, t])
+
   const onForward = () => {
     if (!validateStep()) return
     if (step >= 4) {
+      submitQuizLead()
       setDone(true)
       return
     }

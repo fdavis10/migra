@@ -10,7 +10,12 @@ class Lead(models.Model):
     ]
     SOURCE = [
         ("modal", "Модальная форма"),
-        ("chat", "Чат"),
+        ("callback", "Обратный звонок"),
+        ("home", "Главная страница"),
+        ("contacts", "Страница контактов"),
+        ("service", "Страница услуги"),
+        ("quiz", "Тест на скидку"),
+        ("chat", "Чат со специалистом"),
         ("other", "Другое"),
     ]
     name = models.CharField("Имя", max_length=100, blank=True)

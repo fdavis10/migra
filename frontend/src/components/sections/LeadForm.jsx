@@ -43,6 +43,7 @@ export function LeadForm({ defaultService = "", onSuccess, compact = false }) {
       service: values.service,
       message: values.message,
       source_page: pathname,
+      source: "modal",
     });
     reset();
     onSuccess?.();

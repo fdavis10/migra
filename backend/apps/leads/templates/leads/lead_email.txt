@@ -1,0 +1,11 @@
+Новая заявка с сайта — {{ source_label }}
+Время: {{ created_local|date:"d.m.Y H:i" }} (МСК)
+{% if source_page %}Страница: {{ source_page }}
+{% endif %}
+{% for row in fields %}{{ row.label }}: {{ row.value }}
+{% endfor %}{% if lead.message %}
+Комментарий клиента:
+{{ lead.message }}
+{% endif %}
+ID заявки: #{{ lead.id }}
+{% if site_url %}{{ site_url }}{% endif %}

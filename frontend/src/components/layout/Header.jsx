@@ -98,6 +98,7 @@ export function Header({ site, services = [] }) {
       service: t("header.callbackServiceTag"),
       message: t("header.callbackLeadNote"),
       source_page: typeof window !== "undefined" ? window.location.pathname : "",
+      source: "callback",
     });
     reset();
     setCallbackOpen(false);

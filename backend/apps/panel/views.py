@@ -27,7 +27,7 @@ class PanelLeadViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         qs = Lead.objects.all().order_by("-created_at")
         src = self.request.query_params.get("source")
-        if src in ("modal", "chat", "other"):
+        if src in {key for key, _ in Lead.SOURCE}:
             qs = qs.filter(source=src)
         st = self.request.query_params.get("status")
         if st in ("new", "in_progress", "done", "spam"):

@@ -22,6 +22,7 @@ export function ContactsPage() {
       region: '',
       service: '',
       source_page: '/kontakty',
+      source: 'contacts',
     })
     reset()
     alert(t('contactsPage.alertOk'))
