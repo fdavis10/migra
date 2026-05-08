@@ -1,7 +1,7 @@
-import logoVersion2 from '@assets/image/logo_version2.png'
+import logoFinal2 from '@assets/image/logo_final_2.png'
 
 /** Главный логотип в шапке/подвале. */
-export const SITE_LOGO_SRC = logoVersion2
+export const SITE_LOGO_SRC = logoFinal2
 
 export const SITE_STATIC = {
   phone: '+7 (916) 303-28-63',

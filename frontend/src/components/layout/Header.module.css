@@ -5,6 +5,8 @@
   overflow: visible;
   background: var(--color-page);
   border-bottom: none;
+  /* Небольшой отступ от верхнего края окна */
+  padding-top: 10px;
 }
 
 .inner {
@@ -14,7 +16,7 @@
   align-items: center;
   gap: var(--bar-gap);
   min-height: var(--header-h);
-  padding-top: var(--spacing-sm);
+  padding-top: 0;
   padding-bottom: var(--spacing-sm);
   overflow: visible;
 }
@@ -27,6 +29,7 @@
 }
 
 .localeBar {
+  display: flex;
   align-items: center;
   gap: var(--bar-gap, var(--spacing-lg));
   min-width: 0;
@@ -51,6 +54,7 @@
 .langTrigger {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   padding: var(--spacing-xs) 0;
   border: none;
   background: none;
@@ -136,6 +140,7 @@
     grid-template-columns: auto auto;
     align-items: center;
     justify-content: start;
+    align-self: center;
     column-gap: var(--spacing-lg);
     min-width: 0;
   }
@@ -151,6 +156,7 @@
   .officeAddress {
     display: flex;
     justify-self: start;
+    justify-content: center;
     max-width: min(15rem, 100%);
     margin-left: 36px;
   }
@@ -191,9 +197,17 @@
   color: var(--color-text-secondary);
 }
 
+.langGlobe {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-secondary);
+}
+
 .brand {
   display: flex;
   align-items: center;
+  align-self: center;
   gap: var(--bar-gap, var(--spacing-lg));
   min-width: 0;
 }
@@ -218,7 +232,9 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  align-self: center;
+  transform: translateY(-6px);
+  overflow: visible;
   line-height: 0;
   flex-shrink: 0;
 }
@@ -226,8 +242,8 @@
 .logo img {
   display: block;
   width: auto;
-  max-width: 220px;
-  height: 96px;
+  max-width: 158px;
+  height: 64px;
   object-fit: contain;
   object-position: left center;
 }
@@ -235,6 +251,7 @@
 .headerActions {
   display: flex;
   align-items: center;
+  align-self: center;
   min-width: 0;
 }
 

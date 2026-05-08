@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { ChevronDownIcon, GlobeAltIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, GlobeAltIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { submitLead } from "@/api/leads";
 import logoYandex from "@assets/image/logo_yandex.svg";
 import logoMax from "@assets/image/logo_max.png";
@@ -137,7 +137,7 @@ export function Header({ site, services = [] }) {
               aria-expanded={cityOpen}
             >
               <span className={styles.cityName}>{city}</span>
-              <GlobeAltIcon className={styles.cityGlobe} aria-hidden />
+              <MapPinIcon className={styles.cityGlobe} aria-hidden />
             </button>
             <div className={styles.langWrap}>
               <button
@@ -149,6 +149,7 @@ export function Header({ site, services = [] }) {
                 aria-label={t("header.langAriaLabel")}
               >
                 <span className={styles.langCode}>{localeLabel}</span>
+                <GlobeAltIcon className={styles.langGlobe} aria-hidden />
               </button>
               {langOpen ? (
                 <div className={styles.langPanel} role="menu">
