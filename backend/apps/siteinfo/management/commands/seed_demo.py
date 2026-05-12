@@ -48,7 +48,7 @@ class Command(BaseCommand):
                 "</iframe>"
             ),
             whatsapp_url="https://wa.me/79163032863",
-            telegram_url="https://t.me/resident_example",
+            telegram_url="https://t.me/+79163032863",
             vk_url="https://vk.com/resident_example",
             about_company=(
                 "Миграционный сервис «Резидент» — это команда опытных специалистов, "

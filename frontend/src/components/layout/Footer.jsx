@@ -4,7 +4,8 @@ import { GlobeAltIcon, LanguageIcon } from "@heroicons/react/24/outline";
 import logoMax from "@assets/image/logo_max.png";
 import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
-import { SITE_LOGO_SRC } from "@/config/siteStatic";
+import { SITE_LOGO_SRC, SITE_STATIC } from "@/config/siteStatic";
+import { maxMessengerHref, telegramUrlFromPhone, whatsappUrlFromPhone } from "@/utils/messengerLinks";
 import { LOCALE_ITEMS } from "@/content/languageOptions";
 import { useCity } from "@/context/CityContext";
 import { useLocale } from "@/context/LanguageContext";
@@ -12,17 +13,30 @@ import { useTranslation } from "@/i18n/useTranslation";
 import { CityPickerModal } from "./CityPickerModal.jsx";
 import styles from "./Footer.module.css";
 
-export function Footer({ site, services = [] }) {
+/** Те же пункты, что в основной строке навигации шапки (без раскрывающихся подменю). */
+const MAIN_NAV_FOOTER_LINKS = [
+  { to: "/uslugi", labelKey: "header.navWeHelp" },
+  { to: "/o-kompanii", labelKey: "header.navAbout" },
+  { to: "/uslugi", labelKey: "header.navServices" },
+  { to: "/ceny", labelKey: "header.navPrices" },
+  { to: "/akcii", labelKey: "header.navPromos" },
+  { to: "/novosti", labelKey: "header.navBlog" },
+  { to: "/kontakty", labelKey: "header.navContacts" },
+];
+
+export function Footer({ site }) {
   const { city } = useCity();
   const { locale, setLocale } = useLocale();
   const { t } = useTranslation();
   const [cityOpen, setCityOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const localeBarRef = useRef(null);
-  const phone = site?.phone || "";
+  const phone = site?.phone || SITE_STATIC.phone || "";
   const email = site?.email || "";
   const localeLabel = LOCALE_ITEMS.find((x) => x.code === locale)?.label ?? "RU";
-  const maxMessengerUrl = site?.max_url || site?.vk_url || "";
+  const maxMessengerUrl = maxMessengerHref(site?.max_url);
+  const whatsappHref = whatsappUrlFromPhone(phone);
+  const telegramHref = telegramUrlFromPhone(phone);
 
   useEffect(() => {
     if (!langOpen) return;
@@ -105,21 +119,19 @@ export function Footer({ site, services = [] }) {
             <span className={styles.officeAddressLine}>{t("headerAddress.line2")}</span>
           </address>
           <div className={styles.social}>
-            {maxMessengerUrl ? (
-              <a
-                className={`${styles.messengerIconLink} ${styles.messengerIconLinkMax}`}
-                href={maxMessengerUrl}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={t("header.messengerMaxAria")}
-              >
-                <img src={logoMax} alt="" decoding="async" />
-              </a>
-            ) : null}
-            {site?.telegram_url ? (
+            <a
+              className={`${styles.messengerIconLink} ${styles.messengerIconLinkMax}`}
+              href={maxMessengerUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={t("header.messengerMaxAria")}
+            >
+              <img src={logoMax} alt="" decoding="async" />
+            </a>
+            {telegramHref ? (
               <a
                 className={styles.messengerIconLink}
-                href={site.telegram_url}
+                href={telegramHref}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={t("header.messengerTelegramAria")}
@@ -127,10 +139,10 @@ export function Footer({ site, services = [] }) {
                 <img src={logoTelegram} alt="" decoding="async" />
               </a>
             ) : null}
-            {site?.whatsapp_url ? (
+            {whatsappHref ? (
               <a
                 className={styles.messengerIconLink}
-                href={site.whatsapp_url}
+                href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={t("header.messengerWhatsAppAria")}
@@ -148,13 +160,12 @@ export function Footer({ site, services = [] }) {
           <Link to="/o-kompanii/oplata">{t("footer.columnAboutLinks.payment")}</Link>
         </div>
         <div>
-          <h3 className={styles.h}>{t("footer.columnServicesTitle")}</h3>
-          {services.slice(0, 10).map((s) => (
-            <Link key={s.slug} to={`/uslugi/${s.slug}`}>
-              {s.title}
+          <h3 className={styles.h}>{t("footer.columnPrimaryNavTitle")}</h3>
+          {MAIN_NAV_FOOTER_LINKS.map((item) => (
+            <Link key={item.labelKey} to={item.to}>
+              {t(item.labelKey)}
             </Link>
           ))}
-          <Link to="/uslugi">{t("footer.allServices")}</Link>
         </div>
         <div>
           <h3 className={styles.h}>{t("footer.columnInfoTitle")}</h3>

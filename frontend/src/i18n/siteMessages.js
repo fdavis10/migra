@@ -40,6 +40,7 @@ export const SITE_I18N = {
         payment: 'Оплата',
       },
       columnServicesTitle: 'Услуги',
+      columnPrimaryNavTitle: 'Разделы',
       allServices: 'Все услуги',
       columnInfoTitle: 'Информация',
       columnInfoLinks: {
@@ -204,9 +205,12 @@ export const SITE_I18N = {
         'Приветствую 👋\n\nВы хотите оформить документы в России (РВП, ВНЖ, гражданство) или у Вас другой вопрос?',
       askName: 'Как я могу к Вам обращаться?',
       askCity: 'В каком городе Вы находитесь?',
-      connectAndAskPhone: 'Соединяю с оператором.\n\nУкажите номер телефона для связи',
+      askCityWithName: '{name}, в каком городе Вы находитесь?',
+      connectAndAskPhone: 'Соединяю с оператором. Укажите номер телефона для связи',
+      phonePlaceholder: 'Номер телефона',
+      phoneSubmit: 'Отправить',
       thanks:
-        'Спасибо! Я передал заявку коллегам — свяжемся с вами в ближайшее время. Если нужно срочно, позвоните по номеру на сайте.',
+        'Спасибо! Заявка оформлена. Ожидайте звонка, наши специалисты свяжутся с Вами в ближайшее время',
       thanksNoApi:
         'Спасибо за контакт! Сохраните переписку — при проблемах с отправкой заявки позвоните нам по телефону на сайте.',
       avatarAlt: 'Специалист',
@@ -223,9 +227,9 @@ export const SITE_I18N = {
       leadSummaryCity: 'Город',
       leadSummaryPhone: 'Телефон',
       op: {
-        alena: 'Оператор Алена',
-        daniil: 'Оператор Даниил',
-        anna: 'Оператор Анна',
+        alena: 'Алена',
+        daniil: 'Даниил',
+        anna: 'Анна',
       },
     },
     ...extendRu,
@@ -268,6 +272,7 @@ export const SITE_I18N = {
         payment: 'Payment',
       },
       columnServicesTitle: 'Services',
+      columnPrimaryNavTitle: 'Sections',
       allServices: 'All services',
       columnInfoTitle: 'Information',
       columnInfoLinks: {
@@ -433,9 +438,12 @@ export const SITE_I18N = {
         'Hello 👋\n\nDo you want to obtain documents in Russia (temporary residence, permanent residence, citizenship) or do you have another question?',
       askName: 'How should I address you?',
       askCity: 'Which city are you in?',
-      connectAndAskPhone: 'Connecting you to an operator.\n\nPlease leave a phone number for us to reach you.',
+      askCityWithName: '{name}, which city are you in?',
+      connectAndAskPhone: 'Connecting you to an operator. Please leave a phone number for us to reach you.',
+      phonePlaceholder: 'Phone number',
+      phoneSubmit: 'Submit',
       thanks:
-        'Thank you! I have passed your request to the team — we will contact you soon. For urgent matters, call the number on the website.',
+        'Thank you! Your request has been submitted. Expect a call — our specialists will contact you shortly.',
       thanksNoApi:
         'Thank you for your contact! Save this chat — if the request fails to send, call us using the number on the website.',
       avatarAlt: 'Specialist',
@@ -452,9 +460,9 @@ export const SITE_I18N = {
       leadSummaryCity: 'City',
       leadSummaryPhone: 'Phone',
       op: {
-        alena: 'Operator Alena',
-        daniil: 'Operator Daniil',
-        anna: 'Operator Anna',
+        alena: 'Alena',
+        daniil: 'Daniil',
+        anna: 'Anna',
       },
     },
     ...extendEn,

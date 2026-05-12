@@ -72,45 +72,68 @@
   color: var(--color-accent-mint);
 }
 
-.quickRow {
+.quickMarquee {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--spacing-sm) 0;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+.quickTrack {
   display: flex;
+  width: max-content;
+  gap: 0;
+  animation: quickMarquee 42s linear infinite;
+}
+
+.quickTrackSkeleton {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: none;
+}
+
+.quickMarquee:hover .quickTrack,
+.quickMarquee:focus-within .quickTrack {
+  animation-play-state: paused;
+}
+
+@keyframes quickMarquee {
+  0% {
+    transform: translateX(-16px);
+  }
+  100% {
+    transform: translateX(calc(-50% - 16px));
+  }
+}
+
+.quickList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: var(--spacing-sm);
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: var(--spacing-md);
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-light) var(--color-primary-bg);
+  flex-shrink: 0;
 }
 
-.quickRow::-webkit-scrollbar {
-  height: 6px;
+.quickListItem {
+  display: flex;
+  flex-shrink: 0;
 }
 
-.quickRow::-webkit-scrollbar-track {
-  background: var(--color-primary-bg);
-  border-radius: 999px;
-}
-
-.quickRow::-webkit-scrollbar-thumb {
-  background: var(--color-primary-light);
-  border-radius: 999px;
-}
-
-.quickRow::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-}
-
-.quickRow::-webkit-scrollbar-thumb:active {
-  background: var(--color-primary-dark);
+.quickSpacer {
+  width: 0px;
+  flex: 0 0 auto;
+  height: 1px;
 }
 
 .quickItem {
   flex: 0 0 auto;
-  scroll-snap-align: start;
-  min-width: 100px;
   padding: var(--spacing-md);
   border-radius: var(--radius-md);
   background: var(--color-white);
@@ -127,9 +150,39 @@
   border-color: var(--color-primary);
 }
 
+.quickBtn {
+  white-space: nowrap;
+}
+
 .quickTitle {
   display: block;
   line-height: 1.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quickMarquee {
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+    padding: var(--spacing-sm) 0;
+  }
+
+  .quickTrack {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .quickList[aria-hidden='true'] {
+    display: none;
+  }
+
+  .quickList {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .altBg {

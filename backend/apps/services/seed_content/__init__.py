@@ -4,23 +4,29 @@ from . import (
     article_konsultaciya,
     article_kvota_rvp,
     article_pasport_rf,
+    article_patent,
     article_repatriaciya,
+    article_bezhencz,
     article_rnr,
     article_rvp,
     article_ustanovlenie,
+    article_rvpo,
     article_vnzh,
     article_vremennoe_ubezhishhe,
     article_vydvorenie,
+    article_vyhod_iz_grazhdanstva,
     article_zapret,
 )
 
 _SLUG_GETTERS = {
     "kvota-rvp": article_kvota_rvp.get_sections,
     "rvp": article_rvp.get_sections,
+    "rvpo": article_rvpo.get_sections,
     "vnzh": article_vnzh.get_sections,
     "grazhdanstvo": article_grazhdanstvo.get_sections,
     "pasport-rf": article_pasport_rf.get_sections,
     "rnr": article_rnr.get_sections,
+    "bezhencz": article_bezhencz.get_sections,
     "zapret-na-vezd": article_zapret.get_sections,
     "deportaciya": article_deportaciya.get_sections,
     "vydvorenie": article_vydvorenie.get_sections,
@@ -28,6 +34,8 @@ _SLUG_GETTERS = {
     "ustanovlenie-lichnosti": article_ustanovlenie.get_sections,
     "repatriaciya": article_repatriaciya.get_sections,
     "konsultaciya": article_konsultaciya.get_sections,
+    "vyhod-iz-grazhdanstva": article_vyhod_iz_grazhdanstva.get_sections,
+    "patent": article_patent.get_sections,
 }
 
 

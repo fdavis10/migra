@@ -138,14 +138,52 @@ export function HomePage() {
       <section className="section">
         <div className="container">
           <h2 className="sectionTitle">{t('home.quickTitle')}</h2>
-          <div className={styles.quickRow}>
-            {services === null
-              ? [...Array(8)].map((_, i) => <Skeleton key={i} style={{ width: 88, height: 88, borderRadius: 16 }} />)
-              : quick.map((s) => (
-                  <Link key={s.slug} to={`/uslugi/${s.slug}`} className={styles.quickItem}>
-                    <span className={styles.quickTitle}>{s.title.split('(')[0].trim()}</span>
-                  </Link>
-                ))}
+          <div className={styles.quickMarquee} role="region" aria-label={t('home.quickTitle')}>
+            <div className={services === null ? styles.quickTrackSkeleton : styles.quickTrack}>
+              {services === null ? (
+                <ul className={styles.quickList}>
+                  <li className={styles.quickSpacer} aria-hidden={true} />
+                  {[...Array(8)].map((_, i) => (
+                    <li key={i} className={styles.quickListItem}>
+                      <Skeleton style={{ width: 88, height: 88, borderRadius: 16 }} />
+                    </li>
+                  ))}
+                  <li className={styles.quickSpacer} aria-hidden={true} />
+                </ul>
+              ) : (
+                <>
+                  <ul className={styles.quickList}>
+                    <li className={styles.quickSpacer} aria-hidden={true} />
+                    {quick.map((s) => (
+                      <li key={s.slug} className={styles.quickListItem}>
+                      <Link
+                        to={`/uslugi/${s.slug}`}
+                        className={`${btn.btn} ${btn.primarySweep} ${btn.sm} ${styles.quickBtn}`}
+                      >
+                        <span className={btn.label}>{s.title.split('(')[0].trim()}</span>
+                        </Link>
+                      </li>
+                    ))}
+                    <li className={styles.quickSpacer} aria-hidden={true} />
+                  </ul>
+                  <ul className={styles.quickList} aria-hidden={true}>
+                    <li className={styles.quickSpacer} aria-hidden={true} />
+                    {quick.map((s) => (
+                      <li key={`dup-${s.slug}`} className={styles.quickListItem}>
+                      <Link
+                        to={`/uslugi/${s.slug}`}
+                        className={`${btn.btn} ${btn.primarySweep} ${btn.sm} ${styles.quickBtn}`}
+                        tabIndex={-1}
+                      >
+                        <span className={btn.label}>{s.title.split('(')[0].trim()}</span>
+                        </Link>
+                      </li>
+                    ))}
+                    <li className={styles.quickSpacer} aria-hidden={true} />
+                  </ul>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>

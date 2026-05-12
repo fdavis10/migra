@@ -100,7 +100,7 @@ export function SpecialistChat() {
     () => ({
       greet: t('specialistChat.greet'),
       askName: t('specialistChat.askName'),
-      askCity: t('specialistChat.askCity'),
+      askCityWithName: t('specialistChat.askCityWithName'),
       connectAndAskPhone: t('specialistChat.connectAndAskPhone'),
       thanks: t('specialistChat.thanks'),
       thanksNoApi: t('specialistChat.thanksNoApi'),
@@ -118,6 +118,7 @@ export function SpecialistChat() {
   const [done, setDone] = useState(false)
   const [leadOk, setLeadOk] = useState(null)
   const [draft, setDraft] = useState('')
+  const [phoneDraft, setPhoneDraft] = useState('')
   const [typing, setTyping] = useState(false)
   const [inputLocked, setInputLocked] = useState(false)
 
@@ -268,7 +269,35 @@ export function SpecialistChat() {
     }
   }
 
+  const submitPhoneAndLead = async (phoneText, userMsg) => {
+    setStep(4)
+    setInputLocked(true)
+    setTyping(true)
+    const nameSnap = (userName || '').trim() || '—'
+    const citySnap = (cityReply || '').trim() || '—'
+    const transcriptMessages = [...messagesRef.current, userMsg]
+    if (timerRef.current) clearTimeout(timerRef.current)
+    timerRef.current = setTimeout(async () => {
+      timerRef.current = null
+      setTyping(false)
+      const ok = await submitConversation(transcriptMessages, phoneText, nameSnap, citySnap)
+      pushAssistant(ok ? chatMsg.thanks : chatMsg.thanksNoApi)
+      setDone(true)
+      setInputLocked(true)
+    }, TYPING_MS)
+  }
+
+  const onPhoneSubmit = async () => {
+    const text = phoneDraft.trim()
+    if (!text || inputLocked || typing || done || step !== 3) return
+    setPhoneDraft('')
+    const userMsg = { id: uid(), role: 'user', text }
+    setMessages((prev) => [...prev, userMsg])
+    await submitPhoneAndLead(text, userMsg)
+  }
+
   const onSend = async () => {
+    if (step === 3) return
     const text = draft.trim()
     if (!text || inputLocked || typing || done) return
     setDraft('')
@@ -281,9 +310,11 @@ export function SpecialistChat() {
       return
     }
     if (step === 1) {
-      setUserName(normalizeDisplayName(text) || text.trim())
+      const normalized = normalizeDisplayName(text) || text.trim()
+      setUserName(normalized)
       setStep(2)
-      scheduleReply(chatMsg.askCity)
+      const first = normalized.split(/\s+/)[0] || normalized
+      scheduleReply(chatMsg.askCityWithName.replace('{name}', first))
       return
     }
     if (step === 2) {
@@ -291,23 +322,6 @@ export function SpecialistChat() {
       setStep(3)
       scheduleReply(chatMsg.connectAndAskPhone)
       return
-    }
-    if (step === 3) {
-      setStep(4)
-      setInputLocked(true)
-      setTyping(true)
-      const nameSnap = (userName || '').trim() || '—'
-      const citySnap = (cityReply || '').trim() || '—'
-      const transcriptMessages = [...messagesRef.current, userMsg]
-      if (timerRef.current) clearTimeout(timerRef.current)
-      timerRef.current = setTimeout(async () => {
-        timerRef.current = null
-        setTyping(false)
-        const ok = await submitConversation(transcriptMessages, text, nameSnap, citySnap)
-        pushAssistant(ok ? chatMsg.thanks : chatMsg.thanksNoApi)
-        setDone(true)
-        setInputLocked(true)
-      }, TYPING_MS)
     }
   }
 
@@ -329,6 +343,7 @@ export function SpecialistChat() {
     setDone(false)
     setLeadOk(null)
     setDraft('')
+    setPhoneDraft('')
     setTyping(false)
     setInputLocked(false)
     setMinimized(true)
@@ -348,6 +363,9 @@ export function SpecialistChat() {
   }, [minimized, messages])
 
   if (!mounted) return null
+
+  const awaitingPhoneStep = step === 3 && !done
+  const showPhoneForm = awaitingPhoneStep && !typing
 
   const node = (
     <div className={styles.wrap} aria-live="polite">
@@ -426,6 +444,43 @@ export function SpecialistChat() {
                 {t('specialistChat.startOver')}
               </button>
             </p>
+          ) : awaitingPhoneStep ? (
+            showPhoneForm ? (
+              <div className={styles.phoneRow}>
+                <label className={styles.phoneLabel} htmlFor="specialist-chat-phone">
+                  {t('specialistChat.phonePlaceholder')}
+                </label>
+                <div className={styles.phoneFields}>
+                  <input
+                    id="specialist-chat-phone"
+                    type="tel"
+                    className={styles.phoneInput}
+                    value={phoneDraft}
+                    onChange={(e) => setPhoneDraft(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault()
+                        onPhoneSubmit()
+                      }
+                    }}
+                    placeholder={t('specialistChat.phonePlaceholder')}
+                    disabled={inputLocked || typing}
+                    autoComplete="tel"
+                    aria-label={t('specialistChat.phonePlaceholder')}
+                  />
+                  <button
+                    type="button"
+                    className={styles.send}
+                    onClick={onPhoneSubmit}
+                    disabled={!phoneDraft.trim() || inputLocked || typing}
+                  >
+                    {t('specialistChat.phoneSubmit')}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.footerSpacer} aria-hidden />
+            )
           ) : (
             <div className={styles.inputRow}>
               <textarea

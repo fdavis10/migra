@@ -43,7 +43,7 @@ export function Layout() {
       <main>
         <Outlet context={{ site, services }} />
       </main>
-      <Footer site={site} services={services} />
+      <Footer site={site} />
       <CookieBanner />
       <GlobalLeadModal />
       <SpecialistChat />

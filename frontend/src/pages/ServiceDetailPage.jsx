@@ -95,17 +95,30 @@ function renderContentSection(block, i) {
     )
   }
   if (block.type === 'heading' && block.text) {
+    // Убираем "добавки" в скобках, если внутри скобок начинается со строчной буквы.
+    // Пример: "Основания ... (юридический аспект)" -> "Основания ..."
+    const stripTrailingLowercaseParen = (text) => {
+      const m = String(text).match(/\s*\(([^)]+)\)\s*$/)
+      if (!m) return text
+      const inner = m[1].trim()
+      if (!inner) return text
+      const first = inner[0]
+      if (/[а-яё]/.test(first)) {
+        return String(text).replace(/\s*\([^)]+\)\s*$/, '')
+      }
+      return text
+    }
     const level = block.level === 3 ? 3 : 2
     if (level === 3) {
       return (
         <h3 key={i} className={styles.articleH3}>
-          {block.text}
+          {stripTrailingLowercaseParen(block.text)}
         </h3>
       )
     }
     return (
       <h2 key={i} className={styles.articleH2}>
-        {block.text}
+        {stripTrailingLowercaseParen(block.text)}
       </h2>
     )
   }
@@ -180,6 +193,20 @@ export function ServiceDetailPage() {
       c = true
     }
   }, [slug])
+
+  /** Лёгкая прокрутка к блоку после hero — через 1.5 с после входа на страницу услуги */
+  useEffect(() => {
+    if (status !== 'ok' || !svc) return
+    const delayMs = 1500
+    const tid = window.setTimeout(() => {
+      if (window.scrollY > 80) return
+      const el = document.getElementById('service-description')
+      if (!el) return
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+    }, delayMs)
+    return () => window.clearTimeout(tid)
+  }, [slug, status, svc])
 
   if (status === 'loading' || (status === 'ok' && !svc)) {
     return (
@@ -256,6 +283,8 @@ export function ServiceDetailPage() {
           ) : null}
         </div>
       </section>
+
+      <div id="service-description" className={styles.scrollAnchor} aria-hidden />
 
       {sections.length ? (
         <section className={`section ${styles.articleSection}`}>

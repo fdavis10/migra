@@ -7,7 +7,8 @@ import logoYandex from "@assets/image/logo_yandex.svg";
 import logoMax from "@assets/image/logo_max.png";
 import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
-import { SITE_LOGO_SRC } from "@/config/siteStatic";
+import { SITE_LOGO_SRC, SITE_STATIC } from "@/config/siteStatic";
+import { maxMessengerHref, telegramUrlFromPhone, whatsappUrlFromPhone } from "@/utils/messengerLinks";
 import { ABOUT_NAV_ITEMS } from "@/content/aboutNav";
 import { LOCALE_ITEMS } from "@/content/languageOptions";
 import { useCity } from "@/context/CityContext";
@@ -48,9 +49,11 @@ export function Header({ site, services = [] }) {
     },
   });
 
-  const phone = site?.phone || "+7 (916) 303-28-63";
+  const phone = site?.phone || SITE_STATIC.phone || "+7 (916) 303-28-63";
   const localeLabel = LOCALE_ITEMS.find((x) => x.code === locale)?.label ?? "RU";
-  const maxMessengerUrl = site?.max_url || site?.vk_url || "";
+  const maxMessengerUrl = maxMessengerHref(site?.max_url);
+  const whatsappHref = whatsappUrlFromPhone(phone);
+  const telegramHref = telegramUrlFromPhone(phone);
 
   useEffect(() => {
     if (!langOpen) return;
@@ -254,21 +257,19 @@ export function Header({ site, services = [] }) {
               ) : null}
             </div>
             <div className={`${styles.messengerIcons} ${styles.messengerIconsDesk}`}>
-              {maxMessengerUrl ? (
-                <a
-                  className={`${styles.messengerIconLink} ${styles.messengerIconLinkMax}`}
-                  href={maxMessengerUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={t("header.messengerMaxAria")}
-                >
-                  <img src={logoMax} alt="" decoding="async" />
-                </a>
-              ) : null}
-              {site?.telegram_url ? (
+              <a
+                className={`${styles.messengerIconLink} ${styles.messengerIconLinkMax}`}
+                href={maxMessengerUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={t("header.messengerMaxAria")}
+              >
+                <img src={logoMax} alt="" decoding="async" />
+              </a>
+              {telegramHref ? (
                 <a
                   className={styles.messengerIconLink}
-                  href={site.telegram_url}
+                  href={telegramHref}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={t("header.messengerTelegramAria")}
@@ -276,10 +277,10 @@ export function Header({ site, services = [] }) {
                   <img src={logoTelegram} alt="" decoding="async" />
                 </a>
               ) : null}
-              {site?.whatsapp_url ? (
+              {whatsappHref ? (
                 <a
                   className={styles.messengerIconLink}
-                  href={site.whatsapp_url}
+                  href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={t("header.messengerWhatsAppAria")}

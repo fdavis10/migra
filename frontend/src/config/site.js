@@ -6,7 +6,7 @@ export const SITE = {
   address: 'г. Москва, ул. Примерная, д. 1 (уточните адрес у заказчика)',
   hours: 'Пн–Вс 09:00–20:00',
   whatsapp: 'https://wa.me/79163032863',
-  telegram: 'https://t.me/resident_migration',
+  telegram: 'https://t.me/+79163032863',
   vk: 'https://vk.com/',
   yandexMapSrc:
     'https://yandex.ru/map-widget/v1/?um=constructor%3Aplaceholder&source=constructor',
