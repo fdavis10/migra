@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { getPromotion, getPromotions } from '@/api/promos'
-import { PromotionDiscountQuiz } from '@/components/promotions/PromotionDiscountQuiz'
 import { RedConsultSweepButton } from '@/components/promotions/RedConsultSweepButton'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { useLeadModal } from '@/context/LeadModalContext'
@@ -126,9 +125,6 @@ export function PromotionDetailPage() {
       </Helmet>
       <div className="section">
         <div className={`container ${styles.narrow}`}>
-          <p className={styles.back}>
-            <Link to="/akcii">{t('promotionsPage.backToAll')}</Link>
-          </p>
           <div className={styles.titleRow}>
             <h1 className={styles.h1}>{promo.title}</h1>
             <span className={styles.disc}>{promo.discount}</span>

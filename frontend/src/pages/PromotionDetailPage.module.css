@@ -2,15 +2,6 @@
   max-width: 720px;
 }
 
-.back {
-  margin: 0 0 var(--spacing-lg);
-  font-size: var(--font-size-sm);
-}
-
-.back a {
-  color: var(--color-primary-dark);
-}
-
 .errBack {
   display: inline-block;
   margin-top: var(--spacing-md);

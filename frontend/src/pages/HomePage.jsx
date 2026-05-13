@@ -3,6 +3,7 @@ import { Link, useOutletContext } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { getPromotions } from '@/api/promos'
 import { PromoDetailsLink } from '@/components/promotions/PromoDetailsLink'
+import { PromotionCardVisual } from '@/components/promotions/PromotionCardVisual'
 import { getReviews } from '@/api/reviews'
 import { getServices } from '@/api/services'
 import { Button } from '@/components/ui/Button'
@@ -14,6 +15,7 @@ import { ServiceCard } from '@/components/sections/ServiceCard'
 import { ReviewCarousel } from '@/components/sections/ReviewCarousel'
 import { PromoParallaxCountdown } from '@/components/sections/PromoParallaxCountdown'
 import { PromoFeaturedTiles } from '@/components/sections/PromoFeaturedTiles'
+import { PromoSpotlightBanner } from '@/components/sections/PromoSpotlightBanner'
 import familyImage from '@assets/image/family.png'
 import { SITE } from '@/config/site'
 import { getAboutCompanyParagraphs } from '@/content/about.i18n'
@@ -188,18 +190,9 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className={styles.figureBand} aria-label={t('home.figureAria')}>
+      <section className={styles.figureBand} aria-label={t('home.promoBannerAria')}>
         <div className="container">
-          <img
-            src="/images/judge_2.webp"
-            alt=""
-            className={styles.bandImg}
-            width={1200}
-            height={560}
-            sizes="(max-width: 1023px) 100vw, min(1200px, 100vw)"
-            loading="lazy"
-            decoding="async"
-          />
+          <PromoSpotlightBanner promos={promos} />
           <p className={styles.bandCaption}>{t('home.band1Caption')}</p>
         </div>
       </section>
@@ -243,12 +236,15 @@ export function HomePage() {
           />
           <div className={styles.promoGrid}>
             {promos === null
-              ? [...Array(3)].map((_, i) => <Skeleton key={i} style={{ height: 120 }} />)
+              ? [...Array(3)].map((_, i) => <Skeleton key={i} style={{ height: 280, borderRadius: 20 }} />)
               : promos.map((p) => (
                   <Card key={p.id} className={styles.promoCard}>
-                    <span className={styles.disc}>{p.discount}</span>
-                    <h3 className={styles.promoTitle}>{p.title}</h3>
-                    <PromoDetailsLink promotionId={p.id} />
+                    <PromotionCardVisual promotion={p} embedInCard />
+                    <div className={styles.promoCardBody}>
+                      <span className={styles.disc}>{p.discount}</span>
+                      <h3 className={styles.promoTitle}>{p.title}</h3>
+                      <PromoDetailsLink promotionId={p.id} />
+                    </div>
                   </Card>
                 ))}
           </div>

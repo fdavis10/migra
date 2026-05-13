@@ -156,6 +156,7 @@ export const SITE_I18N = {
       contactsFormMap: 'Форма и карта',
       mapIframeTitle: 'Карта',
       figureAria: 'Иллюстрация',
+      promoBannerAria: 'Акции: главное предложение по центру, по бокам — другие акции (превью)',
     },
     promoTiles: {
       testAria: 'Акция: тест на скидку',
@@ -389,6 +390,7 @@ export const SITE_I18N = {
       contactsFormMap: 'Form and map',
       mapIframeTitle: 'Map',
       figureAria: 'Illustration',
+      promoBannerAria: 'Promotions: featured offer in the center, other offers on the sides (preview)',
     },
     promoTiles: {
       testAria: 'Promotion: quiz for a discount',

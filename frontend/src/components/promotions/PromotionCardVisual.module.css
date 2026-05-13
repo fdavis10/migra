@@ -1,0 +1,29 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--color-primary-bg) 0%, var(--color-page) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.35),
+    var(--shadow-sm);
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.wrap:hover .img {
+  transform: scale(1.04);
+}
+
+.embedInCard {
+  border-radius: 0;
+  box-shadow: none;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { getPromotions } from '@/api/promos'
+import { PromotionCardVisual } from '@/components/promotions/PromotionCardVisual'
 import { PromoDetailsLink } from '@/components/promotions/PromoDetailsLink'
 import { RedConsultSweepButton } from '@/components/promotions/RedConsultSweepButton'
 import { Card } from '@/components/ui/Card'
@@ -46,12 +47,15 @@ export function PromotionsPage() {
           </div>
           <div className={styles.grid}>
             {list === null
-              ? [...Array(5)].map((_, i) => <Skeleton key={i} style={{ height: 140 }} />)
+              ? [...Array(5)].map((_, i) => <Skeleton key={i} style={{ height: 320, borderRadius: 20 }} />)
               : list.map((p) => (
                   <Card key={p.id} className={styles.card}>
-                    <span className={styles.disc}>{p.discount}</span>
-                    <h2>{p.title}</h2>
-                    <PromoDetailsLink promotionId={p.id} />
+                    <PromotionCardVisual promotion={p} embedInCard />
+                    <div className={styles.cardBody}>
+                      <span className={styles.disc}>{p.discount}</span>
+                      <h2>{p.title}</h2>
+                      <PromoDetailsLink promotionId={p.id} />
+                    </div>
                   </Card>
                 ))}
           </div>
