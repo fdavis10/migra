@@ -28,6 +28,7 @@ import { useLocale } from '@/context/LanguageContext'
 import { useTranslation } from '@/i18n/useTranslation'
 import { submitLead } from '@/api/leads'
 import { unwrapList } from '@/utils/apiList'
+import { formatPromotionDiscountLabel } from '@/utils/promotionDiscountLabel'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
 import { WhyUsHeroIcon } from '@/components/icons/WhyUsHeroIcon'
 import styles from './HomePage.module.css'
@@ -241,7 +242,7 @@ export function HomePage() {
                   <Card key={p.id} className={styles.promoCard}>
                     <PromotionCardVisual promotion={p} embedInCard />
                     <div className={styles.promoCardBody}>
-                      <span className={styles.disc}>{p.discount}</span>
+                      <span className={styles.disc}>{formatPromotionDiscountLabel(p.discount)}</span>
                       <h3 className={styles.promoTitle}>{p.title}</h3>
                       <PromoDetailsLink promotionId={p.id} />
                     </div>

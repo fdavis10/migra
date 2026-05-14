@@ -10,6 +10,7 @@ import { CountdownTimer } from '@/components/sections/CountdownTimer'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { useTranslation } from '@/i18n/useTranslation'
 import { unwrapList } from '@/utils/apiList'
+import { formatPromotionDiscountLabel } from '@/utils/promotionDiscountLabel'
 import styles from './PromotionsPage.module.css'
 
 export function PromotionsPage() {
@@ -52,7 +53,7 @@ export function PromotionsPage() {
                   <Card key={p.id} className={styles.card}>
                     <PromotionCardVisual promotion={p} embedInCard />
                     <div className={styles.cardBody}>
-                      <span className={styles.disc}>{p.discount}</span>
+                      <span className={styles.disc}>{formatPromotionDiscountLabel(p.discount)}</span>
                       <h2>{p.title}</h2>
                       <PromoDetailsLink promotionId={p.id} />
                     </div>

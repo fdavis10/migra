@@ -8,6 +8,7 @@ import { Skeleton } from '@/components/ui/Skeleton'
 import { useLeadModal } from '@/context/LeadModalContext'
 import { useTranslation } from '@/i18n/useTranslation'
 import { unwrapList } from '@/utils/apiList'
+import { formatPromotionDiscountLabel } from '@/utils/promotionDiscountLabel'
 import { PromoDescriptionBody } from '@/utils/promoDescriptionLinks'
 import styles from './PromotionDetailPage.module.css'
 
@@ -127,7 +128,7 @@ export function PromotionDetailPage() {
         <div className={`container ${styles.narrow}`}>
           <div className={styles.titleRow}>
             <h1 className={styles.h1}>{promo.title}</h1>
-            <span className={styles.disc}>{promo.discount}</span>
+            <span className={styles.disc}>{formatPromotionDiscountLabel(promo.discount)}</span>
           </div>
           {until ? (
             <p className={styles.until}>

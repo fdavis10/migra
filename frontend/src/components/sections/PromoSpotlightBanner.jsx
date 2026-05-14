@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/Card'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { PromoDetailsLink } from '@/components/promotions/PromoDetailsLink'
 import { PromotionCardVisual } from '@/components/promotions/PromotionCardVisual'
+import { formatPromotionDiscountLabel } from '@/utils/promotionDiscountLabel'
 import styles from './PromoSpotlightBanner.module.css'
 
 const ROTATE_MS = 5000
@@ -44,7 +45,7 @@ function SpotlightCard({ promo, variant }) {
       <Card className={styles.card}>
         <PromotionCardVisual promotion={promo} embedInCard />
         <div className={styles.body}>
-          <span className={styles.disc}>{promo.discount}</span>
+          <span className={styles.disc}>{formatPromotionDiscountLabel(promo.discount)}</span>
           <h3 className={styles.title}>{promo.title}</h3>
           {isCenter ? <PromoDetailsLink promotionId={promo.id} /> : null}
         </div>
