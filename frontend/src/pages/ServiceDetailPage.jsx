@@ -25,28 +25,45 @@ import { Accordion } from '@/components/sections/Accordion'
 import { ServiceLeadForm } from '@/components/sections/ServiceLeadForm'
 import { useLeadModal } from '@/context/LeadModalContext'
 import { useTranslation } from '@/i18n/useTranslation'
-import deportAppealImage from '@assets/image/objalovanie_deportacii.jpg'
+import besplatnayaKonsultaciaUslugi from '@assets/image/besplatnaya_konsultacia_uslugi.jpeg'
+import grazdanstvoUslugi from '@assets/image/grazdanstvo_uslugi.png'
+import kvotaNaRvpoUslugi from '@assets/image/kvota_na_rvpo_uslugi.jpg'
+import objalovanieAdministrativnogoVidvoreniyaUslugi from '@assets/image/objalovanie_administrativnogo_vidvoreniya_uslugi.jpeg'
+import objalovanieDeportaciiUslugi from '@assets/image/objalovanie_deportacii_uslugi.jpeg'
+import objalovanieZapretaUslugi from '@assets/image/objalovanie_zapreta_uslugi.jpeg'
+import passportrfUslugi from '@assets/image/passportrf_uslugi.png'
+import patentPolniyPaketUslugi from '@assets/image/patent_polniy_paket_uslugi.jpeg'
+import razreshenieNaRabotyUslugi from '@assets/image/razreshenie_na_raboty_uslugi.png'
+import razreshenieNaVremennoeProzivanieUslugi from '@assets/image/razreshenie_na_vremennoe_prozivanie_uslugi.jpg'
+import repatriaciaUslugi from '@assets/image/repatriacia_uslugi.jpeg'
+import rvpoUslugi from '@assets/image/rvpo_uslugi.jpeg'
+import statusBejencaUslugi from '@assets/image/status_bejenca_uslugi.jpeg'
+import ustanovlenieLichnostiUslugi from '@assets/image/ustanovlenie_lichnosti_uslugi.jpeg'
+import vidNaZhitestvoUslugi from '@assets/image/vid_na_zhitestvo_uslugi.jpg'
+import vixodIzGrazdanstvaUslugi from '@assets/image/vixod_iz_grazdanstva_uslugi.jpeg'
+import vremennoeUbeziheUslugi from '@assets/image/vremennoe_ubezihe_uslugi.jpeg'
 import { unwrapList } from '@/utils/apiList'
 import styles from './ServiceDetailPage.module.css'
 
+/** Hero на странице услуги: изображения из assets/image с суффиксом _uslugi */
 const SERVICE_HERO_IMAGES = {
-  'kvota-rvp': { src: '/images/kvota_rvp.jpg', width: 1152, height: 768 },
-  rvp: { src: '/images/rvp.jpg', width: 736, height: 491 },
-  vnzh: { src: '/images/vnz.jpg', width: 600, height: 400 },
-  grazhdanstvo: { src: '/images/graz_rf.jpg', width: 1024, height: 683 },
-  'pasport-rf': { src: '/images/pass.jpg', width: 735, height: 490 },
-  rnr: { src: '/images/rnr.jpg', width: 1200, height: 800 },
-  'zapret-na-vezd': { src: '/images/znv.jpg', width: 1200, height: 800 },
-  deportaciya: { src: deportAppealImage, width: 1000, height: 667 },
-  vydvorenie: { src: '/images/admin.jpg', width: 900, height: 600 },
-  'vremennoe-ubezhishhe': { src: '/images/vubezh.jpg', width: 907, height: 605 },
-  'ustanovlenie-lichnosti': { src: '/images/person.jpg', width: 735, height: 490 },
-  rvpo: { src: '/images/vnzh.jpg', width: 1200, height: 1091 },
-  repatriaciya: { src: '/images/repart.jpg', width: 736, height: 414 },
-  konsultaciya: { src: '/images/perplan.jpg', width: 736, height: 736 },
-  bezhencz: { src: '/images/bezh.jpg', width: 867, height: 577 },
-  'vyhod-iz-grazhdanstva': { src: '/images/grrf.jpg', width: 1198, height: 631 },
-  patent: { src: '/images/patent.jpg', width: 1199, height: 660 },
+  'kvota-rvp': { src: kvotaNaRvpoUslugi, width: 1200, height: 800 },
+  rvp: { src: razreshenieNaVremennoeProzivanieUslugi, width: 1200, height: 800 },
+  vnzh: { src: vidNaZhitestvoUslugi, width: 1200, height: 800 },
+  grazhdanstvo: { src: grazdanstvoUslugi, width: 1200, height: 800 },
+  'pasport-rf': { src: passportrfUslugi, width: 1200, height: 800 },
+  rnr: { src: razreshenieNaRabotyUslugi, width: 1200, height: 800 },
+  'zapret-na-vezd': { src: objalovanieZapretaUslugi, width: 1200, height: 800 },
+  deportaciya: { src: objalovanieDeportaciiUslugi, width: 1200, height: 800 },
+  vydvorenie: { src: objalovanieAdministrativnogoVidvoreniyaUslugi, width: 1200, height: 800 },
+  'vremennoe-ubezhishhe': { src: vremennoeUbeziheUslugi, width: 1200, height: 800 },
+  'ustanovlenie-lichnosti': { src: ustanovlenieLichnostiUslugi, width: 1200, height: 800 },
+  rvpo: { src: rvpoUslugi, width: 1200, height: 800 },
+  repatriaciya: { src: repatriaciaUslugi, width: 1200, height: 800 },
+  konsultaciya: { src: besplatnayaKonsultaciaUslugi, width: 1200, height: 800 },
+  bezhencz: { src: statusBejencaUslugi, width: 1200, height: 800 },
+  'vyhod-iz-grazhdanstva': { src: vixodIzGrazdanstvaUslugi, width: 1200, height: 800 },
+  patent: { src: patentPolniyPaketUslugi, width: 1200, height: 800 },
 }
 
 function DetailSection({ icon: Icon, title, children, muted = false, bodyClassName = '' }) {
