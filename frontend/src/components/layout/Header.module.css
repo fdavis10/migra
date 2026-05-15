@@ -22,9 +22,31 @@
 }
 
 @media (max-width: 1023px) {
-  /* Тянет блок с телефоном и бургером к правому краю шапки (а не только бургер) */
+  .inner {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  /* Телефон и бургер — в одной строке справа (бургер не переносится вниз) */
   .headerActions {
     margin-left: auto;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .burger {
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .logo {
+    transform: none;
+  }
+
+  .logo img {
+    max-width: 100px;
+    height: 44px;
   }
 }
 
