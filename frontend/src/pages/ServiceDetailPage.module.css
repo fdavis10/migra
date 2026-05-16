@@ -71,6 +71,29 @@
   margin-top: var(--spacing-md);
 }
 
+.fullDescWrap {
+  margin-top: var(--spacing-xl);
+  max-width: 720px;
+}
+
+.fullDescTitle {
+  margin: 0 0 var(--spacing-md);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fullDescP {
+  margin: 0 0 var(--spacing-md);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.fullDescP:last-child {
+  margin-bottom: 0;
+}
+
 .articleSection {
   background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg-soft) 100%);
 }

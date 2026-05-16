@@ -9,8 +9,9 @@ import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
 import { SITE_LOGO_SRC, SITE_STATIC } from "@/config/siteStatic";
 import { maxMessengerHref, telegramUrlFromPhone, whatsappUrlFromPhone } from "@/utils/messengerLinks";
-import { ABOUT_NAV_ITEMS } from "@/content/aboutNav";
+import { getAboutNavItems } from "@/content/aboutNav.i18n";
 import { LOCALE_ITEMS } from "@/content/languageOptions";
+import { getCityDisplayName } from "@/content/cityOptions.i18n";
 import { useCity } from "@/context/CityContext";
 import { useLocale } from "@/context/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
@@ -139,7 +140,7 @@ export function Header({ site, services = [] }) {
               aria-haspopup="dialog"
               aria-expanded={cityOpen}
             >
-              <span className={styles.cityName}>{city}</span>
+              <span className={styles.cityName}>{getCityDisplayName(city, locale)}</span>
               <MapPinIcon className={styles.cityGlobe} aria-hidden />
             </button>
             <div className={styles.langWrap}>
@@ -354,7 +355,7 @@ export function Header({ site, services = [] }) {
                 </button>
                 {aboutOpen ? (
                   <div className={styles.dropPanel}>
-                    {ABOUT_NAV_ITEMS.map((l) => (
+                    {getAboutNavItems(locale).map((l) => (
                       <Link
                         key={l.to}
                         to={l.to}

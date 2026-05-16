@@ -6,6 +6,7 @@ import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
 import { SITE_LOGO_SRC, SITE_STATIC } from "@/config/siteStatic";
 import { maxMessengerHref, telegramUrlFromPhone, whatsappUrlFromPhone } from "@/utils/messengerLinks";
+import { getCityDisplayName } from "@/content/cityOptions.i18n";
 import { LOCALE_ITEMS } from "@/content/languageOptions";
 import { useCity } from "@/context/CityContext";
 import { useLocale } from "@/context/LanguageContext";
@@ -66,7 +67,9 @@ export function Footer({ site }) {
               <a href={`mailto:${email}`}>{email}</a>
             </p>
           ) : null}
-          {site?.work_hours ? <p className={styles.muted}>{site.work_hours}</p> : null}
+          {site?.work_hours ? (
+            <p className={styles.muted}>{locale === "en" ? t("siteContact.hours") : site.work_hours}</p>
+          ) : null}
           <div className={styles.localeBar} ref={localeBarRef}>
             <button
               type="button"
@@ -79,7 +82,7 @@ export function Footer({ site }) {
               aria-haspopup="dialog"
               aria-expanded={cityOpen}
             >
-              <span className={styles.cityName}>{city}</span>
+              <span className={styles.cityName}>{getCityDisplayName(city, locale)}</span>
               <GlobeAltIcon className={styles.cityGlobe} aria-hidden />
             </button>
             <div className={styles.langWrap}>

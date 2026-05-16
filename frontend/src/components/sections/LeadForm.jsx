@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { CITIZENSHIP_OPTIONS, REGION_OPTIONS } from "../../constants/formOptions.js";
 import { submitLead } from "../../api/leads.js";
+import { citizenshipOptionLabel, regionOptionLabel } from "@/content/leadFormLabels.i18n";
+import { useLocale } from "@/context/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
 import { Button } from "../ui/Button.jsx";
 import styles from "./LeadForm.module.css";
@@ -11,6 +13,7 @@ const phonePattern = /^[\d\s+()\-]{10,}$/;
 
 export function LeadForm({ defaultService = "", onSuccess, compact = false }) {
   const { t } = useTranslation();
+  const { locale } = useLocale();
   const { pathname } = useLocation();
   const {
     register,
@@ -76,7 +79,7 @@ export function LeadForm({ defaultService = "", onSuccess, compact = false }) {
           <option value="">{t("leadForm.choose")}</option>
           {CITIZENSHIP_OPTIONS.map((c) => (
             <option key={c} value={c}>
-              {c}
+              {citizenshipOptionLabel(c, locale)}
             </option>
           ))}
         </select>
@@ -87,7 +90,7 @@ export function LeadForm({ defaultService = "", onSuccess, compact = false }) {
           <option value="">{t("leadForm.choose")}</option>
           {REGION_OPTIONS.map((c) => (
             <option key={c} value={c}>
-              {c}
+              {regionOptionLabel(c, locale)}
             </option>
           ))}
         </select>

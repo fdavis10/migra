@@ -10,6 +10,10 @@ export const extendRu = {
     line1: 'Москва, метро Котельники',
     line2: 'пн-вс 09:00-20:00 МСК',
   },
+  siteContact: {
+    address: 'г. Москва, ул. Примерная, д. 1 (уточните адрес у заказчика)',
+    hours: 'Пн–Вс 09:00–20:00',
+  },
   serviceDetail: {
     notFound: 'Услуга не найдена.',
     toList: 'К списку услуг',
@@ -28,6 +32,7 @@ export const extendRu = {
       'Заполните форму — перезвоним, уточним детали и предложим удобное время встречи или онлайн-консультации.',
     faq: 'Частые вопросы',
     similar: 'Похожие услуги',
+    fullDescription: 'Подробнее об услуге',
   },
   pricesPage: {
     metaTitle: 'Цены — Миграционный сервис «Резидент»',
@@ -548,6 +553,10 @@ export const extendEn = {
     line1: 'Moscow, Kotelniki metro',
     line2: 'Mon–Sun 09:00–20:00 MSK',
   },
+  siteContact: {
+    address: 'Moscow, Example Street 1 (replace with the client’s real address)',
+    hours: 'Mon–Sun 09:00–20:00 MSK',
+  },
   serviceDetail: {
     notFound: 'Service not found.',
     toList: 'Back to services',
@@ -566,6 +575,7 @@ export const extendEn = {
       'Fill out the form — we will call back, clarify details, and suggest a convenient time for a meeting or online consultation.',
     faq: 'FAQ',
     similar: 'Related services',
+    fullDescription: 'About this service',
   },
   pricesPage: {
     metaTitle: 'Prices — Migration service «Resident»',

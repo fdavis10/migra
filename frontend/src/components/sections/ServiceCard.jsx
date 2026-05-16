@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { useLeadModal } from '@/context/LeadModalContext'
+import { useLocale } from '@/context/LanguageContext'
 import { useTranslation } from '@/i18n/useTranslation'
 import { priceLine } from '@/utils/money'
 import { ServiceIcon } from '@/components/illustrations/ServiceIcon'
@@ -10,6 +11,7 @@ import styles from './ServiceCard.module.css'
 
 export function ServiceCard({ service, showPrice = true }) {
   const { openModal } = useLeadModal()
+  const { locale } = useLocale()
   const { t } = useTranslation()
   return (
     <Card className={styles.card}>
@@ -20,7 +22,7 @@ export function ServiceCard({ service, showPrice = true }) {
         <Link to={`/uslugi/${service.slug}`}>{service.title}</Link>
       </h3>
       <p className={styles.desc}>{service.short_desc}</p>
-      {showPrice ? <p className={styles.price}>{priceLine(service, t)}</p> : null}
+      {showPrice ? <p className={styles.price}>{priceLine(service, t, locale)}</p> : null}
       <div className={styles.actions}>
         <Link
           to={`/uslugi/${service.slug}`}

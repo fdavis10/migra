@@ -69,7 +69,7 @@ function buildStaticPages(t) {
 }
 
 export function HeaderSiteSearch({ services = [], onNavigate }) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
@@ -95,7 +95,7 @@ export function HeaderSiteSearch({ services = [], onNavigate }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [locale]);
 
   const index = useMemo(() => {
     const items = [];
@@ -159,7 +159,7 @@ export function HeaderSiteSearch({ services = [], onNavigate }) {
     }
 
     return items;
-  }, [services, remote, t]);
+  }, [services, remote, t, locale]);
 
   const results = useMemo(() => {
     const q = query.trim();

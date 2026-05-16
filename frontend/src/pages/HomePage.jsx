@@ -23,6 +23,7 @@ import { COUNTRY_FLAG_SRC } from '@/content/countryFlags'
 import { QUICK_SERVICE_SLUGS } from '@/content/marketing'
 import { getCountriesHelp, getWhyUs, getWorkSteps } from '@/content/marketing.i18n'
 import { CITIZENSHIP_OPTIONS, REGION_OPTIONS } from '@/content/leadForm'
+import { citizenshipOptionLabel, regionOptionLabel } from '@/content/leadFormLabels.i18n'
 import { useLeadModal } from '@/context/LeadModalContext'
 import { useLocale } from '@/context/LanguageContext'
 import { useTranslation } from '@/i18n/useTranslation'
@@ -346,7 +347,7 @@ export function HomePage() {
                   <option value="">{t('leadForm.choose')}</option>
                   {CITIZENSHIP_OPTIONS.map((c) => (
                     <option key={c} value={c}>
-                      {c}
+                      {citizenshipOptionLabel(c, locale)}
                     </option>
                   ))}
                 </select>
@@ -357,7 +358,7 @@ export function HomePage() {
                   <option value="">{t('leadForm.choose')}</option>
                   {REGION_OPTIONS.map((c) => (
                     <option key={c} value={c}>
-                      {c}
+                      {regionOptionLabel(c, locale)}
                     </option>
                   ))}
                 </select>
@@ -444,11 +445,11 @@ export function HomePage() {
           <h2 className="sectionTitle">{t('home.contactsTitle')}</h2>
           <div className={styles.contactGrid}>
             <div>
-              <p>{SITE.address}</p>
+              <p>{t('siteContact.address')}</p>
               <p>
                 <a href={`tel:${SITE.phoneTel}`}>{SITE.phoneDisplay}</a>
               </p>
-              <p>{SITE.hours}</p>
+              <p>{t('siteContact.hours')}</p>
               <Link to="/kontakty">{t('home.contactsFormMap')}</Link>
             </div>
             <div className={styles.map}>

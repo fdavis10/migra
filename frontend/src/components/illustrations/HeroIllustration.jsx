@@ -11,7 +11,7 @@ export function HeroIllustration() {
         height={1050}
         sizes="(max-width: 1023px) 100vw, 50vw"
         decoding="async"
-        fetchPriority="high"
+        fetchpriority="high"
       />
     </div>
   )

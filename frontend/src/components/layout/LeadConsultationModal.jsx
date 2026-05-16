@@ -3,7 +3,9 @@ import { useForm } from 'react-hook-form'
 import { submitLead } from '@/api/leads'
 import { SITE } from '@/config/site'
 import { CITIZENSHIP_OPTIONS, REGION_OPTIONS } from '@/content/leadForm'
+import { citizenshipOptionLabel, regionOptionLabel } from '@/content/leadFormLabels.i18n'
 import { useLeadModal } from '@/context/LeadModalContext'
+import { useLocale } from '@/context/LanguageContext'
 import { Button } from '@/components/ui/Button'
 import { Modal } from '@/components/ui/Modal'
 import { useTranslation } from '@/i18n/useTranslation'
@@ -11,6 +13,7 @@ import styles from './LeadConsultationModal.module.css'
 
 export function LeadConsultationModal() {
   const { t } = useTranslation()
+  const { locale } = useLocale()
   const { open, closeModal, presetService } = useLeadModal()
   const {
     register,
@@ -79,7 +82,7 @@ export function LeadConsultationModal() {
             <option value="">{t('leadForm.choose')}</option>
             {CITIZENSHIP_OPTIONS.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {citizenshipOptionLabel(c, locale)}
               </option>
             ))}
           </select>
@@ -90,7 +93,7 @@ export function LeadConsultationModal() {
             <option value="">{t('leadForm.choose')}</option>
             {REGION_OPTIONS.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {regionOptionLabel(c, locale)}
               </option>
             ))}
           </select>

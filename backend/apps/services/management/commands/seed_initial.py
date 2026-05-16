@@ -134,6 +134,11 @@ class Command(BaseCommand):
         for n in self._news():
             News.objects.create(**n)
 
+        from django.core.management import call_command
+
+        self.stdout.write("Seeding English fields for API (lang=en)…")
+        call_command("seed_english_locale")
+
         self.stdout.write(self.style.SUCCESS("Готово."))
 
     def _services_payload(self):

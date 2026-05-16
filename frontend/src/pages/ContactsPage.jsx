@@ -38,14 +38,14 @@ export function ContactsPage() {
         <div className={`container ${styles.grid}`}>
           <div>
             <h1 className={styles.h1}>{t('contactsPage.h1')}</h1>
-            <p>{SITE.address}</p>
+            <p>{t('siteContact.address')}</p>
             <p>
               <a href={`tel:${SITE.phoneTel}`}>{SITE.phoneDisplay}</a>
             </p>
             <p>
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
             </p>
-            <p>{SITE.hours}</p>
+            <p>{t('siteContact.hours')}</p>
             <p className={styles.msg}>
               <a href={SITE.whatsapp}>WhatsApp</a> · <a href={SITE.telegram}>Telegram</a>
             </p>

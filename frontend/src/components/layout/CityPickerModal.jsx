@@ -1,4 +1,4 @@
-import { getCityGroups } from '@/content/cityOptions.i18n'
+import { getCityDisplayName, getCityGroups } from '@/content/cityOptions.i18n'
 import { useCity } from '@/context/CityContext'
 import { useLocale } from '@/context/LanguageContext'
 import { useTranslation } from '@/i18n/useTranslation'
@@ -30,7 +30,7 @@ export function CityPickerModal({ open, onClose }) {
                     className={item === city ? styles.itemCurrent : styles.item}
                     onClick={() => pick(item)}
                   >
-                    {item}
+                    {getCityDisplayName(item, locale)}
                   </button>
                 </li>
               ))}

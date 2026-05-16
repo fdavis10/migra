@@ -2,12 +2,15 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { CITIZENSHIP_OPTIONS, REGION_OPTIONS } from '@/content/leadForm'
+import { citizenshipOptionLabel, regionOptionLabel } from '@/content/leadFormLabels.i18n'
 import { submitLead } from '@/api/leads'
+import { useLocale } from '@/context/LanguageContext'
 import { useTranslation } from '@/i18n/useTranslation'
 import styles from './ServiceLeadForm.module.css'
 
 export function ServiceLeadForm({ serviceTitle, sourcePath }) {
   const { t } = useTranslation()
+  const { locale } = useLocale()
   const [leadStatus, setLeadStatus] = useState(null)
 
   const onSubmit = async (e) => {
@@ -53,7 +56,7 @@ export function ServiceLeadForm({ serviceTitle, sourcePath }) {
             <option value="">{t('leadForm.choose')}</option>
             {CITIZENSHIP_OPTIONS.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {citizenshipOptionLabel(c, locale)}
               </option>
             ))}
           </select>
@@ -64,7 +67,7 @@ export function ServiceLeadForm({ serviceTitle, sourcePath }) {
             <option value="">{t('leadForm.choose')}</option>
             {REGION_OPTIONS.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {regionOptionLabel(c, locale)}
               </option>
             ))}
           </select>

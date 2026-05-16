@@ -1,0 +1,229 @@
+{
+  "kvota-rvp": {
+    "title_en": "TRP quota",
+    "short_desc_en": "For those without other grounds. We prepare packages an unlimited number of times until a result is achieved.",
+    "price_note_en": "",
+    "why_choose": [
+      "Deep expertise in migration legislation",
+      "Individual approach to each client",
+      "Minimization of rejection risks",
+      "Saving of time and effort",
+      "Full end-to-end support",
+      "Assistance even in complex and non-standard situations"
+    ]
+  },
+  "rvp": {
+    "title_en": "Temporary residence permit (TRP)",
+    "short_desc_en": "A 3-year status. The right to live and work without a patent in one region of the Russian Federation.",
+    "price_note_en": "",
+    "why_choose": [
+      "We eliminate errors, speed up the process, and bring clients to the result even in complex cases",
+      "Document verification and a compliant application package",
+      "Medical examination and filing appointments coordinated for you",
+      "Lawyer escort at the Ministry of Internal Affairs where required",
+      "Clear next steps if additional certificates are requested",
+      "Support if you receive a refusal and need to correct the file"
+    ]
+  },
+  "vnzh": {
+    "title_en": "Permanent residence (PRP)",
+    "short_desc_en": "Open-ended status for living and working in the Russian Federation. Support at every stage.",
+    "price_note_en": "",
+    "why_choose": [
+      "Significant reduction in the risk of refusal",
+      "Time savings and elimination of bureaucratic difficulties",
+      "Individual approach to each client",
+      "Work with non-standard and complex cases",
+      "Full end-to-end support — from consultation to receipt of the PRP",
+      "Process transparency and constant feedback"
+    ]
+  },
+  "grazhdanstvo": {
+    "title_en": "Citizenship of the Russian Federation",
+    "short_desc_en": "Complete document package + accompaniment for submission. Dual citizenship is permitted.",
+    "price_note_en": "",
+    "why_choose": [
+      "Deep knowledge of legislation and current practice",
+      "Individual approach and selection of the optimal pathway",
+      "Minimization of rejection risks",
+      "Saving of time and resources",
+      "Full end-to-end support through to receipt of the passport",
+      "Successful experience handling complex cases"
+    ]
+  },
+  "pasport-rf": {
+    "title_en": "Internal passport of the Russian Federation",
+    "short_desc_en": "Assistance with passport registration after obtaining citizenship + oath procedure.",
+    "price_note_en": "",
+    "why_choose": [
+      "Fast and correct document preparation",
+      "Absence of errors and repeat submissions",
+      "Time savings and avoidance of queues",
+      "Professional support at all stages",
+      "Assistance in non-standard situations (loss, errors, urgent processing)",
+      "Confidence in the result on the first attempt"
+    ]
+  },
+  "rnr": {
+    "title_en": "Work permit (employer-issued)",
+    "short_desc_en": "Official document for lawful employment in the Russian Federation.",
+    "price_note_en": "",
+    "why_choose": [
+      "Full control of the registration process",
+      "Reduced risk of refusal",
+      "Time savings for both employer and employee",
+      "Work with all categories of foreign nationals",
+      "Full end-to-end support",
+      "Assistance in complex and non-standard cases",
+      "Optimization of registration timelines"
+    ]
+  },
+  "zapret-na-vezd": {
+    "title_en": "Appealing an entry ban",
+    "short_desc_en": "We identify the reason, prepare documents, and go to court if necessary.",
+    "price_note_en": "",
+    "why_choose": [
+      "In-depth analysis of the situation and ban reasons",
+      "Individual appeal strategy",
+      "High likelihood of a positive result",
+      "Support at all stages, including court",
+      "Time savings and stress reduction",
+      "Experience working with various government bodies",
+      "Assistance even in complex and non-standard cases"
+    ]
+  },
+  "deportaciya": {
+    "title_en": "Appealing a deportation decision",
+    "short_desc_en": "Full support from document collection to annulment of the order.",
+    "price_note_en": "",
+    "why_choose": [
+      "Deep expertise in migration law",
+      "Experience conducting court cases",
+      "Knowledge of Ministry of Internal Affairs and court practice",
+      "High likelihood of deportation cancellation",
+      "Prompt work within tight timeframes",
+      "Individual approach to each case",
+      "Support through to complete resolution of the situation"
+    ]
+  },
+  "vydvorenie": {
+    "title_en": "Appealing administrative removal",
+    "short_desc_en": "Full support from documents to filing the application.",
+    "price_note_en": "",
+    "why_choose": [
+      "Experience conducting administrative cases in courts",
+      "Knowledge of judicial practice and real cases",
+      "A competent defense strategy",
+      "Prompt work within critical deadlines",
+      "Support at all stages of the judicial process",
+      "High chances of overturning the expulsion",
+      "Work even with the most complex cases"
+    ]
+  },
+  "vremennoe-ubezhishhe": {
+    "title_en": "Temporary asylum",
+    "short_desc_en": "For persecuted persons. Document preparation + accompaniment for submission.",
+    "price_note_en": "",
+    "why_choose": [
+      "Competent legal justification of the humanitarian case",
+      "Proper preparation of threat evidence",
+      "Support in complex and non-standard situations",
+      "Minimization of the risk of refusal",
+      "Assistance in appealing negative decisions",
+      "Confidentiality and individual approach",
+      "Full support through to receipt of status"
+    ]
+  },
+  "ustanovlenie-lichnosti": {
+    "title_en": "Identity establishment",
+    "short_desc_en": "Document preparation for those without identity documents.",
+    "price_note_en": "",
+    "why_choose": [
+      "In-depth analysis of non-standard situations",
+      "Work with absent documents",
+      "Restoration of the personal identity evidence base",
+      "Interaction with Ministry of Internal Affairs bodies",
+      "Accompaniment at all stages of verification",
+      "Legal protection in complex and disputed cases",
+      "Increased likelihood of successful identity establishment"
+    ]
+  },
+  "rvpo": {
+    "title_en": "TRP for studies (TRP-O)",
+    "short_desc_en": "Temporary residence permit for the purpose of obtaining education.",
+    "price_note_en": "To be confirmed at consultation",
+    "why_choose": [
+      "Extended lawful stay for the full period of study plus six months after completion",
+      "Right to official employment in the region of residence where permitted",
+      "Exemption from annual stay confirmation where applicable",
+      "Access to compulsory health insurance and medical care",
+      "Path to a residence permit after graduation where grounds exist",
+      "Multiple-entry visa aligned with TRP-O validity for visa nationals where applicable"
+    ]
+  },
+  "repatriaciya": {
+    "title_en": "Repatriation to Russia",
+    "short_desc_en": "Simplified procedure for compatriots.",
+    "price_note_en": "To be confirmed at consultation",
+    "why_choose": [
+      "Assistance in confirming historical grounds",
+      "Restoration of lost documents and archival data",
+      "Building a citizenship acquisition strategy",
+      "Accompaniment at all stages of the programme",
+      "Work with consulates and government bodies",
+      "Minimization of rejection risks",
+      "Acceleration of the repatriation process"
+    ]
+  },
+  "konsultaciya": {
+    "title_en": "Free consultation",
+    "short_desc_en": "Situation analysis + personal plan. We begin preparation the same day.",
+    "price_note_en": "FREE",
+    "why_choose": [
+      "Professional situation review by a migration lawyer",
+      "Understanding of the real prospects for obtaining status in the Russian Federation",
+      "An honest assessment of chances without false promises",
+      "An action strategy based on Ministry of Internal Affairs and court practice",
+      "The ability to immediately begin document processing",
+      "Time savings and reduced risk of refusals",
+      "Support at all subsequent stages of the migration process"
+    ]
+  },
+  "bezhencz": {
+    "title_en": "Refugee status",
+    "short_desc_en": "Support in obtaining refugee status.",
+    "price_note_en": "",
+    "why_choose": [
+      "Right to temporary residence in Russia on lawful grounds",
+      "Protection against expulsion to a country where the person faces danger",
+      "Access to medical care on equal terms with Russian citizens",
+      "Ability to work and engage in entrepreneurial activity",
+      "Social protection and social security",
+      "Right to children's education at state educational institutions",
+      "Ability to apply for permanent residence or Russian citizenship where grounds exist"
+    ]
+  },
+  "vyhod-iz-grazhdanstva": {
+    "title_en": "Renunciation of Russian citizenship",
+    "short_desc_en": "Document preparation and procedure support.",
+    "price_note_en": "",
+    "why_choose": [
+      "Legalization of status in another country",
+      "Absence of dual liability where obligations to the Russian Federation end",
+      "Legal certainty for foreign government bodies",
+      "Integration opportunity abroad with clearer civil and employment rights"
+    ]
+  },
+  "patent": {
+    "title_en": "Work patent (full package)",
+    "short_desc_en": "Full range of services for lawful employment under a patent.",
+    "price_note_en": "",
+    "why_choose": [
+      "Legal employment without a work permit where a patent is the correct route",
+      "Easier processing when requirements are met",
+      "Ability to renew the patent for a new period without leaving the country",
+      "Transparency of patent validity verification online",
+      "Social guarantees when employed officially under a patent"
+    ]
+  }
+}

@@ -120,7 +120,7 @@ function renderContentSection(block, i) {
       const inner = m[1].trim()
       if (!inner) return text
       const first = inner[0]
-      if (/[а-яё]/.test(first)) {
+      if (/[а-яёa-z]/.test(first)) {
         return String(text).replace(/\s*\([^)]+\)\s*$/, '')
       }
       return text
@@ -248,6 +248,10 @@ export function ServiceDetailPage() {
     .split(/\n\n+/)
     .map((t) => t.trim())
     .filter(Boolean)
+  const fullDescBlocks = (svc.full_desc || '')
+    .split(/\n\n+/)
+    .map((t) => t.trim())
+    .filter(Boolean)
   const sections = Array.isArray(d.content_sections) ? d.content_sections : []
   const richArticle =
     sections.length >= 6 && sections.some((b) => b.type === 'heading' && (b.level === 2 || !b.level))
@@ -274,6 +278,16 @@ export function ServiceDetailPage() {
                 {t}
               </p>
             ))}
+            {fullDescBlocks.length && sections.length === 0 ? (
+              <div className={styles.fullDescWrap}>
+                <h2 className={styles.fullDescTitle}>{t('serviceDetail.fullDescription')}</h2>
+                {fullDescBlocks.map((t, i) => (
+                  <p key={`fd-${i}`} className={styles.fullDescP}>
+                    {t}
+                  </p>
+                ))}
+              </div>
+            ) : null}
             <div className={styles.cta}>
               <Button type="button" size="lg" onClick={() => openModal(svc.title)}>
                 {t('header.ctaConsultation')}
@@ -294,7 +308,7 @@ export function ServiceDetailPage() {
                 sizes="(max-width: 1023px) 100vw, 45vw"
                 loading="eager"
                 decoding="async"
-                fetchPriority="high"
+                fetchpriority="high"
               />
             </figure>
           ) : null}
