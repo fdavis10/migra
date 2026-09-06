@@ -5,7 +5,7 @@ import logoMax from "@assets/image/logo_max.png";
 import logoTelegram from "@assets/image/logo_telegram.png";
 import logoWhatsapp from "@assets/image/logo_whatsapp.png";
 import { SITE_LOGO_SRC, SITE_STATIC } from "@/config/siteStatic";
-import { maxMessengerHref, telegramUrlFromPhone, whatsappUrlFromPhone } from "@/utils/messengerLinks";
+import { maxMessengerHref, whatsappUrlFromPhone } from "@/utils/messengerLinks";
 import { getCityDisplayName } from "@/content/cityOptions.i18n";
 import { LOCALE_ITEMS } from "@/content/languageOptions";
 import { useCity } from "@/context/CityContext";
@@ -37,7 +37,7 @@ export function Footer({ site }) {
   const localeLabel = LOCALE_ITEMS.find((x) => x.code === locale)?.label ?? "RU";
   const maxMessengerUrl = maxMessengerHref(site?.max_url);
   const whatsappHref = whatsappUrlFromPhone(phone);
-  const telegramHref = telegramUrlFromPhone(phone);
+  const telegramHref = site?.telegram_url || SITE_STATIC.telegram_url || "https://t.me/Residentservicerf_bot";
 
   useEffect(() => {
     if (!langOpen) return;
