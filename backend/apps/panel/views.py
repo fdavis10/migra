@@ -20,7 +20,12 @@ from apps.reviews.models import Review
 from apps.services.models import Service
 from apps.siteinfo.models import SiteContent
 
-from .serializers import PanelLeadSerializer, PanelNewsSerializer, PanelSiteSerializer
+from .serializers import (
+    PanelLeadSerializer,
+    PanelNewsSerializer,
+    PanelServiceSerializer,
+    PanelSiteSerializer,
+)
 
 
 def _stats_period_start(days: int = 30):
@@ -113,6 +118,13 @@ class PanelNewsViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminUser]
     serializer_class = PanelNewsSerializer
     queryset = News.objects.all().order_by("-published_at", "-id")
+    pagination_class = PanelPagination
+
+
+class PanelServiceViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAdminUser]
+    serializer_class = PanelServiceSerializer
+    queryset = Service.objects.all().order_by("order", "id")
     pagination_class = PanelPagination
 
 

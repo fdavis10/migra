@@ -7,6 +7,9 @@ import { PanelLeadsPage } from '@/panel/PanelLeadsPage'
 import { PanelNewsListPage } from '@/panel/PanelNewsListPage'
 import { PanelNewsEditPage } from '@/panel/PanelNewsEditPage'
 import { PanelSitePage } from '@/panel/PanelSitePage'
+import { PanelServicesListPage } from '@/panel/PanelServicesListPage'
+import { PanelServiceEditPage } from '@/panel/PanelServiceEditPage'
+import { PanelTechLogsPage } from '@/panel/PanelTechLogsPage'
 import { HomePage } from '@/pages/HomePage'
 import { ServicesPage } from '@/pages/ServicesPage'
 import { ServiceDetailPage } from '@/pages/ServiceDetailPage'
@@ -36,7 +39,10 @@ export default function App() {
         <Route path="leads" element={<PanelLeadsPage />} />
         <Route path="news" element={<PanelNewsListPage />} />
         <Route path="news/:id" element={<PanelNewsEditPage />} />
+        <Route path="services" element={<PanelServicesListPage />} />
+        <Route path="services/:id" element={<PanelServiceEditPage />} />
         <Route path="site" element={<PanelSitePage />} />
+        <Route path="logs/tech" element={<PanelTechLogsPage />} />
       </Route>
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />

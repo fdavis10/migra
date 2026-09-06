@@ -9,6 +9,12 @@ from .serializers import PageVisitCreateSerializer
 class PageViewCreateThrottle(SimpleRateThrottle):
     scope = "pageview"
 
+    def get_cache_key(self, request, view):
+        return self.cache_format % {
+            "scope": self.scope,
+            "ident": self.get_ident(request),
+        }
+
 
 class PageViewCreateView(generics.CreateAPIView):
     """Принимает просмотр страницы с публичного сайта (без авторизации)."""

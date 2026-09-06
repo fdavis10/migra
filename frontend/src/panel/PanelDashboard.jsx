@@ -250,6 +250,9 @@ export function PanelDashboard() {
             <Link to="/panel/news" className="panelBtn panelBtnSm" style={{ textDecoration: 'none' }}>
               Блог
             </Link>
+            <Link to="/panel/services" className="panelBtn panelBtnSm" style={{ textDecoration: 'none' }}>
+              Услуги
+            </Link>
             <Link to="/panel/site" className="panelBtn panelBtnSm" style={{ textDecoration: 'none' }}>
               Контент сайта
             </Link>

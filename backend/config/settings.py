@@ -211,6 +211,9 @@ SITE_PUBLIC_URL = os.environ.get(
     "SITE_PUBLIC_URL", "https://residentservicerf.ru"
 ).rstrip("/")
 
+# Secret password for «Технические логи» in the CMS panel (staff JWT still required).
+TECH_LOGS_PASSWORD = os.environ.get("TECH_LOGS_PASSWORD", "tech-admin-2026" if DEBUG else "")
+
 # ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
@@ -228,14 +231,29 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "standard",
         },
+        "panel_ring": {
+            "class": "apps.panel.tech_logs_buffer.RingBufferHandler",
+            "formatter": "standard",
+            "level": "INFO",
+        },
     },
     "loggers": {
         "django": {
-            "handlers": ["console"],
+            "handlers": ["console", "panel_ring"],
             "level": os.environ.get("DJANGO_LOG_LEVEL", "INFO"),
         },
+        "django.request": {
+            "handlers": ["console", "panel_ring"],
+            "level": "WARNING",
+            "propagate": False,
+        },
+        "apps": {
+            "handlers": ["console", "panel_ring"],
+            "level": "INFO",
+            "propagate": False,
+        },
         "apps.leads": {
-            "handlers": ["console"],
+            "handlers": ["console", "panel_ring"],
             "level": os.environ.get("LEADS_LOG_LEVEL", "INFO"),
             "propagate": False,
         },

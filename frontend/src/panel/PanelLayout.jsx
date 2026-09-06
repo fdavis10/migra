@@ -4,13 +4,16 @@ import {
   ArrowRightOnRectangleIcon,
   Bars3Icon,
   BuildingLibraryIcon,
+  BriefcaseIcon,
   Cog6ToothIcon,
+  CommandLineIcon,
   GlobeAltIcon,
   HomeIcon,
   NewspaperIcon,
   UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import { clearTokens, isPanelAuthenticated } from './authStorage'
+import { clearTechLogsToken } from './techLogsAuth'
 import './panel.css'
 import styles from './PanelLayout.module.css'
 
@@ -24,10 +27,13 @@ export function PanelLayout() {
 
   const logout = () => {
     clearTokens()
+    clearTechLogsToken()
     navigate('/panel/login', { replace: true })
   }
 
   const navCls = ({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`
+  const navSubCls = ({ isActive }) =>
+    `${styles.navLink} ${styles.navSub} ${isActive ? styles.active : ''}`
 
   return (
     <div className="panelShell">
@@ -58,9 +64,18 @@ export function PanelLayout() {
             <NewspaperIcon className={styles.navIcon} aria-hidden />
             Блог
           </NavLink>
+          <NavLink to="/panel/services" className={navCls}>
+            <BriefcaseIcon className={styles.navIcon} aria-hidden />
+            Услуги
+          </NavLink>
           <NavLink to="/panel/site" className={navCls}>
             <Cog6ToothIcon className={styles.navIcon} aria-hidden />
             Настройки сайта
+          </NavLink>
+          <p className={styles.navSection}>Логи</p>
+          <NavLink to="/panel/logs/tech" className={navSubCls}>
+            <CommandLineIcon className={styles.navIcon} aria-hidden />
+            Технические логи
           </NavLink>
           <p className={styles.navSection}>Внешнее</p>
           <a href="/" className={styles.navLink} target="_blank" rel="noreferrer">

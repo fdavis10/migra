@@ -44,41 +44,48 @@ export function PanelLoginPage() {
   return (
     <div className={`panelShell ${styles.center}`}>
       <div className={`panelCard ${styles.box}`}>
-        <h1 className="panelH1" style={{ marginBottom: '8px' }}>
-          Вход в панель
-        </h1>
-        <p className="panelMuted" style={{ marginBottom: '24px' }}>
-          Учётная запись Django с флагом <code>is_staff</code> (создаётся через{' '}
-          <code>createsuperuser</code> или в стандартном <code>/admin/</code>).
-        </p>
-        {err ? <p className="panelErr">{err}</p> : null}
-        <form className="panelForm" onSubmit={onSubmit}>
-          <label>
-            Логин
-            <input
-              type="text"
-              name="username"
-              autoComplete="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Пароль
-            <input
-              type="password"
-              name="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          <button type="submit" className="panelBtn" disabled={loading}>
-            {loading ? 'Вход…' : 'Войти'}
-          </button>
-        </form>
+        <header className={styles.header}>
+          <div className={styles.brandMark} aria-hidden>
+            Р
+          </div>
+          <h1 className={styles.brandTitle}>Резидент</h1>
+          <p className={styles.brandSub}>Панель управления сайтом</p>
+        </header>
+
+        <div className={styles.body}>
+          {err ? <p className={styles.err} role="alert">{err}</p> : null}
+          <form className={styles.form} onSubmit={onSubmit}>
+            <label className={styles.field}>
+              Логин
+              <input
+                className={styles.input}
+                type="text"
+                name="username"
+                autoComplete="username"
+                placeholder="Введите логин"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </label>
+            <label className={styles.field}>
+              Пароль
+              <input
+                className={styles.input}
+                type="password"
+                name="password"
+                autoComplete="current-password"
+                placeholder="Введите пароль"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+            <button type="submit" className={styles.submit} disabled={loading}>
+              {loading ? 'Вход…' : 'Войти'}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   )

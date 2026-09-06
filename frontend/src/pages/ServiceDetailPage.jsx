@@ -43,6 +43,7 @@ import vidNaZhitestvoUslugi from '@assets/image/vid_na_zhitestvo_uslugi.jpg'
 import vixodIzGrazdanstvaUslugi from '@assets/image/vixod_iz_grazdanstva_uslugi.jpeg'
 import vremennoeUbeziheUslugi from '@assets/image/vremennoe_ubezihe_uslugi.jpeg'
 import { unwrapList } from '@/utils/apiList'
+import { mediaUrl } from '@/utils/mediaUrl'
 import styles from './ServiceDetailPage.module.css'
 
 /** Hero на странице услуги: изображения из assets/image с суффиксом _uslugi */
@@ -256,7 +257,11 @@ export function ServiceDetailPage() {
   const richArticle =
     sections.length >= 6 && sections.some((b) => b.type === 'heading' && (b.level === 2 || !b.level))
   const faqItems = d.faq?.length ? d.faq : d.faqs
-  const heroVisual = SERVICE_HERO_IMAGES[slug]
+  const apiImage = mediaUrl(svc.image)
+  const fallbackHero = SERVICE_HERO_IMAGES[slug]
+  const heroVisual = apiImage
+    ? { src: apiImage, width: 1200, height: 800 }
+    : fallbackHero
 
   return (
     <>

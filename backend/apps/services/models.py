@@ -7,6 +7,12 @@ class Service(models.Model):
     short_desc = models.TextField("Краткое описание")
     full_desc = models.TextField("Полное описание", blank=True)
     icon = models.CharField("Иконка (ключ)", max_length=100)
+    image = models.ImageField(
+        "Изображение на странице услуги",
+        upload_to="services/",
+        blank=True,
+        null=True,
+    )
     price_from = models.DecimalField(
         "Цена от", max_digits=10, decimal_places=2, null=True, blank=True
     )

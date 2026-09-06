@@ -90,6 +90,11 @@
   color: #fff;
 }
 
+.navSub {
+  padding-left: 18px;
+  font-size: 13px;
+}
+
 .active {
   background: linear-gradient(90deg, rgba(91, 168, 212, 0.35) 0%, rgba(91, 168, 212, 0.12) 100%);
   color: #fff;
