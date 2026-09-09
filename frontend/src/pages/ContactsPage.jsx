@@ -50,7 +50,13 @@ export function ContactsPage() {
               <a href={SITE.whatsapp}>WhatsApp</a> · <a href={SITE.telegram}>Telegram</a>
             </p>
             <div className={styles.map}>
-              <iframe title={t('contactsPage.mapTitle')} src={SITE.yandexMapSrc} width="100%" height="320" style={{ border: 0 }} />
+              <iframe
+                title={t('contactsPage.mapTitle')}
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab6d94589332ba9935b4a5bea3b858766ed817153763206398faafcf57097bea3&source=constructor"
+                width="784"
+                height="655"
+                style={{ border: 0 }}
+              />
             </div>
           </div>
           <Card className={styles.formCard}>

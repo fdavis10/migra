@@ -7,7 +7,7 @@ export const extendRu = {
     priceOnRequest: 'уточняется',
   },
   headerAddress: {
-    line1: 'Москва, метро Котельники',
+    line1: 'М Жулебино 10 выход, Маршала Кузнецова 11к1',
     line2: 'пн-вс 09:00-20:00 МСК',
   },
   siteContact: {
@@ -550,7 +550,7 @@ export const extendEn = {
     priceOnRequest: 'On request',
   },
   headerAddress: {
-    line1: 'Moscow, Kotelniki metro',
+    line1: 'Zhulebino metro exit 10, Marshala Kuznetsova 11k1',
     line2: 'Mon–Sun 09:00–20:00 MSK',
   },
   siteContact: {

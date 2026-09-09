@@ -141,6 +141,8 @@
   margin: 0;
   padding: 0;
   max-width: 15rem;
+  min-width: 0;
+  overflow: hidden;
   font-family: var(--font-main);
   font-style: normal;
   line-height: 1.25;
@@ -152,14 +154,16 @@
 
 .officeAddressLine {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-wrap: balance;
   text-align: center;
 }
 
 @media (min-width: 1024px) {
   .localeBarDesk {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     align-self: center;
@@ -179,8 +183,8 @@
     display: flex;
     justify-self: start;
     justify-content: center;
-    max-width: min(15rem, 100%);
-    margin-left: 36px;
+    max-width: min(16rem, 100%);
+    margin-left: var(--spacing-md);
   }
 }
 
