@@ -215,6 +215,23 @@ SITE_PUBLIC_URL = os.environ.get(
 TECH_LOGS_PASSWORD = os.environ.get("TECH_LOGS_PASSWORD", "tech-admin-2026" if DEBUG else "")
 
 # ---------------------------------------------------------------------------
+# AmoCRM (заявки с сайта → сделки)
+# ---------------------------------------------------------------------------
+AMOCRM_SUBDOMAIN = os.environ.get("AMOCRM_SUBDOMAIN", "").strip()
+AMOCRM_CLIENT_ID = os.environ.get("AMOCRM_CLIENT_ID", "").strip()
+AMOCRM_CLIENT_SECRET = os.environ.get("AMOCRM_CLIENT_SECRET", "").strip()
+AMOCRM_REDIRECT_URI = os.environ.get(
+    "AMOCRM_REDIRECT_URI", "https://residentservicerf.ru/"
+).strip()
+AMOCRM_ACCESS_TOKEN = os.environ.get("AMOCRM_ACCESS_TOKEN", "").strip()
+AMOCRM_REFRESH_TOKEN = os.environ.get("AMOCRM_REFRESH_TOKEN", "").strip()
+AMOCRM_TOKENS_PATH = os.environ.get("AMOCRM_TOKENS_PATH", "").strip()
+_AMOCRM_PIPELINE_RAW = os.environ.get("AMOCRM_PIPELINE_ID", "").strip()
+_AMOCRM_STATUS_RAW = os.environ.get("AMOCRM_STATUS_ID", "").strip()
+AMOCRM_PIPELINE_ID = int(_AMOCRM_PIPELINE_RAW) if _AMOCRM_PIPELINE_RAW.isdigit() else None
+AMOCRM_STATUS_ID = int(_AMOCRM_STATUS_RAW) if _AMOCRM_STATUS_RAW.isdigit() else None
+
+# ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
 LOGGING = {

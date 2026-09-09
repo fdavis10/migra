@@ -1,4 +1,4 @@
-"""Post-save signals for the Lead model: structured logging + email notification."""
+"""Post-save signals for the Lead model: structured logging + email + AmoCRM."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import logging
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from .amocrm import AmocrmApiError, amocrm_enabled, push_lead_to_amocrm
 from .emails import send_lead_email
 from .models import Lead
 
@@ -29,3 +30,16 @@ def on_lead_created(sender, instance: Lead, created: bool, **kwargs) -> None:
     )
 
     send_lead_email(instance)
+
+    if amocrm_enabled():
+        try:
+            push_lead_to_amocrm(instance)
+        except AmocrmApiError as exc:
+            logger.exception(
+                "amocrm.push_failed lead_id=%s status=%s body=%s",
+                instance.id,
+                exc.status,
+                exc.body[:500],
+            )
+        except Exception:  # noqa: BLE001
+            logger.exception("amocrm.push_failed lead_id=%s", instance.id)
