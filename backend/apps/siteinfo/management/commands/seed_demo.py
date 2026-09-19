@@ -39,8 +39,8 @@ class Command(BaseCommand):
             ),
             phone="+7 (916) 303-28-63",
             email="info@residentservicerf.ru",
-            address="г. Москва, ул. Примерная, д. 1, офис 100 (замените на реальные данные)",
-            work_hours="Пн–Вс 09:00–20:00",
+            address="Москва, ул. Генерала Кузнецова, 11к1",
+            work_hours="Пн–Вс 10:00–20:00",
             map_embed_html=(
                 '<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A'
                 'placeholder&amp;source=constructor" width="100%" height="400" '

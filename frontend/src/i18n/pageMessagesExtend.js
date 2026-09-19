@@ -7,12 +7,12 @@ export const extendRu = {
     priceOnRequest: 'уточняется',
   },
   headerAddress: {
-    line1: 'М Жулебино 10 выход, Маршала Кузнецова 11к1',
-    line2: 'пн-вс 09:00-20:00 МСК',
+    line1: 'Москва, ул. Генерала Кузнецова, 11к1',
+    line2: 'пн-вс 10:00–20:00',
   },
   siteContact: {
-    address: 'г. Москва, ул. Примерная, д. 1 (уточните адрес у заказчика)',
-    hours: 'Пн–Вс 09:00–20:00',
+    address: 'Москва, ул. Генерала Кузнецова, 11к1',
+    hours: 'Пн–Вс 10:00–20:00',
   },
   serviceDetail: {
     notFound: 'Услуга не найдена.',
@@ -550,12 +550,12 @@ export const extendEn = {
     priceOnRequest: 'On request',
   },
   headerAddress: {
-    line1: 'Zhulebino metro exit 10, Marshala Kuznetsova 11k1',
-    line2: 'Mon–Sun 09:00–20:00 MSK',
+    line1: 'Moscow, 11 General Kuznetsov St, bld. 1',
+    line2: 'Mon–Sun 10:00–20:00',
   },
   siteContact: {
-    address: 'Moscow, Example Street 1 (replace with the client’s real address)',
-    hours: 'Mon–Sun 09:00–20:00 MSK',
+    address: 'Moscow, 11 General Kuznetsov St, bld. 1',
+    hours: 'Mon–Sun 10:00–20:00',
   },
   serviceDetail: {
     notFound: 'Service not found.',
